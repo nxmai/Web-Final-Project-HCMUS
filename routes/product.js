@@ -4,7 +4,6 @@ const productController = require('../controllers/productController');
 
 router.get('./:id', (req, res) => {
     
-
     res.render('single-product');
 })
 

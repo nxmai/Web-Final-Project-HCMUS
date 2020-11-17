@@ -54,6 +54,17 @@ exports.list = () => {
             specification1: '1.91 inch',
             specification2: '46 mm',
             specification3: 'Wifi, Bluetooth v4.2, GPS'
+        },
+        {
+            id: 6,
+            thumbnail: 'images/samsung-galaxy-note-10-plus.png',
+            category: 'Smartphone',
+            title: 'Samsung Galaxy Note 10+',
+            price: 16490000,
+            describe: 'Trông ngoại hình khá giống nhau, tuy nhiên Samsung Galaxy Note 10+ sở hữu khá nhiều điểm khác biệt so với Galaxy Note 10 và đây được xem là một trong những chiếc máy đáng mua nhất trong năm 2019, đặc biệt dành cho những người thích một chiếc máy màn hình lớn, camera chất lượng hàng đầu.',
+            specification1: 'Dynamic AMOLED, 6.8", Quad HD+ (2K+)',
+            specification2: 'Chính 12 MP & Phụ 12 MP, 16 MP, TOF 3D',
+            specification3: '12 GB'
         }
     ]
 }

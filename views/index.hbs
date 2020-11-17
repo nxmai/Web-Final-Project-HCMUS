@@ -72,15 +72,15 @@
                             <div class="hero-content col">
 
                                 <h2>HURRY UP!</h2>
-                                <h1><span>uPhone X</span></h1>
-                                <h1>IT’S <span class="big">29%</span> OFF</h1>
+                                <h1><span>IPhone XR</span></h1>
+                                <h1>IT’S <span class="big">19%</span> OFF</h1>
                                 <a href="#">get it now</a>
 
                             </div>
 
                             <!-- Hero Image -->
                             <div class="hero-image col">
-                               <img src="assets/images/hero/hero-1.png" alt="Hero Image">
+                               <img src="images/iphone-xr-64gb.png" alt="Hero Image">
                             </div>
                         
                         </div>     
@@ -94,15 +94,15 @@
                             <div class="hero-content col">
 
                                 <h2>HURRY UP!</h2>
-                                <h1><span>GL G6</span></h1>
-                                <h1>IT’S <span class="big">35%</span> OFF</h1>
+                                <h1><span>OPPO A93</span></h1>
+                                <h1>IT’S <span class="big">25%</span> OFF</h1>
                                 <a href="#">get it now</a>
 
                             </div>
 
                             <!-- Hero Image -->
                             <div class="hero-image col">
-                               <img src="assets/images/hero/hero-2.png" alt="Hero Image">
+                               <img src="images/oppo-a93.png" alt="Hero Image">
                             </div>
                         
                         </div>     
@@ -116,15 +116,15 @@
                             <div class="hero-content col">
 
                                 <h2>HURRY UP!</h2>
-                                <h1><span>MSVII Case</span></h1>
-                                <h1>IT’S <span class="big">15%</span> OFF</h1>
+                                <h1><span>Note 10</span></h1>
+                                <h1>IT’S <span class="big">5%</span> OFF</h1>
                                 <a href="#">get it now</a>
 
                             </div>
 
                             <!-- Hero Image -->
                             <div class="hero-image col">
-                               <img src="assets/images/hero/hero-3.png" alt="Hero Image">
+                               <img src="images/samsung-galaxy-note-10-plus.png" alt="Hero Image">
                             </div>
                         
                         </div>     
@@ -144,12 +144,12 @@
             
             <!-- Banner -->
             <div class="col-md-8 col-12 mb-30">
-                <div class="banner"><a href="#"><img src="assets/images/banner/banner-1.jpg" alt="Banner"></a></div>
+                <div class="banner"><a href="#"><img src="images/banner/iphone-12.png" alt="Banner"></a></div>
             </div>
             
             <!-- Banner -->
             <div class="col-md-4 col-12 mb-30">
-                <div class="banner"><a href="#"><img src="assets/images/banner/banner-2.jpg" alt="Banner"></a></div>
+                <div class="banner"><a href="#"><img src="images/apple-macbook-air-2017.jpg" alt="Banner"></a></div>
             </div>
             
         </div>
@@ -196,8 +196,9 @@
                         <!-- Product Slider Wrap Start -->
                         <div class="product-slider-wrap product-slider-arrow-one">
                             <!-- Product Slider Start -->
+                            
                             <div class="product-slider product-slider-4">
-
+                                {{#each product}}
                                 <div class="col pb-20 pt-10">
                                     <!-- Product Start -->
                                     <div class="ee-product">
@@ -205,7 +206,7 @@
                                         <!-- Image -->
                                         <div class="image">
 
-                                            <a href="/single-product" class="img"><img src="assets/images/product/product-1.png" alt="Product Image"></a>
+                                            <a href="/single-product" class="img"><img src="{{thumbnail}}" alt="Product Image"></a>
 
                                             <div class="wishlist-compare">
                                                 <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
@@ -222,15 +223,15 @@
                                             <!-- Category & Title -->
                                             <div class="category-title">
 
-                                                <a href="#" class="cat">Laptop</a>
-                                                <h5 class="title"><a href="/single-product">Zeon Zen 4 Pro</a></h5>
+                                                <a href="#" class="cat">{{category}}</a>
+                                                <h5 class="title"><a href="/single-product">{{title}}</a></h5>
 
                                             </div>
 
                                             <!-- Price & Ratting -->
                                             <div class="price-ratting">
 
-                                                <h5 class="price">$295.00</h5>
+                                                <h5 class="price">{{price}} VND</h5>
                                                 <div class="ratting">
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
@@ -245,202 +246,9 @@
 
                                     </div><!-- Product End -->
                                 </div>
-
-                                <div class="col pb-20 pt-10">
-                                    <!-- Product Start -->
-                                    <div class="ee-product">
-
-                                        <!-- Image -->
-                                        <div class="image">
-
-                                            <span class="label sale">sale</span>
-
-                                            <a href="/single-product" class="img"><img src="assets/images/product/product-2.png" alt="Product Image"></a>
-
-                                            <div class="wishlist-compare">
-                                                <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                                <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                            </div>
-
-                                            <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                                        </div>
-
-                                        <!-- Content -->
-                                        <div class="content">
-
-                                            <!-- Category & Title -->
-                                            <div class="category-title">
-
-                                                <a href="#" class="cat">Drone</a>
-                                                <h5 class="title"><a href="/single-product">Aquet Drone D 420</a></h5>
-
-                                            </div>
-
-                                            <!-- Price & Ratting -->
-                                            <div class="price-ratting">
-
-                                                <h5 class="price"><span class="old">$350</span>$275.00</h5>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div><!-- Product End -->
-                                </div>
-
-                                <div class="col pb-20 pt-10">
-                                    <!-- Product Start -->
-                                    <div class="ee-product">
-
-                                        <!-- Image -->
-                                        <div class="image">
-
-                                            <a href="/single-product" class="img"><img src="assets/images/product/product-3.png" alt="Product Image"></a>
-
-                                            <div class="wishlist-compare">
-                                                <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                                <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                            </div>
-
-                                            <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                                        </div>
-
-                                        <!-- Content -->
-                                        <div class="content">
-
-                                            <!-- Category & Title -->
-                                            <div class="category-title">
-
-                                                <a href="#" class="cat">Games</a>
-                                                <h5 class="title"><a href="/single-product">Game Station X 22</a></h5>
-
-                                            </div>
-
-                                            <!-- Price & Ratting -->
-                                            <div class="price-ratting">
-
-                                                <h5 class="price">$295.00</h5>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div><!-- Product End -->
-                                </div>
-
-                                <div class="col pb-20 pt-10">
-                                    <!-- Product Start -->
-                                    <div class="ee-product">
-
-                                        <!-- Image -->
-                                        <div class="image">
-
-                                            <a href="/single-product" class="img"><img src="assets/images/product/product-4.png" alt="Product Image"></a>
-
-                                            <div class="wishlist-compare">
-                                                <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                                <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                            </div>
-
-                                            <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                                        </div>
-
-                                        <!-- Content -->
-                                        <div class="content">
-
-                                            <!-- Category & Title -->
-                                            <div class="category-title">
-
-                                                <a href="#" class="cat">Accessories</a>
-                                                <h5 class="title"><a href="/single-product">Roxxe Headphone Z 75</a></h5>
-
-                                            </div>
-
-                                            <!-- Price & Ratting -->
-                                            <div class="price-ratting">
-
-                                                <h5 class="price">$110.00</h5>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div><!-- Product End -->
-                                </div>
-
-                                <div class="col pb-20 pt-10">
-                                    <!-- Product Start -->
-                                    <div class="ee-product">
-
-                                        <!-- Image -->
-                                        <div class="image">
-
-                                            <a href="/single-product" class="img"><img src="assets/images/product/product-5.png" alt="Product Image"></a>
-
-                                            <div class="wishlist-compare">
-                                                <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                                <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                            </div>
-
-                                            <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                                        </div>
-
-                                        <!-- Content -->
-                                        <div class="content">
-
-                                            <!-- Category & Title -->
-                                            <div class="category-title">
-
-                                                <a href="#" class="cat">Camera</a>
-                                                <h5 class="title"><a href="/single-product">Mony Handycam Z 105</a></h5>
-
-                                            </div>
-
-                                            <!-- Price & Ratting -->
-                                            <div class="price-ratting">
-
-                                                <h5 class="price">$110.00</h5>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div><!-- Product End -->
-                                </div>
-
+                                {{/each}}
                             </div><!-- Product Slider End -->
+                            
                         </div><!-- Product Slider Wrap End -->
                         
                     </div><!-- Tab Pane End -->
@@ -452,7 +260,7 @@
                         <div class="product-slider-wrap product-slider-arrow-one">
                             <!-- Product Slider Start -->
                             <div class="product-slider product-slider-4">
-
+                                {{#each product}}
                                 <div class="col pb-20 pt-10">
                                     <!-- Product Start -->
                                     <div class="ee-product">
@@ -460,9 +268,7 @@
                                         <!-- Image -->
                                         <div class="image">
 
-                                            <span class="label sale">sale</span>
-
-                                            <a href="/single-product" class="img"><img src="assets/images/product/product-6.png" alt="Product Image"></a>
+                                            <a href="/single-product" class="img"><img src="{{thumbnail}}" alt="Product Image"></a>
 
                                             <div class="wishlist-compare">
                                                 <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
@@ -479,63 +285,15 @@
                                             <!-- Category & Title -->
                                             <div class="category-title">
 
-                                                <a href="#" class="cat">Camera</a>
-                                                <h5 class="title"><a href="/single-product">Axor Digital camera</a></h5>
+                                                <a href="#" class="cat">{{category}}</a>
+                                                <h5 class="title"><a href="/single-product">{{title}}</a></h5>
 
                                             </div>
 
                                             <!-- Price & Ratting -->
                                             <div class="price-ratting">
 
-                                                <h5 class="price"><span class="old">$265</span>$199.00</h5>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div><!-- Product End -->
-                                </div>
-
-                                <div class="col pb-20 pt-10">
-                                    <!-- Product Start -->
-                                    <div class="ee-product">
-
-                                        <!-- Image -->
-                                        <div class="image">
-
-                                            <a href="/single-product" class="img"><img src="assets/images/product/product-7.png" alt="Product Image"></a>
-
-                                            <div class="wishlist-compare">
-                                                <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                                <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                            </div>
-
-                                            <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                                        </div>
-
-                                        <!-- Content -->
-                                        <div class="content">
-
-                                            <!-- Category & Title -->
-                                            <div class="category-title">
-
-                                                <a href="#" class="cat">Camera</a>
-                                                <h5 class="title"><a href="/single-product">Silvex DSLR Camera T 32</a></h5>
-
-                                            </div>
-
-                                            <!-- Price & Ratting -->
-                                            <div class="price-ratting">
-
-                                                <h5 class="price">$580.00</h5>
+                                                <h5 class="price">{{price}} VND</h5>
                                                 <div class="ratting">
                                                     <i class="fa fa-star"></i>
                                                     <i class="fa fa-star"></i>
@@ -550,154 +308,7 @@
 
                                     </div><!-- Product End -->
                                 </div>
-
-                                <div class="col pb-20 pt-10">
-                                    <!-- Product Start -->
-                                    <div class="ee-product">
-
-                                        <!-- Image -->
-                                        <div class="image">
-
-                                            <span class="label new">new</span>
-
-                                            <a href="/single-product" class="img"><img src="assets/images/product/product-8.png" alt="Product Image"></a>
-
-                                            <div class="wishlist-compare">
-                                                <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                                <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                            </div>
-
-                                            <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                                        </div>
-
-                                        <!-- Content -->
-                                        <div class="content">
-
-                                            <!-- Category & Title -->
-                                            <div class="category-title">
-
-                                                <a href="#" class="cat">Camera</a>
-                                                <h5 class="title"><a href="/single-product">Necta Instant Camera</a></h5>
-
-                                            </div>
-
-                                            <!-- Price & Ratting -->
-                                            <div class="price-ratting">
-
-                                                <h5 class="price">$320.00</h5>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div><!-- Product End -->
-                                </div>
-
-                                <div class="col pb-20 pt-10">
-                                    <!-- Product Start -->
-                                    <div class="ee-product">
-
-                                        <!-- Image -->
-                                        <div class="image">
-
-                                            <span class="label sale">sale</span>
-
-                                            <a href="/single-product" class="img"><img src="assets/images/product/product-9.png" alt="Product Image"></a>
-
-                                            <div class="wishlist-compare">
-                                                <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                                <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                            </div>
-
-                                            <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                                        </div>
-
-                                        <!-- Content -->
-                                        <div class="content">
-
-                                            <!-- Category & Title -->
-                                            <div class="category-title">
-
-                                                <a href="#" class="cat">Watch</a>
-                                                <h5 class="title"><a href="/single-product">Mascut Smart Watch</a></h5>
-
-                                            </div>
-
-                                            <!-- Price & Ratting -->
-                                            <div class="price-ratting">
-
-                                                <h5 class="price"><span class="old">$365</span>$295.00</h5>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star-half-o"></i>
-                                                    <i class="fa fa-star-o"></i>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div><!-- Product End -->
-                                </div>
-
-                                <div class="col pb-20 pt-10">
-                                    <!-- Product Start -->
-                                    <div class="ee-product">
-
-                                        <!-- Image -->
-                                        <div class="image">
-
-                                            <a href="/single-product" class="img"><img src="assets/images/product/product-10.png" alt="Product Image"></a>
-
-                                            <div class="wishlist-compare">
-                                                <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                                <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                            </div>
-
-                                            <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                                        </div>
-
-                                        <!-- Content -->
-                                        <div class="content">
-
-                                            <!-- Category & Title -->
-                                            <div class="category-title">
-
-                                                <a href="#" class="cat">Watch</a>
-                                                <h5 class="title"><a href="/single-product">Z Bluetooth Headphone</a></h5>
-
-                                            </div>
-
-                                            <!-- Price & Ratting -->
-                                            <div class="price-ratting">
-
-                                                <h5 class="price">$189.00</h5>
-                                                <div class="ratting">
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                    <i class="fa fa-star"></i>
-                                                </div>
-
-                                            </div>
-
-                                        </div>
-
-                                    </div><!-- Product End -->
-                                </div>
+                                {{/each}}
 
                             </div><!-- Product Slider End -->
                         </div><!-- Product Slider Wrap End -->
@@ -715,7 +326,6 @@
 <div class="product-section section mb-60">
     <div class="container">
         <div class="row">
-            
             <!-- Section Title Start -->
             <div class="col-12 mb-40">
                 <div class="section-title-one" data-title="BEST SELLER"><h1>BEST SELLERS</h1></div>
@@ -723,7 +333,7 @@
             
             <div class="col-12">
                 <div class="row">
-                    
+                    {{#each product}}
                     <div class="col-xl-3 col-lg-4 col-md-6 col-12 pb-30 pt-10">
                         <!-- Product Start -->
                         <div class="ee-product">
@@ -731,7 +341,7 @@
                             <!-- Image -->
                             <div class="image">
 
-                                <a href="/single-product" class="img"><img src="assets/images/product/product-5.png" alt="Product Image"></a>
+                                <a href="/single-product" class="img"><img src="{{thumbnail}}" alt="Product Image"></a>
 
                                 <div class="wishlist-compare">
                                     <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
@@ -748,15 +358,15 @@
                                 <!-- Category & Title -->
                                 <div class="category-title">
 
-                                    <a href="#" class="cat">Camera</a>
-                                    <h5 class="title"><a href="/single-product">Mony Handycam Z 105</a></h5>
+                                    <a href="#" class="cat">{{category}}</a>
+                                    <h5 class="title"><a href="/single-product">{{title}}</a></h5>
 
                                 </div>
 
                                 <!-- Price & Ratting -->
                                 <div class="price-ratting">
 
-                                    <h5 class="price">$110.00</h5>
+                                    <h5 class="price">{{price}} VND</h5>
                                     <div class="ratting">
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
@@ -771,351 +381,7 @@
 
                         </div><!-- Product End -->
                     </div>
-                            
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-12 pb-30 pt-10">
-                        <!-- Product Start -->
-                        <div class="ee-product">
-
-                            <!-- Image -->
-                            <div class="image">
-
-                                <span class="label sale">sale</span>
-
-                                <a href="/single-product" class="img"><img src="assets/images/product/product-6.png" alt="Product Image"></a>
-
-                                <div class="wishlist-compare">
-                                    <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                    <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                </div>
-
-                                <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                            </div>
-
-                            <!-- Content -->
-                            <div class="content">
-
-                                <!-- Category & Title -->
-                                <div class="category-title">
-
-                                    <a href="#" class="cat">Camera</a>
-                                    <h5 class="title"><a href="/single-product">Axor Digital camera</a></h5>
-
-                                </div>
-
-                                <!-- Price & Ratting -->
-                                <div class="price-ratting">
-
-                                    <h5 class="price"><span class="old">$265</span>$199.00</h5>
-                                    <div class="ratting">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div><!-- Product End -->
-                    </div>
-
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-12 pb-30 pt-10">
-                        <!-- Product Start -->
-                        <div class="ee-product">
-
-                            <!-- Image -->
-                            <div class="image">
-
-                                <a href="/single-product" class="img"><img src="assets/images/product/product-7.png" alt="Product Image"></a>
-
-                                <div class="wishlist-compare">
-                                    <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                    <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                </div>
-
-                                <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                            </div>
-
-                            <!-- Content -->
-                            <div class="content">
-
-                                <!-- Category & Title -->
-                                <div class="category-title">
-
-                                    <a href="#" class="cat">Camera</a>
-                                    <h5 class="title"><a href="/single-product">Silvex DSLR Camera T 32</a></h5>
-
-                                </div>
-
-                                <!-- Price & Ratting -->
-                                <div class="price-ratting">
-
-                                    <h5 class="price">$580.00</h5>
-                                    <div class="ratting">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div><!-- Product End -->
-                    </div>
-
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-12 pb-30 pt-10">
-                        <!-- Product Start -->
-                        <div class="ee-product">
-
-                            <!-- Image -->
-                            <div class="image">
-
-                                <span class="label new">new</span>
-
-                                <a href="/single-product" class="img"><img src="assets/images/product/product-8.png" alt="Product Image"></a>
-
-                                <div class="wishlist-compare">
-                                    <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                    <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                </div>
-
-                                <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                            </div>
-
-                            <!-- Content -->
-                            <div class="content">
-
-                                <!-- Category & Title -->
-                                <div class="category-title">
-
-                                    <a href="#" class="cat">Camera</a>
-                                    <h5 class="title"><a href="/single-product">Necta Instant Camera</a></h5>
-
-                                </div>
-
-                                <!-- Price & Ratting -->
-                                <div class="price-ratting">
-
-                                    <h5 class="price">$320.00</h5>
-                                    <div class="ratting">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div><!-- Product End -->
-                    </div>
-
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-12 pb-30 pt-10">
-                        <!-- Product Start -->
-                        <div class="ee-product">
-
-                            <!-- Image -->
-                            <div class="image">
-
-                                <span class="label sale">sale</span>
-
-                                <a href="/single-product" class="img"><img src="assets/images/product/product-9.png" alt="Product Image"></a>
-
-                                <div class="wishlist-compare">
-                                    <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                    <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                </div>
-
-                                <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                            </div>
-
-                            <!-- Content -->
-                            <div class="content">
-
-                                <!-- Category & Title -->
-                                <div class="category-title">
-
-                                    <a href="#" class="cat">Watch</a>
-                                    <h5 class="title"><a href="/single-product">Mascut Smart Watch</a></h5>
-
-                                </div>
-
-                                <!-- Price & Ratting -->
-                                <div class="price-ratting">
-
-                                    <h5 class="price"><span class="old">$365</span>$295.00</h5>
-                                    <div class="ratting">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div><!-- Product End -->
-                    </div>
-
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-12 pb-30 pt-10">
-                        <!-- Product Start -->
-                        <div class="ee-product">
-
-                            <!-- Image -->
-                            <div class="image">
-
-                                <a href="/single-product" class="img"><img src="assets/images/product/product-10.png" alt="Product Image"></a>
-
-                                <div class="wishlist-compare">
-                                    <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                    <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                </div>
-
-                                <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                            </div>
-
-                            <!-- Content -->
-                            <div class="content">
-
-                                <!-- Category & Title -->
-                                <div class="category-title">
-
-                                    <a href="#" class="cat">Watch</a>
-                                    <h5 class="title"><a href="/single-product">Z Bluetooth Headphone</a></h5>
-
-                                </div>
-
-                                <!-- Price & Ratting -->
-                                <div class="price-ratting">
-
-                                    <h5 class="price">$189.00</h5>
-                                    <div class="ratting">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-o"></i>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div><!-- Product End -->
-                    </div>
-
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-12 pb-30 pt-10">
-                        <!-- Product Start -->
-                        <div class="ee-product">
-
-                            <!-- Image -->
-                            <div class="image">
-                                
-                                <span class="label new">new</span>
-
-                                <a href="/single-product" class="img"><img src="assets/images/product/product-11.png" alt="Product Image"></a>
-
-                                <div class="wishlist-compare">
-                                    <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                    <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                </div>
-
-                                <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                            </div>
-
-                            <!-- Content -->
-                            <div class="content">
-
-                                <!-- Category & Title -->
-                                <div class="category-title">
-
-                                    <a href="#" class="cat">Printer</a>
-                                    <h5 class="title"><a href="/single-product">Pranon Photo Printer Y 25</a></h5>
-
-                                </div>
-
-                                <!-- Price & Ratting -->
-                                <div class="price-ratting">
-
-                                    <h5 class="price">$210.00</h5>
-                                    <div class="ratting">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div><!-- Product End -->
-                    </div>
-
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-12 pb-30 pt-10">
-                        <!-- Product Start -->
-                        <div class="ee-product">
-
-                            <!-- Image -->
-                            <div class="image">
-
-                                <a href="/single-product" class="img"><img src="assets/images/product/product-12.png" alt="Product Image"></a>
-
-                                <div class="wishlist-compare">
-                                    <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                    <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                </div>
-
-                                <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                            </div>
-
-                            <!-- Content -->
-                            <div class="content">
-
-                                <!-- Category & Title -->
-                                <div class="category-title">
-
-                                    <a href="#" class="cat">Audio</a>
-                                    <h5 class="title"><a href="/single-product">Roses Speaker Box</a></h5>
-
-                                </div>
-
-                                <!-- Price & Ratting -->
-                                <div class="price-ratting">
-
-                                    <h5 class="price">$210.00</h5>
-                                    <div class="ratting">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div><!-- Product End -->
-                    </div>
-                    
+                    {{/each}}
                 </div>
             </div>
             
@@ -1130,7 +396,7 @@
             
             <!-- Banner -->
             <div class="col-12">
-                <div class="banner"><a href="#"><img src="assets/images/banner/banner-3.jpg" alt="Banner"></a></div>
+                <div class="banner"><a href="#"><img src="images/banner/banner.png" alt="Banner"></a></div>
             </div>
             
         </div>
@@ -1233,7 +499,7 @@
                                 <div class="product-slider-wrap product-slider-arrow-two">
                                     <!-- Product Slider Start -->
                                     <div class="product-slider product-slider-3">
-
+                                        {{#each product}}
                                         <div class="col pb-20 pt-10">
                                             <!-- Product Start -->
                                             <div class="ee-product">
@@ -1243,7 +509,7 @@
 
                                                     <span class="label sale">sale</span>
 
-                                                    <a href="/single-product" class="img"><img src="assets/images/product/product-13.png" alt="Product Image"></a>
+                                                    <a href="/single-product" class="img"><img src="{{thumbnail}}" alt="Product Image"></a>
 
                                                     <div class="wishlist-compare">
                                                         <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
@@ -1260,8 +526,8 @@
                                                     <!-- Category & Title -->
                                                     <div class="category-title">
 
-                                                        <a href="#" class="cat">Games</a>
-                                                        <h5 class="title"><a href="/single-product">Game Stations PW 25</a></h5>
+                                                        <a href="#" class="cat">{{category}}</a>
+                                                        <h5 class="title"><a href="/single-product">{{title}}</a></h5>
 
                                                     </div>
 
@@ -1283,205 +549,7 @@
 
                                             </div><!-- Product End -->
                                         </div>
-
-                                        <div class="col pb-20 pt-10">
-                                            <!-- Product Start -->
-                                            <div class="ee-product">
-
-                                                <!-- Image -->
-                                                <div class="image">
-
-                                                    <a href="/single-product" class="img"><img src="assets/images/product/product-14.png" alt="Product Image"></a>
-
-                                                    <div class="wishlist-compare">
-                                                        <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                                        <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                                    </div>
-
-                                                    <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                                                </div>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Category & Title -->
-                                                    <div class="category-title">
-
-                                                        <a href="#" class="cat">Kitchen Appliances</a>
-                                                        <h5 class="title"><a href="/single-product">Zorex Coffe Maker</a></h5>
-
-                                                    </div>
-
-                                                    <!-- Price & Ratting -->
-                                                    <div class="price-ratting">
-
-                                                        <h5 class="price">$125.00</h5>
-                                                        <div class="ratting">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-
-                                            </div><!-- Product End -->
-                                        </div>
-
-                                        <div class="col pb-20 pt-10">
-                                            <!-- Product Start -->
-                                            <div class="ee-product">
-
-                                                <!-- Image -->
-                                                <div class="image">
-
-                                                    <span class="label sale">sale</span>
-
-                                                    <a href="/single-product" class="img"><img src="assets/images/product/product-15.png" alt="Product Image"></a>
-
-                                                    <div class="wishlist-compare">
-                                                        <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                                        <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                                    </div>
-
-                                                    <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                                                </div>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Category & Title -->
-                                                    <div class="category-title">
-
-                                                        <a href="#" class="cat">Home Appliances</a>
-                                                        <h5 class="title"><a href="/single-product">jeilips Steam Iron K 2</a></h5>
-
-                                                    </div>
-
-                                                    <!-- Price & Ratting -->
-                                                    <div class="price-ratting">
-
-                                                        <h5 class="price"><span class="old">$365</span>$295.00</h5>
-                                                        <div class="ratting">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-
-                                            </div><!-- Product End -->
-                                        </div>
-
-                                        <div class="col pb-20 pt-10">
-                                            <!-- Product Start -->
-                                            <div class="ee-product">
-
-                                                <!-- Image -->
-                                                <div class="image">
-
-                                                    <span class="label sale">sale</span>
-
-                                                    <a href="/single-product" class="img"><img src="assets/images/product/product-16.png" alt="Product Image"></a>
-
-                                                    <div class="wishlist-compare">
-                                                        <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                                        <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                                    </div>
-
-                                                    <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                                                </div>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Category & Title -->
-                                                    <div class="category-title">
-
-                                                        <a href="#" class="cat">Tv & Audio</a>
-                                                        <h5 class="title"><a href="/single-product">Nexo Andriod TV Box</a></h5>
-
-                                                    </div>
-
-                                                    <!-- Price & Ratting -->
-                                                    <div class="price-ratting">
-
-                                                        <h5 class="price"><span class="old">$360 </span>$250.00</h5>
-                                                        <div class="ratting">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star-half-o"></i>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-
-                                            </div><!-- Product End -->
-                                        </div>
-
-                                        <div class="col pb-20 pt-10">
-                                            <!-- Product Start -->
-                                            <div class="ee-product">
-
-                                                <!-- Image -->
-                                                <div class="image">
-
-                                                    <span class="label new">new</span>
-
-                                                    <a href="/single-product" class="img"><img src="assets/images/product/product-17.png" alt="Product Image"></a>
-
-                                                    <div class="wishlist-compare">
-                                                        <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                                        <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                                    </div>
-
-                                                    <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                                                </div>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Category & Title -->
-                                                    <div class="category-title">
-
-                                                        <a href="#" class="cat">Smartphone</a>
-                                                        <h5 class="title"><a href="/single-product">Ornet Note 9</a></h5>
-
-                                                    </div>
-
-                                                    <!-- Price & Ratting -->
-                                                    <div class="price-ratting">
-
-                                                        <h5 class="price"><span class="old">$285</span>$230.00</h5>
-                                                        <div class="ratting">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-
-                                            </div><!-- Product End -->
-                                        </div>
-
+                                        {{/each}}
                                     </div><!-- Product Slider End -->
                                 </div><!-- Product Slider Wrap End -->
 
@@ -1494,7 +562,7 @@
                                 <div class="product-slider-wrap product-slider-arrow-two">
                                     <!-- Product Slider Start -->
                                     <div class="product-slider product-slider-3">
-
+                                        {{#each product}}
                                         <div class="col pb-20 pt-10">
                                             <!-- Product Start -->
                                             <div class="ee-product">
@@ -1502,7 +570,7 @@
                                                 <!-- Image -->
                                                 <div class="image">
 
-                                                    <a href="/single-product" class="img"><img src="assets/images/product/product-18.png" alt="Product Image"></a>
+                                                    <a href="/single-product" class="img"><img src="{{thumbnail}}" alt="Product Image"></a>
 
                                                     <div class="wishlist-compare">
                                                         <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
@@ -1519,15 +587,15 @@
                                                     <!-- Category & Title -->
                                                     <div class="category-title">
 
-                                                        <a href="#" class="cat">Tv & Audio</a>
-                                                        <h5 class="title"><a href="/single-product">Xonet Speaker P 9</a></h5>
+                                                        <a href="#" class="cat">{{category}}</a>
+                                                        <h5 class="title"><a href="/single-product">{{title}}</a></h5>
 
                                                     </div>
 
                                                     <!-- Price & Ratting -->
                                                     <div class="price-ratting">
 
-                                                        <h5 class="price">$185.00</h5>
+                                                        <h5 class="price">{{price}} VND</h5>
                                                         <div class="ratting">
                                                             <i class="fa fa-star"></i>
                                                             <i class="fa fa-star"></i>
@@ -1542,202 +610,7 @@
 
                                             </div><!-- Product End -->
                                         </div>
-
-                                        <div class="col pb-20 pt-10">
-                                            <!-- Product Start -->
-                                            <div class="ee-product">
-
-                                                <!-- Image -->
-                                                <div class="image">
-
-                                                    <a href="/single-product" class="img"><img src="assets/images/product/product-24.png" alt="Product Image"></a>
-
-                                                    <div class="wishlist-compare">
-                                                        <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                                        <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                                    </div>
-
-                                                    <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                                                </div>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Category & Title -->
-                                                    <div class="category-title">
-
-                                                        <a href="#" class="cat">Smartphone</a>
-                                                        <h5 class="title"><a href="/single-product">Sany Experia Z5</a></h5>
-
-                                                    </div>
-
-                                                    <!-- Price & Ratting -->
-                                                    <div class="price-ratting">
-
-                                                        <h5 class="price">$360.00</h5>
-                                                        <div class="ratting">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star-half-o"></i>
-                                                            <i class="fa fa-star-o"></i>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-
-                                            </div><!-- Product End -->
-                                        </div>
-
-                                        <div class="col pb-20 pt-10">
-                                            <!-- Product Start -->
-                                            <div class="ee-product">
-
-                                                <!-- Image -->
-                                                <div class="image">
-
-                                                    <span class="label sale">sale</span>
-
-                                                    <a href="/single-product" class="img"><img src="assets/images/product/product-20.png" alt="Product Image"></a>
-
-                                                    <div class="wishlist-compare">
-                                                        <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                                        <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                                    </div>
-
-                                                    <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                                                </div>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Category & Title -->
-                                                    <div class="category-title">
-
-                                                        <a href="#" class="cat">Kitchen Appliances</a>
-                                                        <h5 class="title"><a href="/single-product">Jackson Toster V 27</a></h5>
-
-                                                    </div>
-
-                                                    <!-- Price & Ratting -->
-                                                    <div class="price-ratting">
-
-                                                        <h5 class="price"><span class="old">$185</span>$135.00</h5>
-                                                        <div class="ratting">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-
-                                            </div><!-- Product End -->
-                                        </div>
-
-                                        <div class="col pb-20 pt-10">
-                                            <!-- Product Start -->
-                                            <div class="ee-product">
-
-                                                <!-- Image -->
-                                                <div class="image">
-
-                                                    <a href="/single-product" class="img"><img src="assets/images/product/product-21.png" alt="Product Image"></a>
-
-                                                    <div class="wishlist-compare">
-                                                        <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                                        <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                                    </div>
-
-                                                    <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                                                </div>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Category & Title -->
-                                                    <div class="category-title">
-
-                                                        <a href="#" class="cat">Kitchen Appliances</a>
-                                                        <h5 class="title"><a href="/single-product">mega Juice Maker</a></h5>
-
-                                                    </div>
-
-                                                    <!-- Price & Ratting -->
-                                                    <div class="price-ratting">
-
-                                                        <h5 class="price">$125.00</h5>
-                                                        <div class="ratting">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star-half-o"></i>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-
-                                            </div><!-- Product End -->
-                                        </div>
-
-                                        <div class="col pb-20 pt-10">
-                                            <!-- Product Start -->
-                                            <div class="ee-product">
-
-                                                <!-- Image -->
-                                                <div class="image">
-
-                                                    <span class="label new">new</span>
-
-                                                    <a href="/single-product" class="img"><img src="assets/images/product/product-22.png" alt="Product Image"></a>
-
-                                                    <div class="wishlist-compare">
-                                                        <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                                        <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                                    </div>
-
-                                                    <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                                                </div>
-
-                                                <!-- Content -->
-                                                <div class="content">
-
-                                                    <!-- Category & Title -->
-                                                    <div class="category-title">
-
-                                                        <a href="#" class="cat">Kitchen Appliances</a>
-                                                        <h5 class="title"><a href="/single-product">shine Microwave Oven</a></h5>
-
-                                                    </div>
-
-                                                    <!-- Price & Ratting -->
-                                                    <div class="price-ratting">
-
-                                                        <h5 class="price"><span class="old">$389</span>$245.00</h5>
-                                                        <div class="ratting">
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star"></i>
-                                                            <i class="fa fa-star-o"></i>
-                                                        </div>
-
-                                                    </div>
-
-                                                </div>
-
-                                            </div><!-- Product End -->
-                                        </div>
+                                        {{/each}}
 
                                     </div><!-- Product Slider End -->
                                 </div><!-- Product Slider Wrap End -->
@@ -1766,7 +639,7 @@
             
             <div class="col-12">
                 <div class="row">
-                    
+                    {{#each product}}
                     <div class="col-xl-3 col-lg-4 col-md-6 col-12 pb-30 pt-10">
                         <!-- Product Start -->
                         <div class="ee-product">
@@ -1776,7 +649,7 @@
 
                                 <span class="label sale">sale</span>
 
-                                <a href="/single-product" class="img"><img src="assets/images/product/product-16.png" alt="Product Image"></a>
+                                <a href="/single-product" class="img"><img src="{{thumbnail}}" alt="Product Image"></a>
 
                                 <div class="wishlist-compare">
                                     <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
@@ -1793,8 +666,8 @@
                                 <!-- Category & Title -->
                                 <div class="category-title">
 
-                                    <a href="#" class="cat">Tv & Audio</a>
-                                    <h5 class="title"><a href="/single-product">Nexo Andriod TV Box</a></h5>
+                                    <a href="#" class="cat">{{category}}</a>
+                                    <h5 class="title"><a href="/single-product">{{title}}</a></h5>
 
                                 </div>
 
@@ -1816,351 +689,7 @@
 
                         </div><!-- Product End -->
                     </div>
-
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-12 pb-30 pt-10">
-                        <!-- Product Start -->
-                        <div class="ee-product">
-
-                            <!-- Image -->
-                            <div class="image">
-
-                                <span class="label new">new</span>
-
-                                <a href="/single-product" class="img"><img src="assets/images/product/product-17.png" alt="Product Image"></a>
-
-                                <div class="wishlist-compare">
-                                    <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                    <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                </div>
-
-                                <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                            </div>
-
-                            <!-- Content -->
-                            <div class="content">
-
-                                <!-- Category & Title -->
-                                <div class="category-title">
-
-                                    <a href="#" class="cat">Smartphone</a>
-                                    <h5 class="title"><a href="/single-product">Ornet Note 9</a></h5>
-
-                                </div>
-
-                                <!-- Price & Ratting -->
-                                <div class="price-ratting">
-
-                                    <h5 class="price"><span class="old">$285</span>$230.00</h5>
-                                    <div class="ratting">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div><!-- Product End -->
-                    </div>
-
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-12 pb-30 pt-10">
-                        <!-- Product Start -->
-                        <div class="ee-product">
-
-                            <!-- Image -->
-                            <div class="image">
-
-                                <a href="/single-product" class="img"><img src="assets/images/product/product-18.png" alt="Product Image"></a>
-
-                                <div class="wishlist-compare">
-                                    <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                    <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                </div>
-
-                                <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                            </div>
-
-                            <!-- Content -->
-                            <div class="content">
-
-                                <!-- Category & Title -->
-                                <div class="category-title">
-
-                                    <a href="#" class="cat">Tv & Audio</a>
-                                    <h5 class="title"><a href="/single-product">Xonet Speaker P 9</a></h5>
-
-                                </div>
-
-                                <!-- Price & Ratting -->
-                                <div class="price-ratting">
-
-                                    <h5 class="price">$185.00</h5>
-                                    <div class="ratting">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div><!-- Product End -->
-                    </div>
-
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-12 pb-30 pt-10">
-                        <!-- Product Start -->
-                        <div class="ee-product">
-
-                            <!-- Image -->
-                            <div class="image">
-
-                                <span class="label sale">sale</span>
-
-                                <a href="/single-product" class="img"><img src="assets/images/product/product-19.png" alt="Product Image"></a>
-
-                                <div class="wishlist-compare">
-                                    <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                    <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                </div>
-
-                                <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                            </div>
-
-                            <!-- Content -->
-                            <div class="content">
-
-                                <!-- Category & Title -->
-                                <div class="category-title">
-
-                                    <a href="#" class="cat">Smartphone</a>
-                                    <h5 class="title"><a href="/single-product">flex P 3310</a></h5>
-
-                                </div>
-
-                                <!-- Price & Ratting -->
-                                <div class="price-ratting">
-
-                                    <h5 class="price"><span class="old">$220</span>$180.00</h5>
-                                    <div class="ratting">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-o"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div><!-- Product End -->
-                    </div>
-
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-12 pb-30 pt-10">
-                        <!-- Product Start -->
-                        <div class="ee-product">
-
-                            <!-- Image -->
-                            <div class="image">
-
-                                <span class="label sale">sale</span>
-
-                                <a href="/single-product" class="img"><img src="assets/images/product/product-20.png" alt="Product Image"></a>
-
-                                <div class="wishlist-compare">
-                                    <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                    <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                </div>
-
-                                <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                            </div>
-
-                            <!-- Content -->
-                            <div class="content">
-
-                                <!-- Category & Title -->
-                                <div class="category-title">
-
-                                    <a href="#" class="cat">Kitchen Appliances</a>
-                                    <h5 class="title"><a href="/single-product">Jackson Toster V 27</a></h5>
-
-                                </div>
-
-                                <!-- Price & Ratting -->
-                                <div class="price-ratting">
-
-                                    <h5 class="price"><span class="old">$185</span>$135.00</h5>
-                                    <div class="ratting">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div><!-- Product End -->
-                    </div>
-
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-12 pb-30 pt-10">
-                        <!-- Product Start -->
-                        <div class="ee-product">
-
-                            <!-- Image -->
-                            <div class="image">
-
-                                <a href="/single-product" class="img"><img src="assets/images/product/product-21.png" alt="Product Image"></a>
-
-                                <div class="wishlist-compare">
-                                    <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                    <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                </div>
-
-                                <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                            </div>
-
-                            <!-- Content -->
-                            <div class="content">
-
-                                <!-- Category & Title -->
-                                <div class="category-title">
-
-                                    <a href="#" class="cat">Kitchen Appliances</a>
-                                    <h5 class="title"><a href="/single-product">mega Juice Maker</a></h5>
-
-                                </div>
-
-                                <!-- Price & Ratting -->
-                                <div class="price-ratting">
-
-                                    <h5 class="price">$125.00</h5>
-                                    <div class="ratting">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-half-o"></i>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div><!-- Product End -->
-                    </div>
-
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-12 pb-30 pt-10">
-                        <!-- Product Start -->
-                        <div class="ee-product">
-
-                            <!-- Image -->
-                            <div class="image">
-
-                                <span class="label new">new</span>
-
-                                <a href="/single-product" class="img"><img src="assets/images/product/product-22.png" alt="Product Image"></a>
-
-                                <div class="wishlist-compare">
-                                    <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                    <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                </div>
-
-                                <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                            </div>
-
-                            <!-- Content -->
-                            <div class="content">
-
-                                <!-- Category & Title -->
-                                <div class="category-title">
-
-                                    <a href="#" class="cat">Kitchen Appliances</a>
-                                    <h5 class="title"><a href="/single-product">shine Microwave Oven</a></h5>
-
-                                </div>
-
-                                <!-- Price & Ratting -->
-                                <div class="price-ratting">
-
-                                    <h5 class="price"><span class="old">$389</span>$245.00</h5>
-                                    <div class="ratting">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div><!-- Product End -->
-                    </div>
-
-                    <div class="col-xl-3 col-lg-4 col-md-6 col-12 pb-30 pt-10">
-                        <!-- Product Start -->
-                        <div class="ee-product">
-
-                            <!-- Image -->
-                            <div class="image">
-
-                                <a href="/single-product" class="img"><img src="assets/images/product/product-23.png" alt="Product Image"></a>
-
-                                <div class="wishlist-compare">
-                                    <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
-                                    <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
-                                </div>
-
-                                <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
-
-                            </div>
-
-                            <!-- Content -->
-                            <div class="content">
-
-                                <!-- Category & Title -->
-                                <div class="category-title">
-
-                                    <a href="#" class="cat">Kitchen Appliances</a>
-                                    <h5 class="title"><a href="/single-product">Auto Rice Cooker</a></h5>
-
-                                </div>
-
-                                <!-- Price & Ratting -->
-                                <div class="price-ratting">
-
-                                    <h5 class="price">$130.00</h5>
-                                    <div class="ratting">
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star"></i>
-                                        <i class="fa fa-star-o"></i>
-                                    </div>
-
-                                </div>
-
-                            </div>
-
-                        </div><!-- Product End -->
-                    </div>
-                    
+                    {{/each}}
                 </div>
             </div>
             
@@ -2175,17 +704,17 @@
             
             <!-- Banner -->
             <div class="col-md-4 col-12 mb-30">
-                <div class="banner"><a href="#"><img src="assets/images/banner/banner-4.jpg" alt="Banner"></a></div>
+                <div class="banner"><a href="#"><img src="images/banner/unsplash1.jpg" alt="Banner"></a></div>
             </div>
             
             <!-- Banner -->
             <div class="col-md-4 col-12 mb-30">
-                <div class="banner"><a href="#"><img src="assets/images/banner/banner-5.jpg" alt="Banner"></a></div>
+                <div class="banner"><a href="#"><img src="images/banner/unsplash2.jpg" alt="Banner"></a></div>
             </div>
             
             <!-- Banner -->
             <div class="col-md-4 col-12 mb-30">
-                <div class="banner"><a href="#"><img src="assets/images/banner/banner-6.jpg" alt="Banner"></a></div>
+                <div class="banner"><a href="#"><img src="images/banner/unsplash3.jpg" alt="Banner"></a></div>
             </div>
             
         </div>
