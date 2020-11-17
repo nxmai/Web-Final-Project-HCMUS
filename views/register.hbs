@@ -76,12 +76,12 @@
 
         <!-- Banner -->
         <div class="col-lg-4 col-md-6 col-12 order-lg-1">
-            <div class="banner"><a href="#"><img src="assets/images/banner/banner-15.jpg" alt="Banner"></a></div>
+            <div class="banner"><a href="#"><img src="images/banner/banner.png" alt="Banner"></a></div>
         </div>
 
         <!-- Banner -->
         <div class="col-lg-4 col-md-6 col-12 order-lg-3">
-            <div class="banner"><a href="#"><img src="assets/images/banner/banner-14.jpg" alt="Banner"></a></div>
+            <div class="banner"><a href="#"><img src="images/banner/banner.png" alt="Banner"></a></div>
         </div>
 
     </div>
@@ -149,11 +149,9 @@
             
             <!-- Brand Slider Start -->
             <div class="brand-slider col">
-                <div class="brand-item col"><img src="assets/images/brands/brand-1.png" alt="Brands"></div>
-                <div class="brand-item col"><img src="assets/images/brands/brand-2.png" alt="Brands"></div>
-                <div class="brand-item col"><img src="assets/images/brands/brand-3.png" alt="Brands"></div>
-                <div class="brand-item col"><img src="assets/images/brands/brand-4.png" alt="Brands"></div>
-                <div class="brand-item col"><img src="assets/images/brands/brand-5.png" alt="Brands"></div>
+                {{#each logo_image}}
+                <div class="brand-item col"><img src={{thumbnail}} alt="Brands"></div>
+                {{/each}} 
             </div><!-- Brand Slider End -->
             
         </div>

@@ -73,15 +73,15 @@
                 </div>
             </div>
         </div>
-
+        
         <!-- Banner -->
         <div class="col-lg-4 col-md-6 col-12 order-lg-1">
-            <div class="banner"><a href="#"><img src="assets/images/banner/banner-15.jpg" alt="Banner"></a></div>
+            <div class="banner"><a href="#"><img src="images/banner/banner.png" alt="Banner"></a></div>
         </div>
 
         <!-- Banner -->
         <div class="col-lg-4 col-md-6 col-12 order-lg-3">
-            <div class="banner"><a href="#"><img src="assets/images/banner/banner-14.jpg" alt="Banner"></a></div>
+            <div class="banner"><a href="#"><img src="images/banner/banner.png" alt="Banner"></a></div>
         </div>
 
     </div>
@@ -102,11 +102,11 @@
                     <!-- Login Form -->
                     <form action="#">
                         <div class="row">
-                            <div class="col-12 mb-30"><input type="text" placeholder="Type your username or email address"></div>
-                            <div class="col-12 mb-20"><input type="password" placeholder="Enter your passward"></div>
+                            <div class="col-12 mb-30"><input name="username" type="text" placeholder="Type your username or email address" value="{{username}}"></div>
+                            <div class="col-12 mb-20"><input name="password" type="password" placeholder="Enter your passward" value="{{password}}"></div>
                             <div class="col-12 mb-15">
                                 
-                                <input type="checkbox" id="remember_me">
+                                <input type="checkbox" name="remember_me" id="remember_me" {{#if remember_me}}checked{{else}}{{/if}}>
                                 <label for="remember_me">Remember me</label>
                                 
                                 <a href="#">Forgotten pasward?</a>
@@ -150,12 +150,11 @@
         <div class="row">
             
             <!-- Brand Slider Start -->
+             
             <div class="brand-slider col">
-                <div class="brand-item col"><img src="assets/images/brands/brand-1.png" alt="Brands"></div>
-                <div class="brand-item col"><img src="assets/images/brands/brand-2.png" alt="Brands"></div>
-                <div class="brand-item col"><img src="assets/images/brands/brand-3.png" alt="Brands"></div>
-                <div class="brand-item col"><img src="assets/images/brands/brand-4.png" alt="Brands"></div>
-                <div class="brand-item col"><img src="assets/images/brands/brand-5.png" alt="Brands"></div>
+                {{#each logo_image}}
+                <div class="brand-item col"><img src={{thumbnail}} alt="Brands"></div>
+                {{/each}} 
             </div><!-- Brand Slider End -->
             
         </div>
