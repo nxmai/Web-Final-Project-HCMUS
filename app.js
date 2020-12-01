@@ -13,8 +13,18 @@ const registerRouter = require('./routes/register');
 const app = express();
 
 // view engine setup
-app.set('views', path.join(__dirname, 'views'));
-app.set('view engine', 'hbs');
+//app.set('views', path.join(__dirname, 'views'));
+//app.set('view engine', 'hbs');
+
+var exhbs = require('express-handlebars');
+app.engine('hbs', exhbs({
+    defaultLayout: 'layout',
+    extname: 'hbs',
+    layoutsDir: 'views',
+    partialsDir: 'views/partials'
+  }));
+  app.set('view engine', 'hbs');
+
 
 app.use(logger('dev'));
 app.use(express.json());
