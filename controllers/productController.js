@@ -7,3 +7,13 @@ exports.index = (req, res, next) => {
     //pass data to view display
     res.render('index', { product, logo_image });
 }
+
+exports.details = async (req, res, next) => {
+    
+    res.render('single-product', await shopgridModel.get(req.params.id));
+}
+
+exports.singleProduct = (req, res, next) => {
+    res.render('single-product');
+
+}
