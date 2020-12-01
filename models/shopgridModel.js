@@ -1,6 +1,5 @@
 exports.list = () => {
-    return [
-        {
+    return [{
             id: 1,
             thumbnail: 'images/iphone-xr-64gb.png',
             category: 'Smartphone',
@@ -65,6 +64,21 @@ exports.list = () => {
             specification1: 'Dynamic AMOLED, 6.8", Quad HD+ (2K+)',
             specification2: 'Chính 12 MP & Phụ 12 MP, 16 MP, TOF 3D',
             specification3: '12 GB'
+        }
+    ]
+}
+exports.list_logo_image = () => {
+    return [{
+            thumbnail: "images/apple-logo.png"
+        },
+        {
+            thumbnail: "images/samsung-logo.png"
+        },
+        {
+            thumbnail: "images/xiaomi-logo.png"
+        },
+        {
+            thumbnail: "images/oppo-logo.png"
         }
     ]
 }
