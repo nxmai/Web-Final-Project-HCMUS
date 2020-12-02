@@ -9,11 +9,14 @@ exports.index = (req, res, next) => {
 }
 
 exports.details = async (req, res, next) => {
+    const single = await shopgridModel.get(req.params.id);
     
-    res.render('single-product', await shopgridModel.get(req.params.id));
+    res.render('single-product', {single});
 }
 
 exports.singleProduct = (req, res, next) => {
-    res.render('single-product');
+    const single = shopgridModel.single();
+    
+    res.render('single-product', {single});
 
 }

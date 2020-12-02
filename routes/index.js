@@ -3,6 +3,7 @@ var router = express.Router();
 const productController = require('../controllers/productController');
 
 router.get('/', productController.index);
+router.get('/index', productController.index);
 /* GET home page. */
 // router.get('/', function(req, res) {
 //   res.render('index');

@@ -85,7 +85,10 @@ exports.list_logo_image = () => {
     ]
 }
 
-exports.get = (id) => {
-    console.log(listProduct[id]);
+exports.get = async (id) => {
     return listProduct[id];
+}
+
+exports.single = () => {
+    return listProduct[1];
 }

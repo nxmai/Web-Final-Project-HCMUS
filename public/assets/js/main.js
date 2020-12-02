@@ -583,7 +583,7 @@ counter.counterUp({
 $('.footer-tweet').twittie({
     template: '<span class="author">{{screen_name}}</span>, {{tweet}}',
     count: 2,
-    apiPath: 'assets/api/tweet.php',
+    apiPath: '/assets/api/tweet.php',
 });
 
 /*--
