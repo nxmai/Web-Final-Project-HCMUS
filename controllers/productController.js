@@ -15,8 +15,5 @@ exports.details = async (req, res, next) => {
 }
 
 exports.singleProduct = (req, res, next) => {
-    const single = shopgridModel.single();
-    
-    res.render('single-product', {single});
-
+    res.render('single-product');
 }
