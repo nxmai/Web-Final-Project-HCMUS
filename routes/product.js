@@ -14,6 +14,6 @@ router.get('/:id', productController.details);
 //     res.render('single-product');
 // })
 
-console.log('product.js');
+//console.log('product.js');
 
 module.exports = router;
