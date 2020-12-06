@@ -14,6 +14,9 @@ const db = require('../dal/mysql');
 module.exports.list = {
     all(){
         return db.load('select * from product');
+    },
+    single(id){
+        return db.load('select * from product where id = ' + id);
     }
 }
 

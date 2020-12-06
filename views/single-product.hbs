@@ -8,7 +8,10 @@
 
 <!-- Single Product Section Start -->
 <div class="product-section section mt-90 mb-90">
+    
+    {{#each product}}
     <div class="container">
+        
         
         <div class="row mb-90">
             
@@ -20,9 +23,8 @@
 
                     <div class="tab-content">
                         <div id="single-image-1" class="tab-pane fade show active big-image-slider">
-                            <div class="big-image"><img src="/{{single.thumbnail}}" alt="Big Image"><a href="/assets/images/single-product/big-1.png" class="big-image-popup"><i class="fa fa-search-plus"></i></a></div>
-                            <div class="big-image"><img src="/{{single.thumbnail}}" alt="Big Image"><a href="/assets/images/single-product/big-2.png" class="big-image-popup"><i class="fa fa-search-plus"></i></a></div>
-                            {{!-- <div class="big-image"><img src="/assets/images/single-product/big-3.png" alt="Big Image"><a href="/assets/images/single-product/big-3.png" class="big-image-popup"><i class="fa fa-search-plus"></i></a></div> --}}
+                            <div class="big-image"><img src="/{{imagePath}}" alt="Big Image"><a href="/assets/images/single-product/big-1.png" class="big-image-popup"><i class="fa fa-search-plus"></i></a></div>
+                            <div class="big-image"><img src="/{{imagePath}}" alt="Big Image"><a href="/assets/images/single-product/big-2.png" class="big-image-popup"><i class="fa fa-search-plus"></i></a></div>
                         </div>
                     </div>
                 </div>
@@ -38,11 +40,11 @@
                     <div class="head-content">
 
                         <div class="category-title">
-                            <a href="#" class="cat">{{single.category}}</a>
-                            <h5 class="title">{{single.title}}</h5>
+                            <a href="#" class="cat">{{categoryId}}</a>
+                            <h5 class="title">{{name}}</h5>
                         </div>
 
-                        <h5 class="price">{{single.price}} VND</h5>
+                        <h5 class="price">{{price}} VND</h5>
 
                     </div>
 
@@ -57,10 +59,15 @@
                         </div>
 
                         <div class="desc">
-                            <p>{{single.describe}}</p>
+                            <p>{{description}}</p>
                         </div>
                         
-                        <span class="availability">Availability: <span>In Stock</span></span>
+                        <span class="availability">Availability: 
+                                        {{#if availability}}
+                                        <span>In Stock</span></span>
+                                        {{else}}
+                                        <span>Out Stock</span></span>
+                                        {{/if}}
                         
                         <div class="quantity-colors">
                             
@@ -121,6 +128,7 @@
             
         </div>
         
+
         <div class="row">
             
             <div class="col-lg-10 col-12 ml-auto mr-auto">
@@ -300,6 +308,8 @@
         </div>
         
     </div>
+    {{/each}}
+
 </div><!-- Single Product Section End -->
 
 <!-- Related Product Section Start -->

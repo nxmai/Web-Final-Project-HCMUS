@@ -10,9 +10,19 @@ exports.index = (req, res, next) => {
 }
 
 exports.details = async (req, res, next) => {
-    const single = await shopgridModel.get(req.params.id);
+    try {
+        const product = await shopgridModel.list.single(req.params.id);
+        console.log(product);
+        res.render('single-product', {product: product});
+    }catch (err) {
+        console.log(err);
+        res.send('Check error on server \'s console ');
+    }
+
+
+    // const single = await shopgridModel.get(req.params.id);
     
-    res.render('single-product', {single});
+    // res.render('single-product', {single});
 }
 
 exports.singleProduct = (req, res, next) => {
