@@ -12,7 +12,7 @@ exports.index = (req, res, next) => {
 exports.details = async (req, res, next) => {
     try {
         const product = await shopgridModel.list.single(req.params.id);
-        console.log(product);
+        //console.log(product);
         res.render('single-product', {product: product});
     }catch (err) {
         console.log(err);

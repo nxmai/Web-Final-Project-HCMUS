@@ -1,47 +1,38 @@
 
 const mysql = require('mysql');
+const util = require('util');
 
+const pool = mysql.createPool({
+  host: 'localhost',
+  user: 'root',
+  password: '123456',
+  database: 'product_list',
+  insecureAuth: true,
+  connectionLimit: 50,
+});
 
-
+const pool_query = util.promisify(pool.query).bind(pool);
 
 module.exports = {
   load(sql){
-    return new Promise(
-      function(done, fail){
-        const connection = mysql.createConnection({
-          host: 'localhost',
-          user: 'root',
-          password: '123456',
-          database: 'product_list',
-          insecureAuth: true,
-      });
-
-      connection.connect(err => {
-            if(err) throw err;
-            connection.query(sql, function (error, results, fields){
-              if(error) fail(error);
-              //console.log(results);
-              else {
-                done(results);
-              }
-      
-              connection.end();
-            })
-      });
-
-      }
-    )
-
-  //   connection.connect(err => {
-  //     if(err) throw err;
-  //     connection.query(sql, function (error, results, fields){
-  //       if(error) throw error;
-  //       //console.log(results);
-
-  //       connection.end();
-  //     })
-  // });
+    return pool_query(sql);
   }
+  //load: sql => pool_query(sql);
+
+  // load(sql){
+  //   return new Promise(
+  //     function(done, fail){
+  //           pool.query(sql, function (error, results, fields){
+  //             if(error) {
+  //               fail(error);
+  //             }
+  //             else {
+  //               done(results);
+  //             }
+  //           })
+  //     }
+  //   )
+  // }
 }
 
 
