@@ -72,7 +72,7 @@
                             <!-- Image -->
                             <div class="image">
 
-                                <a href="/single-product/{{id}}" class="img"><img src="{{thumbnail}}" alt="Product Image"></a>
+                                <a href="/single-product/{{id}}" class="img"><img src="{{thumbnailPath}}" alt="Product Image"></a>
 
                                 <div class="wishlist-compare">
                                     
@@ -89,8 +89,8 @@
                                 <!-- Category & Title -->
                                 <div class="category-title">
 
-                                    <a href="#" class="cat">{{category}}</a>
-                                    <h5 class="title"><a href="/single-product/{{id}}">{{title}}</a></h5>
+                                    <a href="#" class="cat">{{categoryId}}</a>
+                                    <h5 class="title"><a href="/single-product/{{id}}">{{name}}</a></h5>
 
                                 </div>
 
@@ -118,7 +118,7 @@
                             <!-- Image -->
                             <div class="image">
 
-                                <a href="/single-product/{{id}}" class="img"><img src="{{thumbnail}}" alt="Product Image"></a>
+                                <a href="/single-product/{{id}}" class="img"><img src="{{thumbnailPath}}" alt="Product Image"></a>
 
                             </div>
 
@@ -129,8 +129,8 @@
                                 <div class="head-content">
 
                                     <div class="category-title">
-                                        <a href="#" class="cat">{{category}}</a>
-                                        <h5 class="title"><a href="/single-product/{{id}}">{{title}}</a></h5>
+                                        <a href="#" class="cat">{{categoryId}}</a>
+                                        <h5 class="title"><a href="/single-product/{{id}}">{{name}}</a></h5>
                                     </div>
                                     
                                     <h5 class="price">{{price}} VND</h5>
@@ -148,7 +148,7 @@
                                     </div>
                                     
                                     <div class="desc">
-                                        <p>{{describe}}</p>
+                                        <p>{{description}}</p>
                                     </div>
                                     
                                     <div class="actions">
@@ -173,7 +173,12 @@
                                             <li>{{specification3}}</li>
                                         </ul>
                                     </div>
-                                    <span class="availability">Availability: <span>In Stock</span></span>
+                                    <span class="availability">Availability: 
+                                        {{#if availability}}
+                                        <span>In Stock</span></span>
+                                        {{else}}
+                                        <span>Out Stock</span></span>
+                                        {{/if}}
                                 </div>
 
                             </div>
