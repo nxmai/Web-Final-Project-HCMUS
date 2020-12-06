@@ -1,9 +1,10 @@
 const shopgridModel = require('../models/shopgridModel');
 
 exports.index = async  (req, res, next) => {
-    const shopgrid = await shopgridModel.list.all();
+    const shopgrid = await shopgridModel.list.all(req.query);
+    //const category = await shopgridModel.list.category();
     //console.log(shopgrid);
-    res.render('shop-grid', { shopgrid }); 
+    res.render('shop-grid', { shopgrid}); 
 
     // try{
     //     const shopgrid = await shopgridModel.list.all();

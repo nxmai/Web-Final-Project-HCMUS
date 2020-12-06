@@ -1,4 +1,3 @@
-
 {{> minicart}}
 
 <!-- Cart Overlay -->
@@ -6,16 +5,49 @@
 
 {{> pagebanner}}
 
+
+<!-- Header Advance Search Start -->
+<div class="header-advance-search text-center">
+    <form action="#">
+        <div class="input"><input type="text" placeholder="Search your product"></div>
+        
+        <div class="select">
+            <select class="nice-select">
+                <option>Điện thoại</option>
+                <option>Laptop</option>
+                <option>Tablet</option>
+                <option>Đồng hồ thông minh</option>
+                <option>Máy ảnh</option>
+                <option>Phụ kiện</option>
+                <option>Linh kiện máy tính</option>
+                <option>Khác</option>
+            </select>
+
+            {{!-- <select class="nice-select">
+                {{#each category}}
+                <option>{{name}}</option>
+                {{/each}}
+            </select> --}}
+            
+        </div>
+
+        <div class="submit"><button><i class="icofont icofont-search-alt-1"></i></button></div>
+    </form>
+
+</div><!-- Header Advance Search End -->
+</div>
+
+
 <!-- Product Section Start -->
 <div class="product-section section mt-90 mb-90">
     <div class="container">
         <div class="row">
-           
+
             <div class="col-12">
-                
+
                 <div class="row mb-50">
                     <div class="col">
-                       
+
                         <!-- Shop Top Bar Start -->
                         <div class="shop-top-bar">
 
@@ -56,30 +88,32 @@
                             </div>
 
                         </div><!-- Shop Top Bar End -->
-                        
+
                     </div>
                 </div>
-                
+
                 <!-- Shop Product Wrap Start -->
                 <!-- Shop Product Wrap Start -->
                 <div class="shop-product-wrap grid row">
                     {{#each shopgrid}}
                     <div class="col-xl-3 col-lg-4 col-md-6 col-12 pb-30 pt-10">
-                       
+
                         <!-- Product Start -->
                         <div class="ee-product">
 
                             <!-- Image -->
                             <div class="image">
 
-                                <a href="/single-product/{{id}}" class="img"><img src="{{thumbnailPath}}" alt="Product Image"></a>
+                                <a href="/single-product/{{id}}" class="img"><img src="{{thumbnailPath}}"
+                                        alt="Product Image"></a>
 
                                 <div class="wishlist-compare">
-                                    
+
                                     <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
                                 </div>
 
-                                <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
+                                <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO
+                                        CART</span></a>
 
                             </div>
 
@@ -111,14 +145,15 @@
                             </div>
 
                         </div><!-- Product End -->
-                        
+
                         <!-- Product List Start -->
                         <div class="ee-product-list">
 
                             <!-- Image -->
                             <div class="image">
 
-                                <a href="/single-product/{{id}}" class="img"><img src="{{thumbnailPath}}" alt="Product Image"></a>
+                                <a href="/single-product/{{id}}" class="img"><img src="{{thumbnailPath}}"
+                                        alt="Product Image"></a>
 
                             </div>
 
@@ -132,13 +167,13 @@
                                         <a href="#" class="cat">{{categoryId}}</a>
                                         <h5 class="title"><a href="/single-product/{{id}}">{{name}}</a></h5>
                                     </div>
-                                    
+
                                     <h5 class="price">{{price}} VND</h5>
 
                                 </div>
-                                
+
                                 <div class="left-content">
-                                   
+
                                     <div class="ratting">
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
@@ -146,24 +181,25 @@
                                         <i class="fa fa-star-half-o"></i>
                                         <i class="fa fa-star-o"></i>
                                     </div>
-                                    
+
                                     <div class="desc">
                                         <p>{{description}}</p>
                                     </div>
-                                    
+
                                     <div class="actions">
 
-                                        <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
+                                        <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO
+                                                CART</span></a>
 
                                         <div class="wishlist-compare">
                                             <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
                                             <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
                                         </div>
-                                        
+
                                     </div>
-                                    
+
                                 </div>
-                                
+
                                 <div class="right-content">
                                     <div class="specification">
                                         <h5>Specifications</h5>
@@ -173,23 +209,23 @@
                                             <li>{{specification3}}</li>
                                         </ul>
                                     </div>
-                                    <span class="availability">Availability: 
+                                    <span class="availability">Availability:
                                         {{#if availability}}
                                         <span>In Stock</span></span>
-                                        {{else}}
-                                        <span>Out Stock</span></span>
-                                        {{/if}}
+                                    {{else}}
+                                    <span>Out Stock</span></span>
+                                    {{/if}}
                                 </div>
 
                             </div>
 
                         </div><!-- Product List End -->
-                    
+
                     </div>
-                    {{/each}}   
-                    
+                    {{/each}}
+
                 </div><!-- Shop Product Wrap End -->
-                
+
                 <div class="row mt-30">
                     <div class="col">
 
@@ -204,12 +240,12 @@
                             <li><a href="#">20</a></li> --}}
                             <li><a href="#">Next<i class="fa fa-angle-right"></i></a></li>
                         </ul>
-                        
+
                     </div>
                 </div>
-                
+
             </div>
-            
+
         </div>
     </div>
 </div><!-- Feature Product Section End -->

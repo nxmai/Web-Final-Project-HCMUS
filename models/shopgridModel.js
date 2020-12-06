@@ -12,11 +12,19 @@ const db = require('../dal/mysql');
 // }
 
 module.exports.list = {
-    all(){
-        return db.load('select * from product');
+    all(id){
+        //return db.load('select pr.id, pr.name, pr.price, pr.imagePath, pr.thumbnailPath, pr.availability, pr.summary, pr.description, ca.name from product as pr, category as ca where pr.categoryId = ca.id');
+        if(typeof(id.category) === 'undefined'){
+            return db.load('select * from product');
+        } else {
+            return db.load('select * from product where categoryId = ' + id.category);
+        }
     },
     single(id){
         return db.load('select * from product where id = ' + id);
+    },
+    category(){
+        return db.load('select * from category');
     }
 }
 
