@@ -13,22 +13,10 @@
         
         <div class="select">
             <select class="nice-select">
-                <option>Điện thoại</option>
-                <option>Laptop</option>
-                <option>Tablet</option>
-                <option>Đồng hồ thông minh</option>
-                <option>Máy ảnh</option>
-                <option>Phụ kiện</option>
-                <option>Linh kiện máy tính</option>
-                <option>Khác</option>
-            </select>
-
-            {{!-- <select class="nice-select">
                 {{#each category}}
                 <option>{{name}}</option>
                 {{/each}}
-            </select> --}}
-            
+            </select>
         </div>
 
         <div class="submit"><button><i class="icofont icofont-search-alt-1"></i></button></div>
@@ -205,16 +193,14 @@
                                         <h5>Specifications</h5>
                                         <ul>
                                             <li>{{specification1}}</li>
-                                            <li>{{specification2}}</li>
-                                            <li>{{specification3}}</li>
                                         </ul>
                                     </div>
                                     <span class="availability">Availability:
                                         {{#if availability}}
                                         <span>In Stock</span></span>
-                                    {{else}}
-                                    <span>Out Stock</span></span>
-                                    {{/if}}
+                                        {{else}}
+                                        <span>Out Stock</span></span>
+                                        {{/if}}
                                 </div>
 
                             </div>
@@ -253,3 +239,11 @@
 {{> brands}}
 
 {{> subscribe}}
+
+
+{{!-- <script>
+    function selectParam(key, value){
+        const url = 'single-product?${key}=${value}';
+        location.href=url;
+    }
+</script> --}}

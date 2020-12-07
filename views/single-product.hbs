@@ -9,10 +9,10 @@
 <!-- Single Product Section Start -->
 <div class="product-section section mt-90 mb-90">
     
-    {{#each product}}
+    
     <div class="container">
         
-        
+        {{#each product}}
         <div class="row mb-90">
             
                     
@@ -121,14 +121,10 @@
                         </div>
 
                     </div>
-                
                 </div>
-
             </div>
-            
         </div>
-        
-
+        {{/each}}
         <div class="row">
             
             <div class="col-lg-10 col-12 ml-auto mr-auto">
@@ -144,12 +140,21 @@
                         
                         <div class="row">
                             <div class="single-product-description-content col-lg-8 col-12">
-                                <h4>Introducing Flex 3310</h4>
-                                <p>enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora in</p>
-                                <h4>Stylish Design</h4>
-                                <p>enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci veli</p>
-                                <h4>Digital Camera, FM Radio & many more...</h4>
-                                <p>enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci veli</p>
+                                {{!-- <h4>Introducing Flex 3310</h4> --}}
+                                <p>enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, 
+                                    sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est, 
+                                    qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed 
+                                    quia non numquam eius modi tempora in enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, 
+                                    sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est, 
+                                    qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed 
+                                    quia non numquam eius modi tempora in enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, 
+                                    sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est, 
+                                    qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed 
+                                    quia non numquam eius modi tempora in enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, 
+                                    sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est, 
+                                    qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed 
+                                    quia non numquam eius modi tempora in</p>
+                                    
                             </div>
                             <div class="single-product-description-image col-lg-4 col-12">
                                 <img src="/assets/images/single-product/description.png" alt="description">
@@ -160,12 +165,9 @@
                     <div class="tab-pane fade" id="product-specifications">
                         <div class="single-product-specification">
                             <ul>
-                                <li>{{specification1}}</li>
-                                <li>{{specification2}}</li>
-                                <li>{{specification3}}</li>
-                                <li>Full HD Camcorder</li>
-                                <li>Dual Video Recording</li>
-                                <li>X type battery operation</li>
+                                {{#each specification}}
+                                <li>{{content}}</li>
+                                {{/each}}
                             </ul>
                         </div>
                     </div>
@@ -299,20 +301,16 @@
 								</form>
 							</div>
 						</div>
-                        
                     </div>
                 </div>
-                
             </div>
-            
         </div>
-        
     </div>
-    {{/each}}
+    
 
 </div><!-- Single Product Section End -->
 
-<!-- Related Product Section Start -->
+{{!-- <!-- Related Product Section Start -->
 <div class="product-section section mb-70">
     <div class="container">
         <div class="row">
@@ -386,7 +384,7 @@
             
         </div>
     </div>
-</div><!-- Related Product Section End -->
+</div><!-- Related Product Section End --> --}}
 
 {{> brands}}
 
