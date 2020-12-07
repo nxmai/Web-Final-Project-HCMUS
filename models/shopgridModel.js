@@ -1,19 +1,13 @@
-
 const db = require('../dal/mysql');
-// exports.list = () => {
-    
-//     const sql = "select * from product";
-//     return db.load(sql);
-// }
+const config = require('../config/default.json');
 
 module.exports.list = {
-    all(id){
+    all(categoryId, page){
         //return db.load('select pr.id, pr.name, pr.price, pr.imagePath, pr.thumbnailPath, pr.availability, pr.summary, pr.description, ca.name from product as pr, category as ca where pr.categoryId = ca.id');
-        console.log(`query: ${id} `);
-        if(typeof(id) === 'undefined'){
-            return db.load('select * from product');
+        if(typeof(categoryId) === 'undefined'){
+            return db.load(`select * from product limit ${config.pagination.limit} offset ${(page-1)*config.pagination.limit}`);
         } else {
-            return db.load(`select * from product where categoryId = ${id}`);
+            return db.load(`select * from product where categoryId = ${categoryId} limit ${config.pagination.limit} offset ${(page-1)*config.pagination.limit}`);
         }
     },
     single(id){
