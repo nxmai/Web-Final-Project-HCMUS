@@ -14,14 +14,13 @@
             <!-- Register -->
             <div class="col-md-6 col-12 d-flex">
                 <div class="ee-register">
-                    
                     <h3>We will need for your registration</h3>
                     <p>E&E provide how all this mistaken idea of denouncing pleasure and sing pain born an will give you a complete account of the system, and expound</p>
                     
                     <!-- Register Form -->
                     <form action="#">
                         <div class="row">
-                            <div class="col-12 mb-30"><input type="text" placeholder="Your name here"></div>
+                            <div class="col-12 mb-30"><input name type="text" placeholder="Your name here"></div>
                             <div class="col-12 mb-30"><input type="email" placeholder="Your email here"></div>
                             <div class="col-12 mb-30"><input type="password" placeholder="Enter passward"></div>
                             <div class="col-12 mb-30"><input type="password" placeholder="Conform password"></div>
@@ -42,16 +41,19 @@
             <div class="col-md-5 col-12 d-flex">
                 
                 <div class="ee-account-image">
-                    <h3>Upload your Image</h3>
+                    <form method="POST" action='#' enctype="multipart/form-data"  role="form"  ></form>
+                        <h3>Upload your Image</h3>
+                        <img src="assets/images/account-image-placeholder.jpg" alt="Account Image Placeholder" class="image-placeholder">
                     
-                    <img src="assets/images/account-image-placeholder.jpg" alt="Account Image Placeholder" class="image-placeholder">
+                        <div class="account-image-upload">
+                            <input type="file" name="chooseFile" id="account-image-upload" accept="">
+                            <label class="account-image-label" for="account-image-upload">Choose your image</label>
+                        </div>
                     
-                    <div class="account-image-upload">
-                        <input type="file" name="chooseFile" id="account-image-upload">
-                        <label class="account-image-label" for="account-image-upload">Choose your image</label>
-                    </div>
+                        <p>jpEG 250x250</p>
                     
-                    <p>jpEG 250x250</p>
+                        <input class="btn btn-info" type="submit" value="Update Image"> 
+                    </form>
                     
                 </div>
                 
