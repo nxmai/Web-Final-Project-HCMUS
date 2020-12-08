@@ -6,7 +6,7 @@ exports.index = async  (req, res, next) => {
     console.log(query);
     const shopgrid = await shopgridModel.list.getAll(query);
     const category = await shopgridModel.list.category();
-    console.log(shopgrid);
+
     res.render('shop-grid', { shopgrid, category}); 
 
 

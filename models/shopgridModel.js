@@ -4,23 +4,34 @@ const config = require('../config/default.json');
 module.exports.list = {
     getAll(query){
         //return db.load('select pr.id, pr.name, pr.price, pr.imagePath, pr.thumbnailPath, pr.availability, pr.summary, pr.description, ca.name from product as pr, category as ca where pr.categoryId = ca.id');
-        if(Object.keys(query).length === 0 && query.constructor === Object){
-            console.log('in here');
-            return db.load('select * from product');
+        if(Object.keys(query).length === 0 && query.constructor === Object){ //check empty object
+            return db.load('select * from product limit 8');
+        }
+
+        if(Object.keys(query).length === 1 && query.constructor === Object && Object.keys(query)[0] == 'search'){
+            return db.load(`select * from product where name like '%${query.search}%' limit 8`)
         }
         
         var sql = "";
         if(parseInt(query.category) > 0){
-            sql += "where categoryId = " + query.category;
+            sql += `where categoryId = ${query.category}`;
+
+            if(query.search !== ''){
+                sql += ` and name like '%${query.search}%'`;
+            }
+        } else {
+            if(query.search !== ''){
+                sql += ` where name like '%${query.search}%'`;
+            }
         }
         
         if(query.sort !== 'default'){
             var str = query.sort.split("-", 2);
-            sql += " order by " + str[0] + ' ' + str[1];
+            sql += ` order by ${str[0]} ${str[1]}`;
         }
 
-        sql += " limit " + query.limit;
-        console.log(sql);
+        sql += ` limit ${query.limit}`;
+        console.log('select * from product ' + sql);
         return db.load('select * from product ' + sql);
     },
     single(id){
