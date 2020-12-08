@@ -30,8 +30,7 @@ module.exports.list = {
             sql += ` order by ${str[0]} ${str[1]}`;
         }
 
-        sql += ` limit ${query.limit}`;
-        console.log('select * from product ' + sql);
+        sql += ` limit ${query.limit} offset ${(parseInt(query.page)-1)*(parseInt(query.limit))}`;
         return db.load('select * from product ' + sql);
     },
     single(id){
@@ -42,6 +41,39 @@ module.exports.list = {
     },
     specification(id){
         return db.load(`select s.content from product as p, specification as s where p.id=s.productid and p.id = ${id}`);
+    },
+    async count(query){
+        if(Object.keys(query).length === 0 && query.constructor === Object){ //check empty object
+            const res = await db.load('select count(*) as total from product limit 8');
+            return res[0].total;
+        }
+
+        if(Object.keys(query).length === 1 && query.constructor === Object && Object.keys(query)[0] == 'search'){
+            const res = await db.load(`select count(*) as total from product where name like '%${query.search}%' limit 8`)
+            return res[0].total;
+        }
+        
+        var sql = "";
+        if(parseInt(query.category) > 0){
+            sql += `where categoryId = ${query.category}`;
+
+            if(query.search !== ''){
+                sql += ` and name like '%${query.search}%'`;
+            }
+        } else {
+            if(query.search !== ''){
+                sql += ` where name like '%${query.search}%'`;
+            }
+        }
+        
+        if(query.sort !== 'default'){
+            var str = query.sort.split("-", 2);
+            sql += ` order by ${str[0]} ${str[1]}`;
+        }
+
+        sql += ` limit ${query.limit}`;
+        const res = await db.load('select count(*) as total from product ' + sql);
+        return res[0].total;
     }
 }
 

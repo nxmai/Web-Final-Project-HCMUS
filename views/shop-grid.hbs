@@ -178,15 +178,17 @@
                 <div class="row mt-30">
                     <div class="col">
                         <ul class="pagination">
-                            <li><a href="#"><i class="fa fa-angle-left"></i>Back</a></li>
-                            <li><a href="#">1</a></li>
-                            {{!--<li class="active"><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li> - - - - - </li>
-                            <li><a href="#">5</a></li> --}}
-                            {{!-- <li><a href="#">18</a></li>
-                            <li><a href="#">20</a></li> --}}
-                            <li><a href="#">Next<i class="fa fa-angle-right"></i></a></li>
+                            {{#if can_go_prev}}
+                                <li><a onclick="selectParam('page', {{prev_page}})"><i class="fa fa-angle-left"></i>Back</a></li>
+                            {{/if}}
+
+                            {{#each page_items}}
+                                <li><a  onclick="selectParam('page', {{value}})">{{value}}</a></li>
+                            {{/each}}
+
+                            {{#if can_go_next}}
+                                <li><a onclick="selectParam('page', {{next_page}})">Next<i class="fa fa-angle-right"></i></a></li>
+                            {{/if}}
                         </ul>
                     </div>
                 </div>
@@ -205,7 +207,8 @@
         category: 0,
         limit: 8,
         sort: 'default',
-        search: ''
+        search: '',
+        page: 1
     };
 
     for(let key in params){

@@ -17,12 +17,17 @@ const app = express();
 //app.set('views', path.join(__dirname, 'views'));
 //app.set('view engine', 'hbs');
 
-var exhbs = require('express-handlebars');
+const exhbs = require('express-handlebars');
+const paginateHelper = require('express-handlebars-paginate');
+
 app.engine('hbs', exhbs({
     defaultLayout: 'layout',
     extname: 'hbs',
     layoutsDir: 'views',
-    partialsDir: 'views/partials'
+    partialsDir: 'views/partials',
+    helpers: {
+        createPagination: paginateHelper.createPagination
+    }
   }));
   app.set('view engine', 'hbs');
 
