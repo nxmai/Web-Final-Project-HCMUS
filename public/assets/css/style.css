@@ -6956,7 +6956,9 @@ img.mfp-img {
       height: 25vw;
       object-fit: cover;
       margin-left: auto;
-      margin-right: auto; */
+      margin-right: auto; 
+      height: 320;
+      width: 270;*/
       display: block;
       background-color: #f6f7f8; }
       .ee-product .image .img img {

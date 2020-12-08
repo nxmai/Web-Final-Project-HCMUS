@@ -2,13 +2,26 @@ const db = require('../dal/mysql');
 const config = require('../config/default.json');
 
 module.exports.list = {
-    all(categoryId, page){
+    getAll(query){
         //return db.load('select pr.id, pr.name, pr.price, pr.imagePath, pr.thumbnailPath, pr.availability, pr.summary, pr.description, ca.name from product as pr, category as ca where pr.categoryId = ca.id');
-        if(typeof(categoryId) === 'undefined'){
-            return db.load(`select * from product limit ${config.pagination.limit} offset ${(page-1)*config.pagination.limit}`);
-        } else {
-            return db.load(`select * from product where categoryId = ${categoryId} limit ${config.pagination.limit} offset ${(page-1)*config.pagination.limit}`);
+        if(Object.keys(query).length === 0 && query.constructor === Object){
+            console.log('in here');
+            return db.load('select * from product');
         }
+        
+        var sql = "";
+        if(parseInt(query.category) > 0){
+            sql += "where categoryId = " + query.category;
+        }
+        
+        if(query.sort !== 'default'){
+            var str = query.sort.split("-", 2);
+            sql += " order by " + str[0] + ' ' + str[1];
+        }
+
+        sql += " limit " + query.limit;
+        console.log(sql);
+        return db.load('select * from product ' + sql);
     },
     single(id){
         return db.load(`select * from product where id = ${id}`);
@@ -20,6 +33,15 @@ module.exports.list = {
         return db.load(`select s.content from product as p, specification as s where p.id=s.productid and p.id = ${id}`);
     }
 }
+
+// all(categoryId){
+//     //return db.load('select pr.id, pr.name, pr.price, pr.imagePath, pr.thumbnailPath, pr.availability, pr.summary, pr.description, ca.name from product as pr, category as ca where pr.categoryId = ca.id');
+//     if(typeof(categoryId) === 'undefined'){
+//         return db.load(`select * from product limit ${config.pagination.limit} offset ${(page-1)*config.pagination.limit}`);
+//     } else {
+//         return db.load(`select * from product where categoryId = ${categoryId} limit ${config.pagination.limit} offset ${(page-1)*config.pagination.limit}`);
+//     }
+// },
 
 
 

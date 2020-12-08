@@ -5,40 +5,32 @@
 
 {{> pagebanner}}
 
-
 <!-- Header Advance Search Start -->
 <div class="header-advance-search text-center">
-    <form action="#">
-        <div class="input"><input type="text" placeholder="Search your product"></div>
-        
-        <div class="select">
-            <select class="nice-select">
+    <form action="/shop-grid" method="GET">
+        <div class="input"><input type="text" name="search" placeholder="Search your product"></div>
+        <div class="select" id="category">
+            <select id="catename" class="nice-select" onchange="selectParam('category', this.value, true)" >
+                <option value="0">All categories</option>
                 {{#each category}}
-                <option>{{name}}</option>
+                <option value={{id}}>{{name}}</option>
                 {{/each}}
             </select>
         </div>
-
         <div class="submit"><button><i class="icofont icofont-search-alt-1"></i></button></div>
     </form>
-
 </div><!-- Header Advance Search End -->
 </div>
-
 
 <!-- Product Section Start -->
 <div class="product-section section mt-90 mb-90">
     <div class="container">
         <div class="row">
-
             <div class="col-12">
-
                 <div class="row mb-50">
                     <div class="col">
-
                         <!-- Shop Top Bar Start -->
                         <div class="shop-top-bar">
-
                             <!-- Product View Mode -->
                             <div class="product-view-mode">
                                 <a class="active" href="#" data-target="grid"><i class="fa fa-th"></i></a>
@@ -48,23 +40,24 @@
                             <!-- Product Showing -->
                             <div class="product-showing">
                                 <p>Showing</p>
-                                <select name="showing" class="nice-select">
-                                    <option value="1">8</option>
-                                    <option value="2">12</option>
-                                    <option value="3">16</option>
-                                    <option value="4">20</option>
-                                    <option value="5">24</option>
+                                <select id="limit" name="showing" class="nice-select" onchange="selectParam('limit', this.value)">
+                                    <option value="8">8</option>
+                                    <option value="12">12</option>
+                                    <option value="16">16</option>
+                                    <option value="20">20</option>
+                                    <option value="24">24</option>
                                 </select>
                             </div>
 
                             <!-- Product Sort -->
                             <div class="product-short">
                                 <p>Sort by</p>
-                                <select name="sortby" class="nice-select">
-                                    <option value="trending">Trending items</option>
-                                    <option value="sales">Best sellers</option>
-                                    <option value="rating">Best rated</option>
-                                    <option value="date">Newest items</option>
+                                <select id="sort" name="sortby" class="nice-select" onchange="selectParam('sort', this.value)">
+                                    {{!-- <option value="trending">Trending items</option>
+                                    <option value="sales">Best sellers</option> --}}
+                                    <option value="default">Date</option>
+                                    <option value="name-asc">Name</option>
+                                    {{!-- <option value="rating-desc">Best rated</option> --}}
                                     <option value="price-asc">Price: low to high</option>
                                     <option value="price-desc">Price: high to low</option>
                                 </select>
@@ -74,9 +67,7 @@
                             <div class="product-pages">
                                 <p>Pages 1 of 1</p>
                             </div>
-
                         </div><!-- Shop Top Bar End -->
-
                     </div>
                 </div>
 
@@ -85,40 +76,29 @@
                 <div class="shop-product-wrap grid row">
                     {{#each shopgrid}}
                     <div class="col-xl-3 col-lg-4 col-md-6 col-12 pb-30 pt-10">
-
                         <!-- Product Start -->
                         <div class="ee-product">
-
                             <!-- Image -->
                             <div class="image">
-
                                 <a href="/single-product/{{id}}" class="img"><img src="{{thumbnailPath}}"
                                         alt="Product Image"></a>
-
                                 <div class="wishlist-compare">
-
                                     <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
                                 </div>
-
                                 <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO
                                         CART</span></a>
-
                             </div>
 
                             <!-- Content -->
                             <div class="content">
-
                                 <!-- Category & Title -->
                                 <div class="category-title">
-
                                     <a href="#" class="cat">{{categoryId}}</a>
                                     <h5 class="title"><a href="/single-product/{{id}}">{{name}}</a></h5>
-
                                 </div>
 
                                 <!-- Price & Ratting -->
                                 <div class="price-ratting">
-
                                     <h5 class="price">{{price}} VND</h5>
                                     <div class="ratting">
                                         <i class="fa fa-star"></i>
@@ -127,41 +107,30 @@
                                         <i class="fa fa-star-half-o"></i>
                                         <i class="fa fa-star-o"></i>
                                     </div>
-
                                 </div>
-
                             </div>
-
                         </div><!-- Product End -->
 
                         <!-- Product List Start -->
                         <div class="ee-product-list">
-
                             <!-- Image -->
                             <div class="image">
-
                                 <a href="/single-product/{{id}}" class="img"><img src="{{thumbnailPath}}"
                                         alt="Product Image"></a>
-
                             </div>
 
                             <!-- Content -->
                             <div class="content">
-
                                 <!-- Category & Title -->
                                 <div class="head-content">
-
                                     <div class="category-title">
                                         <a href="#" class="cat">{{categoryId}}</a>
                                         <h5 class="title"><a href="/single-product/{{id}}">{{name}}</a></h5>
                                     </div>
-
                                     <h5 class="price">{{price}} VND</h5>
-
                                 </div>
 
                                 <div class="left-content">
-
                                     <div class="ratting">
                                         <i class="fa fa-star"></i>
                                         <i class="fa fa-star"></i>
@@ -175,7 +144,6 @@
                                     </div>
 
                                     <div class="actions">
-
                                         <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO
                                                 CART</span></a>
 
@@ -183,9 +151,7 @@
                                             <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
                                             <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
                                         </div>
-
                                     </div>
-
                                 </div>
 
                                 <div class="right-content">
@@ -202,11 +168,8 @@
                                         <span>Out Stock</span></span>
                                         {{/if}}
                                 </div>
-
                             </div>
-
                         </div><!-- Product List End -->
-
                     </div>
                     {{/each}}
 
@@ -214,7 +177,6 @@
 
                 <div class="row mt-30">
                     <div class="col">
-
                         <ul class="pagination">
                             <li><a href="#"><i class="fa fa-angle-left"></i>Back</a></li>
                             <li><a href="#">1</a></li>
@@ -226,12 +188,9 @@
                             <li><a href="#">20</a></li> --}}
                             <li><a href="#">Next<i class="fa fa-angle-right"></i></a></li>
                         </ul>
-
                     </div>
                 </div>
-
             </div>
-
         </div>
     </div>
 </div><!-- Feature Product Section End -->
@@ -240,10 +199,31 @@
 
 {{> subscribe}}
 
+<script>
+    const urlParams = new URLSearchParams(location.search);
+    let params = {
+        category: 0,
+        limit: 8,
+        sort: 'default' 
+    };
 
-{{!-- <script>
-    function selectParam(key, value){
-        const url = 'single-product?${key}=${value}';
-        location.href=url;
+    for(let key in params){
+        if(!urlParams.has(key)){
+            urlParams.append(key, params[key]);
+        }
     }
-</script> --}}
+
+    $('#limit').val(urlParams.get('limit'));
+    $('#sort').val(urlParams.get('sort'));
+    $('#catename').val(urlParams.get('category'));
+
+    function selectParam(key, value, reset=false){
+        if(reset){
+            for(let key in params){
+                urlParams.set(key, params[key]);}
+        }
+        urlParams.set(key, value);
+        const url = `/shop-grid?${urlParams.toString()}`;
+        location.href=url;
+    };
+</script>
