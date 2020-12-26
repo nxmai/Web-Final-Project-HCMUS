@@ -8,19 +8,14 @@
 
 <!-- Single Product Section Start -->
 <div class="product-section section mt-90 mb-90">
-    
-    
+
+    {{#each product}}
     <div class="container">
-        
-        {{#each product}}
         <div class="row mb-90">
-            
-                    
             <div class="col-lg-5 col-12 mb-50">
 
                 <!-- Image -->
                 <div class="single-product-image thumb-center">
-
                     <div class="tab-content">
                         <div id="single-image-1" class="tab-pane fade show active big-image-slider">
                             <div class="big-image"><img src="/{{imagePath}}" alt="Big Image"><a href="/assets/images/single-product/big-1.png" class="big-image-popup"><i class="fa fa-search-plus"></i></a></div>
@@ -35,12 +30,11 @@
 
                 <!-- Content -->
                 <div class="single-product-content">
-                
                     <!-- Category & Title -->
                     <div class="head-content">
 
                         <div class="category-title">
-                            <a href="#" class="cat">{{categoryId}}</a>
+                            <a href="#" class="cat">{{category}}</a>
                             <h5 class="title">{{name}}</h5>
                         </div>
 
@@ -124,11 +118,9 @@
                 </div>
             </div>
         </div>
-        {{/each}}
+        
         <div class="row">
-            
             <div class="col-lg-10 col-12 ml-auto mr-auto">
-                
                 <ul class="single-product-tab-list nav">
                     <li><a href="#product-description" class="active" data-toggle="tab" >description</a></li>
                     <li><a href="#product-specifications" data-toggle="tab" >specifications</a></li>
@@ -140,20 +132,7 @@
                         
                         <div class="row">
                             <div class="single-product-description-content col-lg-8 col-12">
-                                {{!-- <h4>Introducing Flex 3310</h4> --}}
-                                <p>enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, 
-                                    sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est, 
-                                    qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed 
-                                    quia non numquam eius modi tempora in enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, 
-                                    sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est, 
-                                    qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed 
-                                    quia non numquam eius modi tempora in enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, 
-                                    sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est, 
-                                    qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed 
-                                    quia non numquam eius modi tempora in enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, 
-                                    sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est, 
-                                    qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed 
-                                    quia non numquam eius modi tempora in</p>
+                                    <p>{{description}}</p>
                                     
                             </div>
                             <div class="single-product-description-image col-lg-4 col-12">
@@ -165,7 +144,7 @@
                     <div class="tab-pane fade" id="product-specifications">
                         <div class="single-product-specification">
                             <ul>
-                                {{#each specification}}
+                                {{#each ../specification}}
                                 <li>{{content}}</li>
                                 {{/each}}
                             </ul>
@@ -305,8 +284,11 @@
                 </div>
             </div>
         </div>
-    </div>
+
     
+    </div>
+    {{/each}}
+
 
 </div><!-- Single Product Section End -->
 

@@ -1,5 +1,4 @@
 const db = require('../dal/mysql');
-const config = require('../config/default.json');
 
 module.exports.list = {
     getAll(query){
@@ -34,7 +33,9 @@ module.exports.list = {
         return db.load('select * from product ' + sql);
     },
     single(id){
-        return db.load(`select * from product where id = ${id}`);
+        return db.load(`select pr.name as name, pr.imagePath, pr.price, pr.thumbnailPath, ca.name as category, pr.availability, pr.summary, pr.description
+                        from product as pr join category as ca on pr.categoryid = ca.id 
+                        where  pr.id = ${id}`);
     },
     category(){
         return db.load('select * from category');
