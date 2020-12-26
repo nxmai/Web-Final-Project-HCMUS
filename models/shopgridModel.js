@@ -4,11 +4,11 @@ module.exports.list = {
     getAll(query){
         //return db.load('select pr.id, pr.name, pr.price, pr.imagePath, pr.thumbnailPath, pr.availability, pr.summary, pr.description, ca.name from product as pr, category as ca where pr.categoryId = ca.id');
         if(Object.keys(query).length === 0 && query.constructor === Object){ //check empty object
-            return db.load('select * from product limit 8');
+            return db.load('select * from Product limit 8');
         }
 
         if(Object.keys(query).length === 1 && query.constructor === Object && Object.keys(query)[0] == 'search'){
-            return db.load(`select * from product where name like '%${query.search}%' limit 8`)
+            return db.load(`select * from Product where name like '%${query.search}%' limit 8`)
         }
         
         var sql = "";
@@ -30,27 +30,27 @@ module.exports.list = {
         }
 
         sql += ` limit ${query.limit} offset ${(parseInt(query.page)-1)*(parseInt(query.limit))}`;
-        return db.load('select * from product ' + sql);
+        return db.load('select * from Product ' + sql);
     },
     single(id){
         return db.load(`select pr.name as name, pr.imagePath, pr.price, pr.thumbnailPath, ca.name as category, pr.availability, pr.summary, pr.description
-                        from product as pr join category as ca on pr.categoryid = ca.id 
+                        from Product as pr join Category as ca on pr.categoryid = ca.id 
                         where  pr.id = ${id}`);
     },
     category(){
-        return db.load('select * from category');
+        return db.load('select * from Category');
     },
     specification(id){
-        return db.load(`select s.content from product as p, specification as s where p.id=s.productid and p.id = ${id}`);
+        return db.load(`select s.content from Product as p, Specification as s where p.id=s.productid and p.id = ${id}`);
     },
     async count(query){
         if(Object.keys(query).length === 0 && query.constructor === Object){ //check empty object
-            const res = await db.load('select count(*) as total from product limit 8');
+            const res = await db.load('select count(*) as total from Product limit 8');
             return res[0].total;
         }
 
         if(Object.keys(query).length === 1 && query.constructor === Object && Object.keys(query)[0] == 'search'){
-            const res = await db.load(`select count(*) as total from product where name like '%${query.search}%' limit 8`)
+            const res = await db.load(`select count(*) as total from Product where name like '%${query.search}%' limit 8`)
             return res[0].total;
         }
         
@@ -73,7 +73,7 @@ module.exports.list = {
         }
 
         sql += ` limit ${query.limit}`;
-        const res = await db.load('select count(*) as total from product ' + sql);
+        const res = await db.load('select count(*) as total from Product ' + sql);
         return res[0].total;
     }
 }

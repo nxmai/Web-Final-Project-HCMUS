@@ -4,6 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const fileupload = require('express-fileupload');
+require('dotenv').config();
 require('express-async-errors');
 
 const indexRouter = require('./routes/index');
@@ -64,6 +65,7 @@ app.use(function(err, req, res, next) {
 
     // render the error page
     res.status(err.status || 500);
+    console.log(err);
     res.render('500', {
         layout: false
     });

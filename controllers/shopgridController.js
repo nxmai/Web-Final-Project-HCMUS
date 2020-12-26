@@ -26,7 +26,7 @@ exports.index = async  (req, res, next) => {
                             can_go_prev: page > 1
                         }); 
 
-
+//res.send('abc');
 
 
     // try{
