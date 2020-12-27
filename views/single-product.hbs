@@ -87,22 +87,11 @@
                             <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
 
                             <div class="wishlist-compare">
-                                <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
                                 <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
                             </div>
 
                         </div>
                         
-                        <div class="tags">
-                            
-                            <h5>Tags:</h5>
-                            <a href="#">Electronic</a>
-                            <a href="#">Smartphone</a>
-                            <a href="#">Phone</a>
-                            <a href="#">Charger</a>
-                            <a href="#">Powerbank</a>
-                            
-                        </div>
                         
                         <div class="share">
                             
@@ -152,14 +141,12 @@
                         </div>
                     </div>
 
-                    
-
                     <div class="tab-pane fade" id="product-reviews">
                        
                         <div class="product-ratting-wrap">
 							<div class="pro-avg-ratting">
 								<h4>4.5 <span>(Overall)</span></h4>
-								<span>Based on 9 Comments</span>
+								<span>Based on 9 Reviews</span>
 							</div>
 							<div class="ratting-list">
 								<div class="sin-list float-left">
@@ -222,7 +209,7 @@
 								
 							</div>
 							<div class="ratting-form-wrapper fix">
-								<h3>Add your Comments</h3>
+								<h3>Add your Reviews</h3>
 								<form action="#">
 								    <div class="ratting-form row">
 										<div class="col-12 mb-15">
@@ -235,14 +222,7 @@
 												<i class="fa fa-star-o"></i>
 											</div>
 										</div>
-										<div class="col-md-6 col-12 mb-15">
-                                            <label for="name">Name:</label>
-                                            <input id="name" placeholder="Name" type="text">
-										</div>
-										<div class="col-md-6 col-12 mb-15">
-                                            <label for="email">Email:</label>
-                                            <input id="email" placeholder="Email" type="text">
-										</div>
+				
 										<div class="col-12 mb-15">
 											<label for="your-review">Your Review:</label>
 											<textarea name="review" id="your-review" placeholder="Write a review"></textarea>
@@ -257,7 +237,38 @@
                     </div>
 
                     <div class="tab-pane fade" id="product-comments">
-                        <div class="col-md-6 col-12 mb-15">
+                        <div class="product-ratting-wrap">
+                            <div class="rattings-wrapper">
+								<div class="sin-rattings">
+									<div class="ratting-author">
+										<h3>Cristopher Lee</h3>
+									</div>
+									<p>enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci veli</p>
+								</div>
+								
+						    </div>
+
+                            <div class="ratting-form-wrapper fix">
+								<h3>Add your Comments</h3>
+								<form action="#">
+								    <div class="ratting-form row">
+                                        <div class="col-md-6 col-12 mb-15">
+                                            <label for="name">Name:</label>
+                                            <input id="name" placeholder="Name" type="text">
+										</div>
+										<div class="col-12 mb-15">
+											<label for="your-review">Comment:</label>
+											<textarea name="comment" id="your-comment" placeholder="Write a comment"></textarea>
+										</div>
+										<div class="col-12">
+											<input value="add comment" type="submit">
+										</div>
+								    </div>
+								</form>
+						    </div>
+                        </div>
+                        
+                        {{!-- <div class="col-md-6 col-12 mb-15">
                             <label for="name">Name:</label>
                             <input id="name" placeholder="Name" type="text">
 						</div>
@@ -271,7 +282,7 @@
 						</div>
 						<div class="col-12">
 							<input value="add review" type="submit">
-						</div>
+						</div> --}}
                     </div>
 
                 </div>
