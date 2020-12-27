@@ -6,7 +6,7 @@ exports.index = async  (req, res, next) => {
     const shopgrid = await shopgridModel.list.getAll(query);
     const category = await shopgridModel.list.category();
     const totalPro = await shopgridModel.list.count(query);
-    
+    console.log(shopgrid);
     const nPages = Math.ceil(totalPro/8);
     const page_items = [];
     for(var i = 1; i <= nPages; i++){

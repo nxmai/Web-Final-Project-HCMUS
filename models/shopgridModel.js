@@ -4,11 +4,15 @@ module.exports.list = {
     getAll(query){
         //return db.load('select pr.id, pr.name, pr.price, pr.imagePath, pr.thumbnailPath, pr.availability, pr.summary, pr.description, ca.name from product as pr, category as ca where pr.categoryId = ca.id');
         if(Object.keys(query).length === 0 && query.constructor === Object){ //check empty object
-            return db.load('select * from Product limit 8');
+            return db.load(`select pr.id, pr.name as name, pr.imagePath, pr.price, pr.thumbnailPath, ca.name as category, pr.availability, pr.summary, pr.description
+                            from Product as pr join Category as ca on pr.categoryid = ca.id 
+                            limit 8`);
         }
 
         if(Object.keys(query).length === 1 && query.constructor === Object && Object.keys(query)[0] == 'search'){
-            return db.load(`select * from Product where name like '%${query.search}%' limit 8`)
+            return db.load(`select pr.id, pr.name as name, pr.imagePath, pr.price, pr.thumbnailPath, ca.name as category, pr.availability, pr.summary, pr.description
+                            from Product as pr join Category as ca on pr.categoryid = ca.id 
+                            where name like '%${query.search}%' limit 8`)
         }
         
         var sql = "";
@@ -30,7 +34,9 @@ module.exports.list = {
         }
 
         sql += ` limit ${query.limit} offset ${(parseInt(query.page)-1)*(parseInt(query.limit))}`;
-        return db.load('select * from Product ' + sql);
+        return db.load(`select pr.id, pr.name as name, pr.imagePath, pr.price, pr.thumbnailPath, ca.name as category, pr.availability, pr.summary, pr.description
+                        from Product as pr join Category as ca on pr.categoryid = ca.id `
+                        + sql);
     },
     category(){
         return db.load('select * from Category');
