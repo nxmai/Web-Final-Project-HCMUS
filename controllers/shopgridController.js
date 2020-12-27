@@ -15,8 +15,6 @@ exports.index = async  (req, res, next) => {
         }
         page_items.push(item);
     }
-    console.log('page: ' + nPages);
-    console.log(page_items);
 
     res.render('shop-grid', { shopgrid, category, 
                             page_items,
@@ -26,16 +24,5 @@ exports.index = async  (req, res, next) => {
                             can_go_prev: page > 1
                         }); 
 
-//res.send('abc');
-
-
-    // try{
-    //     const shopgrid = await shopgridModel.list.all();
-    //     console.log(shopgrid);
-    //     res.render('shop-grid', { shopgrid }); 
-    // }catch (err) {
-    //     console.log(err);
-    //     res.send('Check error on server \'s console ');
-    // }
 
 }

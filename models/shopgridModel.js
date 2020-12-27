@@ -32,16 +32,8 @@ module.exports.list = {
         sql += ` limit ${query.limit} offset ${(parseInt(query.page)-1)*(parseInt(query.limit))}`;
         return db.load('select * from Product ' + sql);
     },
-    single(id){
-        return db.load(`select pr.name as name, pr.imagePath, pr.price, pr.thumbnailPath, ca.name as category, pr.availability, pr.summary, pr.description
-                        from Product as pr join Category as ca on pr.categoryid = ca.id 
-                        where  pr.id = ${id}`);
-    },
     category(){
         return db.load('select * from Category');
-    },
-    specification(id){
-        return db.load(`select s.content from Product as p, Specification as s where p.id=s.productid and p.id = ${id}`);
     },
     async count(query){
         if(Object.keys(query).length === 0 && query.constructor === Object){ //check empty object
@@ -77,17 +69,6 @@ module.exports.list = {
         return res[0].total;
     }
 }
-
-// all(categoryId){
-//     //return db.load('select pr.id, pr.name, pr.price, pr.imagePath, pr.thumbnailPath, pr.availability, pr.summary, pr.description, ca.name from product as pr, category as ca where pr.categoryId = ca.id');
-//     if(typeof(categoryId) === 'undefined'){
-//         return db.load(`select * from product limit ${config.pagination.limit} offset ${(page-1)*config.pagination.limit}`);
-//     } else {
-//         return db.load(`select * from product where categoryId = ${categoryId} limit ${config.pagination.limit} offset ${(page-1)*config.pagination.limit}`);
-//     }
-// },
-
-
 
 exports.list_logo_image = () => {
     return [{
