@@ -19,7 +19,6 @@ exports.details = async (req, res, next) => {
             }
             page_items.push(item);
         }
-        
 
         if (req.query.page !== undefined) {
             const comment = await productModel.list.comment(req.params.id, page);
@@ -58,9 +57,10 @@ exports.add = (req, res) => {
     console.log('test');
     console.log(req.query);
     console.log(req.params);
+    console.log(req.body);
 
-    const name = req.query.name;
-    const comment = req.query.comment;
-    const id = req.params;
+    // const name = req.query.name;
+    // const comment = req.query.comment;
+    // const id = req.params;
     res.send('do day roi');
 }

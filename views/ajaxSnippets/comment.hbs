@@ -7,6 +7,34 @@
 
 <ul class="pagination">
     {{#if can_go_prev}}
+        <li><a onclick="selectCommentPage(event, {{prev_page}})" data-pageNumber="{{prev_page}}"><i
+                class="fa fa-angle-left"></i>Back</a></li>
+    {{else}}
+        <li style="display:none;"><a onclick="selectCommentPage(event, {{prev_page}})" data-pageNumber="{{prev_page}}"><i
+                class="fa fa-angle-left"></i>Back</a></li>
+    {{/if}}
+
+    {{#each page_items}}
+        {{#when value 'eq' ../page }}
+            <li class="active"><a onclick="selectCommentPage(event, {{value}})" data-pageNumber="{{value}}">{{value}}</a></li>
+        {{/when}}
+
+        {{#when value 'noteq' ../page}}
+            <li><a onclick="selectCommentPage(event, {{value}})" data-pageNumber="{{value}}">{{value}}</a></li>
+        {{/when}}
+    {{/each}}
+
+    {{#if can_go_next}}
+        <li><a onclick="selectCommentPage(event, {{next_page}})" data-pageNumber="{{next_page}}">Next<i
+                class="fa fa-angle-right"></i></a></li>
+    {{else}}
+        <li style="display: none;"><a onclick="selectCommentPage(event, {{next_page}})"
+            data-pageNumber="{{next_page}}">Next<i class="fa fa-angle-right"></i></a></li>
+    {{/if}}
+
+
+
+    {{!-- {{#if can_go_prev}}
     <li><a onclick="selectCommentPage(event, {{prev_page}})" data-pageNumber="{{prev_page}}"><i
                 class="fa fa-angle-left"></i>Back</a></li>
     {{/if}}
@@ -18,6 +46,6 @@
     {{#if can_go_next}}
     <li><a onclick="selectCommentPage(event, {{next_page}})" data-pageNumber="{{next_page}}">Next<i
                 class="fa fa-angle-right"></i></a></li>
-    {{/if}}
+    {{/if}} --}}
 
 </ul>
