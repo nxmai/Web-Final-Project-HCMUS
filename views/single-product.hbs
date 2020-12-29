@@ -1,10 +1,12 @@
-
 {{> minicart}}
 
 <!-- Cart Overlay -->
 <div class="cart-overlay"></div>
 
 {{> pagebanner}}
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
 
 <!-- Single Product Section Start -->
 <div class="product-section section mt-90 mb-90">
@@ -18,14 +20,16 @@
                 <div class="single-product-image thumb-center">
                     <div class="tab-content">
                         <div id="single-image-1" class="tab-pane fade show active big-image-slider">
-                            <div class="big-image"><img src="/{{imagePath}}" alt="Big Image"><a href="/assets/images/single-product/big-1.png" class="big-image-popup"><i class="fa fa-search-plus"></i></a></div>
-                            <div class="big-image"><img src="/{{imagePath}}" alt="Big Image"><a href="/assets/images/single-product/big-2.png" class="big-image-popup"><i class="fa fa-search-plus"></i></a></div>
+                            <div class="big-image"><img src="/{{imagePath}}" alt="Big Image"><a href="/{{imagePath}}"
+                                    class="big-image-popup"><i class="fa fa-search-plus"></i></a></div>
+                            <div class="big-image"><img src="/{{imagePath}}" alt="Big Image"><a href="/{{imagePath}}"
+                                    class="big-image-popup"><i class="fa fa-search-plus"></i></a></div>
                         </div>
                     </div>
                 </div>
 
             </div>
-                    
+
             <div class="col-lg-7 col-12 mb-50">
 
                 <!-- Content -->
@@ -55,21 +59,21 @@
                         <div class="desc">
                             <p>{{description}}</p>
                         </div>
-                        
-                        <span class="availability">Availability: 
-                                        {{#if availability}}
-                                        <span>In Stock</span></span>
-                                        {{else}}
-                                        <span>Out Stock</span></span>
-                                        {{/if}}
-                        
+
+                        <span class="availability">Availability:
+                            {{#if availability}}
+                            <span>In Stock</span></span>
+                        {{else}}
+                        <span>Out Stock</span></span>
+                        {{/if}}
+
                         <div class="quantity-colors">
-                            
+
                             <div class="quantity">
                                 <h5>Quantity</h5>
                                 <div class="pro-qty"><input type="text" value="1"></div>
-                            </div>                            
-                            
+                            </div>
+
                             <div class="colors">
                                 <h5>Color</h5>
                                 <select class="nice-select">
@@ -78,9 +82,9 @@
                                     <option>yellow</option>
                                     <option>grey</option>
                                 </select>
-                            </div>                            
-                            
-                        </div> 
+                            </div>
+
+                        </div>
 
                         <div class="actions">
 
@@ -91,45 +95,45 @@
                             </div>
 
                         </div>
-                        
-                        
+
+
                         <div class="share">
-                            
+
                             <h5>Share: </h5>
                             <a href="#"><i class="fa fa-facebook"></i></a>
                             <a href="#"><i class="fa fa-twitter"></i></a>
                             <a href="#"><i class="fa fa-instagram"></i></a>
                             <a href="#"><i class="fa fa-google-plus"></i></a>
-                            
+
                         </div>
 
                     </div>
                 </div>
             </div>
         </div>
-        
+
         <div class="row">
             <div class="col-lg-10 col-12 ml-auto mr-auto">
                 <ul class="single-product-tab-list nav">
-                    <li><a href="#product-description" class="active" data-toggle="tab" >description</a></li>
-                    <li><a href="#product-specifications" data-toggle="tab" >specifications</a></li>
-                    <li><a href="#product-reviews" data-toggle="tab" >reviews</a></li>
+                    <li><a href="#product-description" class="active" data-toggle="tab">description</a></li>
+                    <li><a href="#product-specifications" data-toggle="tab">specifications</a></li>
+                    <li><a href="#product-reviews" data-toggle="tab">reviews</a></li>
                     <li><a href="#product-comments" data-toggle="tab"> comment</a></li>
                 </ul>
-                
+
                 <div class="single-product-tab-content tab-content">
                     <div class="tab-pane fade show active" id="product-description">
-                        
+
                         <div class="row">
                             <div class="single-product-description-content col-lg-8 col-12">
-                                    <p>{{description}}</p>
-                                    
+                                <p>{{description}}</p>
+
                             </div>
                             <div class="single-product-description-image col-lg-4 col-12">
-                                <img src="/assets/images/single-product/description.png" alt="description">
+                                <img src="/{{imagePath}}" alt="description">
                             </div>
                         </div>
-                        
+
                     </div>
                     <div class="tab-pane fade" id="product-specifications">
                         <div class="single-product-specification">
@@ -142,59 +146,59 @@
                     </div>
 
                     <div class="tab-pane fade" id="product-reviews">
-                       
+
                         <div class="product-ratting-wrap">
-							<div class="pro-avg-ratting">
-								<h4>4.5 <span>(Overall)</span></h4>
-								<span>Based on 9 Reviews</span>
-							</div>
-							<div class="ratting-list">
-								<div class="sin-list float-left">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<span>(5)</span>
-								</div>
-								<div class="sin-list float-left">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-o"></i>
-									<span>(3)</span>
-								</div>
-								<div class="sin-list float-left">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-o"></i>
-									<i class="fa fa-star-o"></i>
-									<span>(1)</span>
-								</div>
-								<div class="sin-list float-left">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-o"></i>
-									<i class="fa fa-star-o"></i>
-									<i class="fa fa-star-o"></i>
-									<span>(0)</span>
-								</div>
-								<div class="sin-list float-left">
-									<i class="fa fa-star"></i>
-									<i class="fa fa-star-o"></i>
-									<i class="fa fa-star-o"></i>
-									<i class="fa fa-star-o"></i>
-									<i class="fa fa-star-o"></i>
-									<span>(0)</span>
-								</div>
-							</div>
-							<div class="rattings-wrapper">
-							
-								<div class="sin-rattings">
-									<div class="ratting-author">
-										<h3>Cristopher Lee</h3>
+                            <div class="pro-avg-ratting">
+                                <h4>4.5 <span>(Overall)</span></h4>
+                                <span>Based on 9 Reviews</span>
+                            </div>
+                            <div class="ratting-list">
+                                <div class="sin-list float-left">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <span>(5)</span>
+                                </div>
+                                <div class="sin-list float-left">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <span>(3)</span>
+                                </div>
+                                <div class="sin-list float-left">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <span>(1)</span>
+                                </div>
+                                <div class="sin-list float-left">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <span>(0)</span>
+                                </div>
+                                <div class="sin-list float-left">
+                                    <i class="fa fa-star"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <i class="fa fa-star-o"></i>
+                                    <span>(0)</span>
+                                </div>
+                            </div>
+                            <div class="rattings-wrapper">
+
+                                <div class="sin-rattings">
+                                    <div class="ratting-author">
+                                        <h3>Cristopher Lee</h3>
                                         <div class="ratting-star">
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
@@ -203,112 +207,137 @@
                                             <i class="fa fa-star"></i>
                                             <span>(5)</span>
                                         </div>
-									</div>
-									<p>enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci veli</p>
-								</div>
-								
-							</div>
-							<div class="ratting-form-wrapper fix">
-								<h3>Add your Reviews</h3>
-								<form action="#">
-								    <div class="ratting-form row">
-										<div class="col-12 mb-15">
-											<h5>Rating:</h5>
-											<div class="ratting-star fix">
-												<i class="fa fa-star-o"></i>
-												<i class="fa fa-star-o"></i>
-												<i class="fa fa-star-o"></i>
-												<i class="fa fa-star-o"></i>
-												<i class="fa fa-star-o"></i>
-											</div>
-										</div>
-				
-										<div class="col-12 mb-15">
-											<label for="your-review">Your Review:</label>
-											<textarea name="review" id="your-review" placeholder="Write a review"></textarea>
-										</div>
-										<div class="col-12">
-											<input value="add review" type="submit">
-										</div>
-								    </div>
-								</form>
-							</div>
-						</div>
+                                    </div>
+                                    <p>enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia
+                                        res eos qui ratione voluptatem sequi Neque porro quisquam est, qui dolorem ipsum
+                                        quia dolor sit amet, consectetur, adipisci veli</p>
+                                </div>
+
+                            </div>
+                            <div class="ratting-form-wrapper fix">
+                                <h3>Add your Reviews</h3>
+                                <form action="#">
+                                    <div class="ratting-form row">
+                                        <div class="col-12 mb-15">
+                                            <h5>Rating:</h5>
+                                            <div class="ratting-star fix">
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                                <i class="fa fa-star-o"></i>
+                                            </div>
+                                        </div>
+
+                                        <div class="col-12 mb-15">
+                                            <label for="your-review">Your Review:</label>
+                                            <textarea name="review" id="your-review"
+                                                placeholder="Write a review"></textarea>
+                                        </div>
+                                        <div class="col-12">
+                                            <input value="add review" type="submit">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
                     </div>
 
                     <div class="tab-pane fade" id="product-comments">
                         <div class="product-ratting-wrap">
                             <div class="rattings-wrapper">
-								<div class="sin-rattings">
-									<div class="ratting-author">
-										<h3>Cristopher Lee</h3>
-									</div>
-									<p>enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia res eos qui ratione voluptatem sequi Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci veli</p>
-								</div>
-								
-						    </div>
+                                <div class="sin-rattings" id="comment-section-test">
+                                    <div id="comment-section">
+                                        {{#each ../comment}}
+                                        <div class="ratting-author">
+                                            <h3>{{name}}</h3>
+                                        </div>
+                                        <p>{{message}}</p>
+                                        {{/each}}
+                                    </div>
+
+                                    <ul class="pagination">
+                                        {{#if ../can_go_prev}}
+                                        <li><a onclick="selectCommentPage(event, {{prev_page}})" data-pageNumber="{{prev_page}}"><i class="fa fa-angle-left"></i>Back</a></li>
+                                        {{/if}}
+
+                                        {{#each ../page_items}}
+                                        <li><a onclick="selectCommentPage(event, {{value}})" data-pageNumber="{{value}}">{{value}}</a></li>
+                                        {{/each}}
+
+                                        {{#if ../can_go_next}}
+                                        <li><a onclick="selectCommentPage(event, {{next_page}})" data-pageNumber="{{next_page}}">Next<i class="fa fa-angle-right"></i></a></li>
+                                        {{/if}}
+
+                                    </ul>
+                                </div>
+                            </div>
 
                             <div class="ratting-form-wrapper fix">
-								<h3>Add your Comments</h3>
-								<form action="#">
-								    <div class="ratting-form row">
+                                <h3>Add your Comments</h3>
+                                <form action="#">
+                                    <div class="ratting-form row">
                                         <div class="col-md-6 col-12 mb-15">
                                             <label for="name">Name:</label>
                                             <input id="name" placeholder="Name" type="text">
-										</div>
-										<div class="col-12 mb-15">
-											<label for="your-review">Comment:</label>
-											<textarea name="comment" id="your-comment" placeholder="Write a comment"></textarea>
-										</div>
-										<div class="col-12">
-											<input value="add comment" type="submit">
-										</div>
-								    </div>
-								</form>
-						    </div>
+                                        </div>
+                                        <div class="col-12 mb-15">
+                                            <label for="your-review">Comment:</label>
+                                            <textarea name="comment" id="your-comment"
+                                                placeholder="Write a comment"></textarea>
+                                        </div>
+                                        <div class="col-12">
+                                            <input value="add comment" type="submit">
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
                         </div>
-                        
+
                         {{!-- <div class="col-md-6 col-12 mb-15">
                             <label for="name">Name:</label>
                             <input id="name" placeholder="Name" type="text">
-						</div>
-						<div class="col-md-6 col-12 mb-15">
+                        </div>
+                        <div class="col-md-6 col-12 mb-15">
                             <label for="email">Email:</label>
                             <input id="email" placeholder="Email" type="text">
-						</div>
-						<div class="col-12 mb-15">
-							<label for="your-review">Your Review:</label>
-							<textarea name="review" id="your-review" placeholder="Write a review"></textarea>
-						</div>
-						<div class="col-12">
-							<input value="add review" type="submit">
-						</div> --}}
+                        </div>
+                        <div class="col-12 mb-15">
+                            <label for="your-review">Your Review:</label>
+                            <textarea name="review" id="your-review" placeholder="Write a review"></textarea>
+                        </div>
+                        <div class="col-12">
+                            <input value="add review" type="submit">
+                        </div> --}}
                     </div>
 
                 </div>
             </div>
         </div>
 
-    
+
     </div>
     {{/each}}
 
 
 </div><!-- Single Product Section End -->
 
-{{!-- <!-- Related Product Section Start -->
+{{!--
+<!-- Related Product Section Start -->
 <div class="product-section section mb-70">
     <div class="container">
         <div class="row">
-            
+
             <!-- Section Title Start -->
             <div class="col-12 mb-40">
-                <div class="section-title-one" data-title="RELATED PRODUCT"><h1>RELATED PRODUCT</h1></div>
+                <div class="section-title-one" data-title="RELATED PRODUCT">
+                    <h1>RELATED PRODUCT</h1>
+                </div>
             </div><!-- Section Title End -->
-            
+
             <!-- Product Tab Content Start -->
             <div class="col-12">
-                        
+
                 <!-- Product Slider Wrap Start -->
                 <div class="product-slider-wrap product-slider-arrow-one">
                     <!-- Product Slider Start -->
@@ -321,14 +350,16 @@
                                 <!-- Image -->
                                 <div class="image">
 
-                                    <a href="/single-product" class="img"><img src="/assets/images/product/product-1.png" alt="Product Image"></a>
+                                    <a href="/single-product" class="img"><img
+                                            src="/assets/images/product/product-1.png" alt="Product Image"></a>
 
                                     <div class="wishlist-compare">
                                         <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
                                         <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
                                     </div>
 
-                                    <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO CART</span></a>
+                                    <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO
+                                            CART</span></a>
 
                                 </div>
 
@@ -365,9 +396,9 @@
 
                     </div><!-- Product Slider End -->
                 </div><!-- Product Slider Wrap End -->
-                        
+
             </div><!-- Product Tab Content End -->
-            
+
         </div>
     </div>
 </div><!-- Related Product Section End --> --}}
@@ -375,3 +406,46 @@
 {{> brands}}
 
 {{> subscribe}}
+
+<script>
+    function selectCommentPage(e, page) {
+        e.preventDefault();
+        console.log(page);
+        $.ajax({
+            //url: $("next-comment").data("pageNumber"),
+            type: 'get',
+            data: { page: `${page}` },
+        })
+            .done(function (result) {
+                changeComment(result);
+                console.log("success");
+            })
+            .fail(function () {
+                console.log("error");
+            });
+    }
+
+
+    //document.querySelector("#next-comment").onclick = function (e) {
+    //e.preventDefault();
+
+    //$.ajax({
+    //url: $("#next-comment").data("productId"),
+    //type: 'get',
+    //data: { key: 'value' },
+    //})
+    //.done(function (result) {
+    //changeComment(result);
+    //console.log("success");
+    //})
+    //.fail(function () {
+    //console.log("error");
+    //});
+    //}
+
+    function changeComment(comment) {
+        var div = document.getElementById("comment-section-test");
+        div.innerHTML = comment;
+    }
+
+</script>

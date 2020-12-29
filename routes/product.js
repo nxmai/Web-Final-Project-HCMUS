@@ -5,6 +5,8 @@ const productController = require('../controllers/productController');
 router.get('/', productController.singleProduct);
 router.get('/:id', productController.details);
 
+
+
 // router.get('/:id', (req, res) => {
 //     res.render('single-product');
 // })
