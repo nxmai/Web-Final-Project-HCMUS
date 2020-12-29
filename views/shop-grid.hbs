@@ -180,14 +180,24 @@
                         <ul class="pagination">
                             {{#if can_go_prev}}
                                 <li><a onclick="selectParam('page', {{prev_page}})"><i class="fa fa-angle-left"></i>Back</a></li>
+                            {{else}}
+                                <li style="display:none;"><a onclick="selectParam('page', {{prev_page}})"><i class="fa fa-angle-left"></i>Back</a></li>
                             {{/if}}
 
                             {{#each page_items}}
-                                <li><a  onclick="selectParam('page', {{value}})">{{value}}</a></li>
+                                {{#when value 'eq' ../page }}
+                                    <li class="active"><a  onclick="selectParam('page', {{value}})">{{value}}</a></li>
+                                {{/when}}
+
+                                {{#when value 'noteq' ../page}}
+                                    <li><a  onclick="selectParam('page', {{value}})">{{value}}</a></li>
+                                {{/when}}
                             {{/each}}
 
                             {{#if can_go_next}}
                                 <li><a onclick="selectParam('page', {{next_page}})">Next<i class="fa fa-angle-right"></i></a></li>
+                            {{else}}
+                                <li style="display:none;"><a onclick="selectParam('page', {{next_page}})">Next<i class="fa fa-angle-right"></i></a></li>
                             {{/if}}
                         </ul>
                     </div>

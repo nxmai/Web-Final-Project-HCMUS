@@ -20,19 +20,34 @@ const app = express();
 //app.set('view engine', 'hbs');
 
 const exhbs = require('express-handlebars');
-const paginateHelper = require('express-handlebars-paginate');
+//const paginateHelper = require('express-handlebars-paginate');
 
 app.engine('hbs', exhbs({
     defaultLayout: 'layout',
     extname: 'hbs',
     layoutsDir: 'views',
-    partialsDir: 'views/partials',
-    helpers: {
-        createPagination: paginateHelper.createPagination
-    }
+    partialsDir: 'views/partials'
+    //helpers: require('./helpers/handlebars.js')(exhbs)
+        //createPagination: paginateHelper.createPaginatio
   }));
   app.set('view engine', 'hbs');
 
+  var hbs = exhbs.create({});
+
+  hbs.handlebars.registerHelper( "when",function(operand_1, operator, operand_2, options) {
+    var operators = {
+     'eq': function(l,r) { return l == r; },
+     'noteq': function(l,r) { return l != r; },
+     'gt': function(l,r) { return Number(l) > Number(r); },
+     'or': function(l,r) { return l || r; },
+     'and': function(l,r) { return l && r; },
+     '%': function(l,r) { return (l % r) === 0; }
+    }
+    , result = operators[operator](operand_1,operand_2);
+  
+    if (result) return options.fn(this);
+    else  return options.inverse(this);
+  });
 
 app.use(logger('dev'));
 app.use(express.json());

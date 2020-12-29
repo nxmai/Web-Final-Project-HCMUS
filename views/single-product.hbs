@@ -277,6 +277,7 @@
                                 <h3>Add your Comments </h3>
                                 <form action="/single-product/{{id}}/comment" id="get-comment" data-productId="{{id}}">
                                     <div class="ratting-form row">
+                                        <input type="hidden" class="form-control" name="productId" id="productId" value="{{id}}">
                                         <div class="col-md-6 col-12 mb-15">
                                             <label for="name">Name:</label>
                                             <input id="name" placeholder="Name" type="text" name="name">
