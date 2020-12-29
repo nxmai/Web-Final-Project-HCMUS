@@ -274,20 +274,19 @@
                             </div>
 
                             <div class="ratting-form-wrapper fix">
-                                <h3>Add your Comments</h3>
-                                <form action="#">
+                                <h3>Add your Comments </h3>
+                                <form action="/single-product/{{id}}/comment" id="get-comment" data-productId="{{id}}">
                                     <div class="ratting-form row">
                                         <div class="col-md-6 col-12 mb-15">
                                             <label for="name">Name:</label>
-                                            <input id="name" placeholder="Name" type="text">
+                                            <input id="name" placeholder="Name" type="text" name="name">
                                         </div>
                                         <div class="col-12 mb-15">
                                             <label for="your-review">Comment:</label>
-                                            <textarea name="comment" id="your-comment"
-                                                placeholder="Write a comment"></textarea>
+                                            <textarea name="comment" id="your-comment" placeholder="Write a comment"></textarea>
                                         </div>
                                         <div class="col-12">
-                                            <input value="add comment" type="submit">
+                                            <input value="add comment" id="add-comment-button" type="submit">
                                         </div>
                                     </div>
                                 </form>
@@ -310,15 +309,11 @@
                             <input value="add review" type="submit">
                         </div> --}}
                     </div>
-
                 </div>
             </div>
         </div>
-
-
     </div>
     {{/each}}
-
 
 </div><!-- Single Product Section End -->
 
@@ -425,7 +420,6 @@
             });
     }
 
-
     //document.querySelector("#next-comment").onclick = function (e) {
     //e.preventDefault();
 
@@ -447,5 +441,21 @@
         var div = document.getElementById("comment-section-test");
         div.innerHTML = comment;
     }
+</script>
+
+<script>
+    $("#add-comment-button").on('click', function(event) {
+        event.preventDefault();
+        event.stopPropagation();
+
+        $.ajax({
+            url: "single-product/" + $("#get-comment").data("productId") +"/comment";
+            type: "POST",
+            data: $("#get-comment").serialize();
+        })
+        .done ({
+            console.log('success');
+        })
+    })
 
 </script>

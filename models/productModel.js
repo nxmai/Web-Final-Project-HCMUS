@@ -2,7 +2,7 @@ const db = require('../dal/mysql');
 
 module.exports.list = {
     single(id){
-        return db.load(`select pr.name as name, pr.imagePath, pr.price, pr.thumbnailPath, ca.name as category, pr.availability, pr.summary, pr.description
+        return db.load(`select pr.id as id, pr.name as name, pr.imagePath, pr.price, pr.thumbnailPath, ca.name as category, pr.availability, pr.summary, pr.description
                         from Product as pr join Category as ca on pr.categoryid = ca.id 
                         where  pr.id = ${id}`);
     },
@@ -15,5 +15,9 @@ module.exports.list = {
     async countAllComment(id){
         const res = await db.load(`select count(*) as total from Comment where productId=${id}`);
         return res[0].total;
+    },
+    add (name, comment, id){
+        const sql = "INSERT INTO Comment SET ?";
+        return db.add(sql, entity);
     }
 }

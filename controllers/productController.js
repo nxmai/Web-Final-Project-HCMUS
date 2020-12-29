@@ -6,6 +6,9 @@ exports.index = (req, res, next) => {
 
 exports.details = async (req, res, next) => {
     try {
+        console.log('detail');
+        console.log(req.query);
+
         const totalCmt = await productModel.list.countAllComment(req.params.id);
         const nPages = Math.ceil(totalCmt / 3);
         const page = +req.query.page || 1;
@@ -16,6 +19,7 @@ exports.details = async (req, res, next) => {
             }
             page_items.push(item);
         }
+        
 
         if (req.query.page !== undefined) {
             const comment = await productModel.list.comment(req.params.id, page);
@@ -26,8 +30,6 @@ exports.details = async (req, res, next) => {
                                                         prev_page: page - 1,
                                                         can_go_next: page < nPages,
                                                         can_go_prev: page > 1 });
-           
-
         }
         else {
             const product = await productModel.list.single(req.params.id);
@@ -50,4 +52,15 @@ exports.details = async (req, res, next) => {
 
 exports.singleProduct = (req, res, next) => {
     res.render('single-product');
+}
+
+exports.add = (req, res) => {
+    console.log('test');
+    console.log(req.query);
+    console.log(req.params);
+
+    const name = req.query.name;
+    const comment = req.query.comment;
+    const id = req.params;
+    res.send('do day roi');
 }
