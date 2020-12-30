@@ -15,11 +15,11 @@ router.post('/', (req, res, next) => {
     .getById(productId)
     .then(product => {
         console.log('product', product);
-        req.session.cart.add(product, productId, quantity);
-        return res.json({state: "success", totalQuantity: req.session.cart.totalQuantity()});
+        const cartItem = req.session.cart.add(product, productId, quantity);
+        return res.json(cartItem);
         
     })
     .catch(error => next(error));
 });
-
+//{state: "success", totalQuantity: req.session.cart.totalQuantity()}
 module.exports = router;
