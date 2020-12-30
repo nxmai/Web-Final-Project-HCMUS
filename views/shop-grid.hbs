@@ -5,6 +5,9 @@
 
 {{> pagebanner}}
 
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+
 <!-- Header Advance Search Start -->
 <div class="header-advance-search text-center">
     <form action="/shop-grid" method="GET">
@@ -85,7 +88,7 @@
                                 <div class="wishlist-compare">
                                     <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
                                 </div>
-                                <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO
+                                <a href="#" class="add-to-cart" data-id="{{id}}"><i class="ti-shopping-cart"></i><span>ADD TO
                                         CART</span></a>
                             </div>
 
@@ -241,3 +244,4 @@
         location.href=url;
     };
 </script>
+

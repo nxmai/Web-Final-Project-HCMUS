@@ -4,6 +4,12 @@ exports.index = (req, res, next) => {
     res.render('index');
 }
 
+exports.getById = (id) => {
+    const product = productModel.list.getById(id);
+
+    return product;
+}
+
 exports.details = async (req, res, next) => {
     try {
         console.log('detail');
@@ -23,24 +29,28 @@ exports.details = async (req, res, next) => {
         if (req.query.page !== undefined) {
             const comment = await productModel.list.comment(req.params.id, page);
 
-            res.render('ajaxSnippets/comment', { layout: false, comment,
-                                                        page_items, page, nPages,
-                                                        next_page: page +1,
-                                                        prev_page: page - 1,
-                                                        can_go_next: page < nPages,
-                                                        can_go_prev: page > 1 });
+            res.render('ajaxSnippets/comment', {
+                                                layout: false, comment,
+                                                page_items, page, nPages,
+                                                next_page: page + 1,
+                                                prev_page: page - 1,
+                                                can_go_next: page < nPages,
+                                                can_go_prev: page > 1
+            });
         }
         else {
             const product = await productModel.list.single(req.params.id);
             const specification = await productModel.list.specification(req.params.id);
             const comment = await productModel.list.comment(req.params.id, page);
 
-            res.render('single-product', {   product, specification, comment,
-                                                    page_items, page, nPages,
-                                                    next_page: page +1,
-                                                    prev_page: page - 1,
-                                                    can_go_next: page < nPages,
-                                                    can_go_prev: page > 1 });
+            res.render('single-product', {
+                                            product, specification, comment,
+                                            page_items, page, nPages,
+                                            next_page: page + 1,
+                                            prev_page: page - 1,
+                                            can_go_next: page < nPages,
+                                            can_go_prev: page > 1
+            });
         }
 
     } catch (err) {
@@ -53,7 +63,7 @@ exports.singleProduct = (req, res, next) => {
     res.render('single-product');
 }
 
-exports.add = (req, res) => {
+exports.add = async (req, res) => {
     console.log('test');
     console.log(req.query);
     console.log(req.params);
@@ -62,5 +72,30 @@ exports.add = (req, res) => {
     // const name = req.query.name;
     // const comment = req.query.comment;
     // const id = req.params;
-    res.send('do day roi');
+    console.log('req body', req.query);
+    //const ret = await productModel.list.add(req.query);
+    //console.log('ret', ret);
+
+    const totalCmt = await productModel.list.countAllComment(req.params.id);
+
+    const nPages = Math.ceil(totalCmt / 3);
+    const page = +req.query.page || 1;
+    const page_items = [];
+    for (var i = 1; i <= nPages; i++) {
+        const item = {
+            value: i
+        }
+        page_items.push(item);
+    }
+    const comment = await productModel.list.comment(req.params.id, page);
+
+    res.render('ajaxSnippets/comment', {
+                                        layout: false, comment,
+                                        page_items, page, nPages,
+                                        next_page: page + 1,
+                                        prev_page: page - 1,
+                                        can_go_next: page < nPages,
+                                        can_go_prev: page > 1
+    });
+
 }

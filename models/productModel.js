@@ -16,8 +16,12 @@ module.exports.list = {
         const res = await db.load(`select count(*) as total from Comment where productId=${id}`);
         return res[0].total;
     },
-    add (name, comment, id){
+    add (entity){
+        console.log('entity', entity);
         const sql = "INSERT INTO Comment SET ?";
         return db.add(sql, entity);
+    },
+    getById(id){
+        return db.load(`select * from Product where id = ${id}`);
     }
 }
