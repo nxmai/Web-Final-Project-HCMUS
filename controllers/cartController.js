@@ -30,10 +30,12 @@ module.exports = function Cart(oldCart) {
             this.items[id] = { item: item, quantity: 0, price: 0 };
             storedItem = this.items[id];
         }
-        storedItem.item.price = parseFloat(storedItem.item.price);
+        storedItem.item.price = parseFloat(storedItem.item[0].price);
         storedItem.quantity += parseInt(quantity);
-        storedItem.price = parseFloat(storedItem.item.price * storedItem.quantity);
+        storedItem.price = parseFloat(storedItem.item[0].price * storedItem.quantity);
+
         this.totalQuantity = this.getTotalQuantity();
+
         this.totalPrice = this.getTotalPrice();
         return this.getCartItem(id);
     };

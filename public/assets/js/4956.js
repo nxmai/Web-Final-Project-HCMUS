@@ -1,16 +1,15 @@
 $(document).ready( () => {
-    $(".add-to-cart").on('click', function (event) {
+    $('.add-to-cart').on('click', function (event) {
         event.preventDefault();
         console.log('4956');
 
-        var id = $('.add-to-cart').data("id");
+        var id = $(this)[0].dataset.productid;
+        console.log(id);
         var quantity = 1;
         $.ajax({
             url: '/cart',
             type: 'POST',
-            dataType : "json",
-            contentType: "application/json; charset=utf-8",
-            data: JSON.stringify({ id, quantity }),
+            data: { id, quantity },
             success: function (result) {
                 console.log('result', result);
                 //alert(result);
