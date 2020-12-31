@@ -11,8 +11,6 @@ const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const shopgridRouter = require('./routes/shop-grid');
 const productRouter = require('./routes/product');
-const loginRouter = require('./routes/login');
-const registerRouter = require('./routes/register');
 const cartRouter = require('./routes/cart');
 const app = express();
 
@@ -85,8 +83,6 @@ app.use(fileupload());
 app.use('/users', usersRouter);
 app.use('/shop-grid', shopgridRouter);
 app.use('/single-product', productRouter);
-app.use('/login', loginRouter);
-app.use('/register', registerRouter);
 app.use('/cart', cartRouter);
 app.use('/', indexRouter);
 
