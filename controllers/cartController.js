@@ -18,9 +18,9 @@ module.exports = function Cart(oldCart) {
     this.getTotalPrice = () => {
         var price = 0;
         for (var id in this.items) {
-            price += parseFloat(this.items[id].price);
+            price += parseInt(this.items[id].price);
         }
-        price = parseFloat(price).toFixed(2);
+        price = parseInt(price).toFixed(2);
         return price;
     };
 
@@ -30,9 +30,9 @@ module.exports = function Cart(oldCart) {
             this.items[id] = { item: item, quantity: 0, price: 0 };
             storedItem = this.items[id];
         }
-        storedItem.item.price = parseFloat(storedItem.item[0].price);
+        storedItem.item.price = parseInt(storedItem.item[0].price);
         storedItem.quantity += parseInt(quantity);
-        storedItem.price = parseFloat(storedItem.item[0].price * storedItem.quantity);
+        storedItem.price = parseInt(storedItem.item[0].price * storedItem.quantity);
 
         this.totalQuantity = this.getTotalQuantity();
 
@@ -53,7 +53,7 @@ module.exports = function Cart(oldCart) {
         var storedItem = this.items[id];
         if (storedItem && quantity >= 0) {
             storedItem.quantity = quantity;
-            storedItem.price = parseFloat(storedItem.item[0].price * storedItem.quantity);
+            storedItem.price = parseInt(storedItem.item[0].price * storedItem.quantity);
             this.totalQuantity = this.getTotalQuantity();
             this.totalPrice = this.getTotalPrice();
         }
@@ -69,8 +69,8 @@ module.exports = function Cart(oldCart) {
     this.generateArray = () => {
         var arr = [];
         for (var id in this.items) {
-            this.items[id].item.price = parseFloat(this.items[id].item.price).toFixed(2);
-            this.items[id].price = parseFloat(this.items[id].price).toFixed(2);
+            this.items[id].item.price = parseInt(this.items[id].item.price).toFixed(2);
+            this.items[id].price = parseInt(this.items[id].price).toFixed(2);
             arr.push(this.items[id]);
         }
         return arr;

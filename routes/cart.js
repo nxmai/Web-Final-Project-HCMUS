@@ -26,10 +26,17 @@ router.put('/', (req, res) => {
     const productId = req.body.id;
     const quantity = req.body.quantity;
     const cartItem = req.session.cart.update(productId, quantity);
-    console.log('cartitem', cartItem);
-    console.log('cartitem item', cartItem.item);
-    console.log('cartitem.item.item[].price', cartItem.item.price);
     return res.json(cartItem);
+})
+
+router.delete('/', (req, res) => {
+    const productId = req.body.id;
+    req.session.cart.remove(productId);
+
+    res.json({
+        totalQuantity: req.session.cart.totalQuantity,
+        totalPrice: req.session.cart.totalPrice
+    });
 })
 
 module.exports = router;

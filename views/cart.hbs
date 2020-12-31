@@ -29,13 +29,13 @@
                             <tbody>
                                 {{#each items}}
                                 {{#each item}}
-                                <tr data-productId="{{id}}">
+                                <tr data-productId="{{id}}" id="item{{id}}">
                                     <td class="pro-thumbnail"><a href="#"><img src="{{thumbnailPath}}" alt="Product"></a></td>
                                     <td class="pro-title"><a href="#">{{name}}</a></td>
                                     <td class="pro-price"><span>{{price}}</span></td>
                                     <td class="pro-quantity"><div class="pro-qty" ><input type="text" value="{{../quantity}}"></div></td>
                                     <td class="pro-subtotal"><span id="pro-subtotal">{{../price}}</span></td>
-                                    <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
+                                    <td class="pro-remove"><a ><i class="fa fa-trash-o" id="pro-remove" onclick="removeCartItem({{id}})"></i></a></td>
                                 </tr>
                                 {{/each}}
                                 {{/each}}

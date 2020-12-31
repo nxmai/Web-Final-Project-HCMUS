@@ -1,6 +1,4 @@
-(function ($) {
-    "use strict";
-    
+
 /*--
     Menu Sticky
 -----------------------------------*/
@@ -634,31 +632,45 @@ $('.qtybtn').on('click', function() {
 		newVal = 0;
 	  }
       }
-      
-      const that=this;
 
       var id = $button.parent().parent().parent().data('productid');
       var quantity = newVal;
-      console.log('ajax id', id);
-      console.log('ajax quantity', quantity);
-
-      console.log("[$button] >", $button);
-      $.ajax({
+      
+      if(quantity == 0){
+        removeCartItem(id);
+      } else{
+        updateCartItem(id, quantity, $button);
+      }
+      
+	$button.parent().find('input').val(newVal);
+});  
+    
+function updateCartItem(id, quantity, $button) {
+    $.ajax({
         url: '/cart',
         type: 'PUT',
         data: { id, quantity },
         success: function(result){
-            //console.log('result', result.item.price);
-            //console.log('test', $button.parent().parent().parent().children('.pro-subtotal').children('#pro-subtotal'));
             $button.parent().parent().parent().children('.pro-subtotal').children('#pro-subtotal').html(result.item.price);
             $('#totalPrice').html(result.totalPrice);
             $('#cart-badge').html(result.totalQuantity);
         }
       })
+}
 
-	$button.parent().find('input').val(newVal);
-});  
-    
+function removeCartItem(id){
+    $.ajax({
+        url: '/cart',
+        type: 'DELETE',
+        data: { id },
+        success: function(result){
+            $('#totalPrice').html(result.totalPrice);
+            $('#cart-badge').html(result.totalQuantity);
+            $(`#item${id}`).remove();
+        }
+      })
+}
+
 /*----- 
 	Shipping Form Toggle
 --------------------------------*/ 
@@ -695,5 +707,3 @@ $('#account-image-upload').on('change', function () {
   }
 });
     
-    
-})(jQuery);	
