@@ -7,6 +7,7 @@ const fileupload = require('express-fileupload');
 require('dotenv').config();
 require('express-async-errors');
 
+const passport = require('./passport');
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 const shopgridRouter = require('./routes/shop-grid');
@@ -53,6 +54,7 @@ const bodyParser = require('body-parser');
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: false}));
 
+
 //use session
 const session = require('express-session');
 app.use(session({
@@ -61,6 +63,16 @@ app.use(session({
     resave: false,
     saveUninitialized: false
 }))
+
+app.use(passport.initialize());
+app.use(passport.session());
+
+//pass req.user to res locals
+app.use(function(req, res, next) {
+    res.locals.user = req.user;
+    //console.log('user', req.user);
+    next();
+})
 
 //use cart controller
 const Cart = require('./controllers/cartController');
