@@ -55,3 +55,25 @@ exports.login = (req, res, next) => {
     // //res.render('login', {  });
 
 }
+
+exports.addUser = async function(req, res) {
+    const {name, username, email, password} = req.body;
+
+    const newUser = {
+        name,
+        username,
+        email, 
+        password,
+        isAdmin: false
+    };
+
+    console.log('name usn pws, isadmin', newUser);
+
+    try {
+        await userModel.addUser(newUser).then(() => {
+            return res.redirect('/user/login');
+        });
+    } catch (err) {
+        return res.render('/user/register');
+    }
+}

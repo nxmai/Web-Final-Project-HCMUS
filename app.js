@@ -80,7 +80,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use(fileupload());
 
 
-app.use('/users', usersRouter);
+app.use('/user', usersRouter);
 app.use('/shop-grid', shopgridRouter);
 app.use('/single-product', productRouter);
 app.use('/cart', cartRouter);
