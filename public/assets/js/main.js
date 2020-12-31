@@ -633,7 +633,29 @@ $('.qtybtn').on('click', function() {
 		} else {
 		newVal = 0;
 	  }
-	  }
+      }
+      
+      const that=this;
+
+      var id = $button.parent().parent().parent().data('productid');
+      var quantity = newVal;
+      console.log('ajax id', id);
+      console.log('ajax quantity', quantity);
+
+      console.log("[$button] >", $button);
+      $.ajax({
+        url: '/cart',
+        type: 'PUT',
+        data: { id, quantity },
+        success: function(result){
+            //console.log('result', result.item.price);
+            //console.log('test', $button.parent().parent().parent().children('.pro-subtotal').children('#pro-subtotal'));
+            $button.parent().parent().parent().children('.pro-subtotal').children('#pro-subtotal').html(result.item.price);
+            $('#totalPrice').html(result.totalPrice);
+            $('#cart-badge').html(result.totalQuantity);
+        }
+      })
+
 	$button.parent().find('input').val(newVal);
 });  
     

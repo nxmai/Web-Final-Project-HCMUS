@@ -9,21 +9,27 @@ router.get('/', (req, res) => {
 
 router.post('/', (req, res, next) => {
     const productId = req.body.id;
-    console.log('product idddd', productId);
     const quantity = isNaN(req.body.quantity) ? 1 : req.body.quantity;
     const productController = require('../controllers/productController');
     productController
     .getById(productId)
     .then(product => {
         const cartItem = req.session.cart.add(product, productId, quantity);
-        //console.log('product', product);
-        //console.log('product id', productId);
-        //console.log('quantity', quantity);
-        //console.log('cart item', cartItem);
         return res.json(cartItem);
         
     })
     .catch(error => next(error));
 });
 //{state: "success", totalQuantity: req.session.cart.totalQuantity()}
+
+router.put('/', (req, res) => {
+    const productId = req.body.id;
+    const quantity = req.body.quantity;
+    const cartItem = req.session.cart.update(productId, quantity);
+    console.log('cartitem', cartItem);
+    console.log('cartitem item', cartItem.item);
+    console.log('cartitem.item.item[].price', cartItem.item.price);
+    return res.json(cartItem);
+})
+
 module.exports = router;

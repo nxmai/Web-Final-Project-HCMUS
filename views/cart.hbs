@@ -29,12 +29,12 @@
                             <tbody>
                                 {{#each items}}
                                 {{#each item}}
-                                <tr>
+                                <tr data-productId="{{id}}">
                                     <td class="pro-thumbnail"><a href="#"><img src="{{thumbnailPath}}" alt="Product"></a></td>
                                     <td class="pro-title"><a href="#">{{name}}</a></td>
                                     <td class="pro-price"><span>{{price}}</span></td>
-                                    <td class="pro-quantity"><div class="pro-qty"><input type="text" value="{{../quantity}}"></div></td>
-                                    <td class="pro-subtotal"><span>{{price}}</span></td>
+                                    <td class="pro-quantity"><div class="pro-qty" ><input type="text" value="{{../quantity}}"></div></td>
+                                    <td class="pro-subtotal"><span id="pro-subtotal">{{../price}}</span></td>
                                     <td class="pro-remove"><a href="#"><i class="fa fa-trash-o"></i></a></td>
                                 </tr>
                                 {{/each}}
@@ -101,7 +101,7 @@
                         <div class="cart-summary">
                             <div class="cart-summary-wrap">
                                 <h4>Cart Summary</h4>
-                                <p>Sub Total <span>{{totalPrice}}</span></p>
+                                <p>Sub Total <span id="totalPrice">{{totalPrice}}</span></p>
                                 <p>Shipping Cost <span>$00.00</span></p>
                                 <h2>Grand Total <span>$1250.00</span></h2>
                             </div>
