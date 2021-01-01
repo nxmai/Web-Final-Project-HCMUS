@@ -617,59 +617,6 @@ $('#price-amount').val( '$' + $('#price-range').slider( 'values', 0 ) +
 /*----- 
 	Quantity
 --------------------------------*/
-$('.pro-qty').prepend('<span class="dec qtybtn">-</span>');
-$('.pro-qty').append('<span class="inc qtybtn">+</span>');
-$('.qtybtn').on('click', function() {
-	var $button = $(this);
-	var oldValue = $button.parent().find('input').val();
-	if ($button.hasClass('inc')) {
-	  var newVal = parseFloat(oldValue) + 1;
-	} else {
-	   // Don't allow decrementing below zero
-	  if (oldValue > 0) {
-		var newVal = parseFloat(oldValue) - 1;
-		} else {
-		newVal = 0;
-	  }
-      }
-
-      var id = $button.parent().parent().parent().data('productid');
-      var quantity = newVal;
-      
-      if(quantity == 0){
-        removeCartItem(id);
-      } else{
-        updateCartItem(id, quantity, $button);
-      }
-      
-	$button.parent().find('input').val(newVal);
-});  
-    
-function updateCartItem(id, quantity, $button) {
-    $.ajax({
-        url: '/cart',
-        type: 'PUT',
-        data: { id, quantity },
-        success: function(result){
-            $button.parent().parent().parent().children('.pro-subtotal').children('#pro-subtotal').html(result.item.price);
-            $('#totalPrice').html(result.totalPrice);
-            $('#cart-badge').html(result.totalQuantity);
-        }
-      })
-}
-
-function removeCartItem(id){
-    $.ajax({
-        url: '/cart',
-        type: 'DELETE',
-        data: { id },
-        success: function(result){
-            $('#totalPrice').html(result.totalPrice);
-            $('#cart-badge').html(result.totalQuantity);
-            $(`#item${id}`).remove();
-        }
-      })
-}
 
 /*----- 
 	Shipping Form Toggle

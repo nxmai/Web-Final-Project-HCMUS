@@ -20,7 +20,9 @@
                     <!-- Register Form -->
                     <form action="" method="POST" id="form-register">
                         <div class="row">
-                            <div class="col-12 mb-30"><input name="name" type="text" placeholder="Your name here"></div>
+                            <div class="col-12 mb-30"><input name="name" type="text" placeholder="Your name here" onchange="checkUsername(this.value)">
+                                <span id="username-info"></span>
+                            </div>
                             <div class="col-12 mb-30"><input name="username" type="text" placeholder="Your username here"></div>
                             <div class="col-12 mb-30"><input name="email" type="email" placeholder="Your email here"></div>
                             <div class="col-12 mb-30"><input name="password" type="password" placeholder="Enter password"></div>

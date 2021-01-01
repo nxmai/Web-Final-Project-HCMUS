@@ -13,8 +13,6 @@ exports.addUser = async (newUser) => {
                 pwd: hash,
                 isAdmin: newUser.isAdmin
             }
-            console.log('pwd', hash);
-            console.log('user', user);
 
             const sql = "INSERT INTO User SET ?";
             return db.add(sql, user);
@@ -42,7 +40,7 @@ exports.getUser = async (id) => {
     const sql = `select * from User where id = ${id}`;
     const user = await db.load(sql);
 
-    if(!user){
+    if(user.length == 0){
         return false;
     }
     return user[0];
