@@ -57,8 +57,8 @@ exports.login = (req, res, next) => {
 }
 
 exports.addUser = async function(req, res) {
-    const {name, username, email, password} = req.body;
-
+    const {name, username, email, password, repassword} = req.body;
+    
     const newUser = {
         name,
         username,
@@ -67,7 +67,9 @@ exports.addUser = async function(req, res) {
         isAdmin: false
     };
 
-    console.log('name usn pws, isadmin', newUser);
+    if(newUser.password != repassword || !userModel.isEmailExist(email)){
+        return res.redirect('/user/register');
+    }
 
     try {
         await userModel.addUser(newUser).then(() => {

@@ -1,20 +1,18 @@
 $(document).ready( () => {
     $('.add-to-cart').on('click', function (event) {
         event.preventDefault();
-        console.log('4956');
 
         var id = $(this)[0].dataset.productid;
         console.log(id);
         var quantity = $(this).parent().parent().children('div.quantity-colors').find('input').val();
 
-        console.log('testttt', $(this).parent().parent().children('div.quantity-colors').find('input').val());
+        //console.log('testttt', $(this).parent().parent().children('div.quantity-colors').find('input').val());
         
         $.ajax({
             url: '/cart',
             type: 'POST',
             data: { id, quantity },
             success: function (result) {
-                console.log('result', result);
                 //alert(result);
                 $('#cart-badge').html(result.totalQuantity);
             }
@@ -100,3 +98,26 @@ function removeCartItem(id){
         }
       })
 }
+
+function checkEmailExist(email){
+    $.getJSON('/api/user/is-exist', {email}, function(data){
+        if(data){
+            $('#get-notice').html('Email already exist').css('color', 'red');
+        } else{
+            $('#get-notice').html('You can use this email').css('color', 'green');
+        }
+    })
+}
+
+$('#password').on('keyup', function(){
+    if($('#password').val().length < 8){
+        $('#get-notice').html('Password length must be atleast 8 characters').css('color', 'red');
+    }
+})
+
+$('#password, #confirm-password').on('keyup', function () {
+    if ($('#password').val() == $('#confirm-password').val()) {
+      $('#get-notice').html('Password passed').css('color', 'green');
+    } else 
+      $('#get-notice').html('You must confirm the right password').css('color', 'red');
+  });

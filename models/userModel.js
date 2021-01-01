@@ -45,3 +45,10 @@ exports.getUser = async (id) => {
     }
     return user[0];
 }
+
+exports.isEmailExist = async (email) => {
+    const sql = `select * from User where email = '${email}'`;
+    const user = await db.load(sql);
+
+    return (user.length != 0);
+}
