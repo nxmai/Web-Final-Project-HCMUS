@@ -4,6 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const fileupload = require('express-fileupload');
+const exhbs = require('express-handlebars');
 require('dotenv').config();
 require('express-async-errors');
 
@@ -19,9 +20,6 @@ const app = express();
 // view engine setup
 //app.set('views', path.join(__dirname, 'views'));
 //app.set('view engine', 'hbs');
-
-const exhbs = require('express-handlebars');
-//const paginateHelper = require('express-handlebars-paginate');
 
 app.engine('hbs', exhbs({
     defaultLayout: 'layout',
@@ -59,7 +57,7 @@ app.use(bodyParser.urlencoded({extended: false}));
 //use session
 const session = require('express-session');
 app.use(session({
-    cookie: {httpOnly: true, maxAge: 30 * 24 * 60 * 60 * 1000},
+    cookie: {httpOnly: true, maxAge: null},
     secret: 'secret',
     resave: false,
     saveUninitialized: false
@@ -71,7 +69,10 @@ app.use(passport.session());
 //pass req.user to res locals
 app.use(function(req, res, next) {
     res.locals.user = req.user;
-    //console.log('user', req.user);
+    res.locals.isLogin = req.user ? true : false;
+
+    //console.log('user', res.locals.user);
+    //req.session.cookie.maxAge = res.locals.isLogin ? 30 * 24 * 60 * 60 * 100 : null;
     next();
 })
 
@@ -81,6 +82,7 @@ app.use((req, res, next) => {
     var cart = new Cart(req.session.cart ? req.session.cart : {});
     req.session.cart = cart;
     res.locals.totalQuantity = cart.totalQuantity;
+
     next();
 })
 

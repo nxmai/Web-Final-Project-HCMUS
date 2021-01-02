@@ -4,8 +4,10 @@ var router = express.Router();
 const productController = require('../controllers/productController');
 
 router.get('/', productController.singleProduct);
-router.get('/:id/comment', productController.add);
+router.get('/:id/comment', productController.details);
+router.post('/:id/comment', productController.add);
 router.get('/:id', productController.details);
+
 
 // router.get('/:id', (req, res) => {
 //     res.render('single-product');

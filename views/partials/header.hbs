@@ -32,7 +32,11 @@
                     <!-- Header Account Links Start -->
                     <div class="header-account-links">
                         <a href="/user/register"><i class="icofont icofont-user-alt-7"></i> <span>my account</span></a>
+                        {{#if isLogin}}
+                        <a href="/user/logout"><i class="icofont icofont-login d-none"></i> <span>Logout</span></a>
+                        {{else}}
                         <a href="/user/login"><i class="icofont icofont-login d-none"></i> <span>Login</span></a>
+                        {{/if}}
                     </div><!-- Header Account Links End -->
                 </div>
 

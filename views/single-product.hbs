@@ -285,16 +285,20 @@
 
                             <div class="ratting-form-wrapper fix">
                                 <h3>Add your Comments </h3>
-                                <form action="/single-product/{{id}}/comment" id="get-comment" data-productId="{{id}}">
+                                <form action="/single-product/{{id}}/comment" method="POST" id="get-comment" data-productId="{{id}}">
                                     <div class="ratting-form row">
                                         <input type="hidden" class="form-control" name="productId" id="productId" value="{{id}}">
-                                        <div class="col-md-6 col-12 mb-15">
-                                            <label for="name">Name:</label>
-                                            <input id="name" placeholder="Name" type="text" name="name">
-                                        </div>
+                                        {{#if ../isLogin}}
+                                            <input class="hidden" id="name" type="text" name="name" value="{{../user.name}}">
+                                        {{else}}
+                                            <div class="col-md-6 col-12 mb-15">
+                                                <label for="name">Name:</label>
+                                                <input id="name" placeholder="Name" type="text" name="name">
+                                            </div>
+                                        {{/if}}
                                         <div class="col-12 mb-15">
                                             <label for="your-review">Comment:</label>
-                                            <textarea name="comment" id="your-comment" placeholder="Write a comment"></textarea>
+                                            <textarea name="message" id="your-comment" placeholder="Write a comment"></textarea>
                                         </div>
                                         <div class="col-12">
                                             <input value="add comment" id="add-comment-button" type="submit">
@@ -460,13 +464,20 @@
         event.stopPropagation();
 
         $.ajax({
-            url: "single-product/" + $("#get-comment").data("productId") +"/comment",
-            type: "POST",
+            url: "/single-product/" + $("#get-comment").data("productId"),
+            type: "GET",
             data: $("#get-comment").serialize();
         })
-        .done ({
+        .done ( (result) => {
+            changeComment(result);
             console.log('success');
+            console.log(result);
         })
-    })
+    });
+
+    function changeComment(comment) {
+        var div = document.getElementById("comment-section-test");
+        div.innerHTML = comment;
+    }
 
 </script>

@@ -64,17 +64,7 @@ exports.singleProduct = (req, res, next) => {
 }
 
 exports.add = async (req, res) => {
-    console.log('test');
-    console.log(req.query);
-    console.log(req.params);
-    console.log(req.body);
-
-    // const name = req.query.name;
-    // const comment = req.query.comment;
-    // const id = req.params;
-    console.log('req body', req.query);
-    //const ret = await productModel.list.add(req.query);
-    //console.log('ret', ret);
+    await productModel.list.add(req.body);
 
     const totalCmt = await productModel.list.countAllComment(req.params.id);
 
@@ -89,13 +79,25 @@ exports.add = async (req, res) => {
     }
     const comment = await productModel.list.comment(req.params.id, page);
 
-    res.render('ajaxSnippets/comment', {
-                                        layout: false, comment,
-                                        page_items, page, nPages,
-                                        next_page: page + 1,
-                                        prev_page: page - 1,
-                                        can_go_next: page < nPages,
-                                        can_go_prev: page > 1
+    // res.render('ajaxSnippets/comment', {
+    //                                     layout: false, comment,
+    //                                     page_items, page, nPages,
+    //                                     next_page: page + 1,
+    //                                     prev_page: page - 1,
+    //                                     can_go_next: page < nPages,
+    //                                     can_go_prev: page > 1
+    // });
+
+    const product = await productModel.list.single(req.params.id);
+    const specification = await productModel.list.specification(req.params.id);
+
+    res.render('single-product', {
+                                            product, specification, comment,
+                                            page_items, page, nPages,
+                                            next_page: page + 1,
+                                            prev_page: page - 1,
+                                            can_go_next: page < nPages,
+                                            can_go_prev: page > 1
     });
 
 }
