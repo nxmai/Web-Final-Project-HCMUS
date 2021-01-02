@@ -17,10 +17,6 @@ const cartRouter = require('./routes/cart');
 const usersApiUser = require('./routes/api/user');
 const app = express();
 
-// view engine setup
-//app.set('views', path.join(__dirname, 'views'));
-//app.set('view engine', 'hbs');
-
 app.engine('hbs', exhbs({
     defaultLayout: 'layout',
     extname: 'hbs',
@@ -63,6 +59,7 @@ app.use(session({
     saveUninitialized: false
 }))
 
+//use passport
 app.use(passport.initialize());
 app.use(passport.session());
 
@@ -76,7 +73,7 @@ app.use(function(req, res, next) {
     next();
 })
 
-//use cart controller
+//use cart controller by session
 const Cart = require('./controllers/cartController');
 app.use((req, res, next) => {
     var cart = new Cart(req.session.cart ? req.session.cart : {});

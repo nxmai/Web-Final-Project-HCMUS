@@ -57,7 +57,7 @@ exports.login = (req, res, next) => {
 }
 
 exports.addUser = async function(req, res) {
-    const {name, username, email, password, repassword} = req.body;
+    const {name, username, email, password, cfpassword} = req.body;
     
     const newUser = {
         name,
@@ -67,12 +67,24 @@ exports.addUser = async function(req, res) {
         isAdmin: false
     };
 
-    if(newUser.password != repassword || !userModel.isEmailExist(email)){
-        return res.redirect('/user/register');
+    if (!name || !username || !email || !password || !cfpassword) {
+        return res.render('register', {message: 'Please enter all fields'});
     }
 
+    if(password != cfpassword){
+        return res.render('register', {message: 'Confirm password not correct'});
+    }
+
+    if(!userModel.isEmailExist(email)){
+        return res.render('register', {message: 'Email already exist'});
+    }
+
+    
     try {
         await userModel.addUser(newUser).then(() => {
+
+            
+
             return res.redirect('/user/login');
         });
     } catch (err) {
