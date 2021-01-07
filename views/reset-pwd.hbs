@@ -1,3 +1,24 @@
+{{#section 'js'}}
+    <script>
+        $('#reset-form').on('submit', function(e) {
+            e.preventDefault();
+            console.log('ssdfsdf');
+            const password = $('#password').val();
+            if(password.length < 8){
+                $('#get-notice').html('Password length must be >= 8 character');
+                return;
+            }
+
+            const cfpassword = $('#confirm-password').val();
+            if(password != cfpassword){
+                $('#get-notice').html('You must be confirm the right password');
+                return;
+            }
+
+            $('#reset-form').off('submit').submit();
+        })
+    </script>
+{{/section}}
 
 <!-- Login Section Start -->
 <div class="login-section section mt-90 mb-90">
@@ -18,12 +39,13 @@
                     {{success_msg}}
                     {{/if}}
                     
-                    <h4>{{message}}</h4>
+                    {{message}}
+                    <h5 id="get-notice" style="font-weight: 600;"><span>{{notice}}</span></h5>
                     <!-- Login Form -->
-                    <form action="/user/reset/{{id}}" method="POST">
+                    <form action="/user/reset/{{id}}" method="POST" id="reset-form">
                         <div class="row">
-                            <div class="col-12 mb-30"><input name="password" type="password" placeholder="New password"></div>
-                            <div class="col-12 mb-20"><input name="cfpassword" type="password" placeholder="Confirm password"></div>
+                            <div class="col-12 mb-30"><input id="password" name="password" type="password" placeholder="New password"></div>
+                            <div class="col-12 mb-20"><input id="confirm-password" name="cfpassword" type="password" placeholder="Confirm password"></div>
                             <div class="col-12 mb-15">
                                 
                             </div>

@@ -11,13 +11,17 @@ router.get('/', function(req, res, next) {
 
 router.get('/register', (req, res) => res.render('register'));
 
-router.get('/login', (req, res) => res.render('login'));
+router.get('/login', (req, res) => {
+  //console.log('err login', req.flash('error'));
+  const message = req.flash('error')[0];
+  res.render('login', {message});
+});
 
 router.post('/register', userController.sendEmailToRegister);
 
 router.post('/login', passport.authenticate('local', {successRedirect: '/',
-                                                      failureRedirect: '/user/login?error=wrong',
-                                                      failureFlash: false }));
+                                                      failureRedirect: '/user/login',
+                                                      failureFlash: true }));
 
 
 router.get('/logout', function(req, res){

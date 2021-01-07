@@ -60,7 +60,7 @@ exports.login = (req, res, next) => {
 
 //doesnt create user in database, just send email and wait for user to verify email
 exports.sendEmailToRegister = async function (req, res) {
-    const { name, username, email, password} = req.body;
+    const { name, username, email, password } = req.body;
 
     const token = jwt.sign({ name, username, email, password }, process.env.JWT_KEY, { expiresIn: '30m' });
     const output = `
@@ -88,12 +88,12 @@ exports.sendEmailToRegister = async function (req, res) {
     //bug: render not working
     transporter.sendMail(mailOptions, async (error, info) => {
         if (error) {
-            req.flash('error_msg','Something wrong when sending email. Please register again.');
+            req.flash('error_msg', 'Something wrong when sending email. Please register again.');
             return res.redirect('/user/register');
         }
         else {
             req.flash('success_msg', 'Activation link sent to email ID. Please activate to log in.');
-            return res.redirect('/user/login'); 
+            return res.redirect('/user/login');
         }
     });
 }
@@ -125,12 +125,12 @@ exports.activateHandle = async (req, res) => {
                         isActive: true
                     }
 
-                        await userModel.addUser(newUser).then(() => {
-                            req.flash('success_msg', 'Account activated. Please login');
-                            return res.redirect('/user/login');
-                        })
+                    await userModel.addUser(newUser).then(() => {
+                        req.flash('success_msg', 'Account activated. Please login');
+                        return res.redirect('/user/login');
+                    })
                         .catch(err => console.log('err', err));
-                    
+
                 }
             }
         })
@@ -140,17 +140,12 @@ exports.activateHandle = async (req, res) => {
 
 exports.forgotPassword = async (req, res) => {
     const { email } = req.body;
-
-    if (!email) {
-        req.flash('error_msg', 'Please enter an email.');
-        return res.redirect('/user/forgot-pwd');
-    }
     await userModel.getUserByEmail(email).then(user => {
         if (!user) {
             req.flash('error_msg', 'Email does not exist.');
             return res.redirect('/user/forgot-pwd');
         } else {
-            const token = jwt.sign({ id: user.id}, process.env.JWT_RESET, { expiresIn: '30m' });
+            const token = jwt.sign({ id: user.id }, process.env.JWT_RESET, { expiresIn: '30m' });
 
             const output = `
             <h2>Please click on below link to reset your password account</h2>
@@ -182,7 +177,7 @@ exports.forgotPassword = async (req, res) => {
                 }
                 else {
                     req.flash('success_msg', 'Email sent. Please go to your email to reset password by the instruction.');
-                    return res.redirect('/user/login'); 
+                    return res.redirect('/user/login');
                 }
             });
 
@@ -193,50 +188,39 @@ exports.forgotPassword = async (req, res) => {
 exports.gotoReset = async (req, res) => {
     const token = req.params.token;
 
-    if(token) {
+    if (token) {
         jwt.verify(token, process.env.JWT_RESET, async (error, decodedToken) => {
-            if(error){
+            if (error) {
                 req.flash('error_msg', 'Incorrect or expired link! Please try again');
                 return res.redirect('/user/login');
             } else {
-                const {id} = decodedToken;
+                const { id } = decodedToken;
                 await userModel.getUser(id).then((user) => {
                     return res.redirect(`/user/reset/${id}`);
                 })
-                .error(() =>{
-                    console.log('fail');
-                    return res.redirect('user/login');
-                })
+                    .error(() => {
+                        console.log('fail');
+                        return res.redirect('user/login');
+                    })
             }
-        } )
-    } else{
+        })
+    } else {
         console.log('reset fail');
     }
 }
 
 exports.resetPassword = async (req, res) => {
-    const {password, cfpassword} = req.body;
+    const { password, cfpassword } = req.body;
     const id = req.params.id;
 
-    if(!password || !cfpassword){
-        req.flash('error_msg', 'Please enter all field');
-        return res.redirect(`/user/reset/${id}`);
+    try {
+        userModel.updatePassword(id, password).then(() => {
+            req.flash('success_msg', 'Password reset successfully. Please login');
+            return res.redirect('/user/login');
+        });
+    } catch {
+        req.flash('error_msg', 'Fail when update password. Please do again');
+        return res.redirect('/user/login');
     }
 
-    else if(password != cfpassword){
-        req.flash('error_msg', 'Confirm password do not match.');
-        return res.redirect(`/user/reset/${id}`);
-    }
-    
-    else{
-        try {
-            userModel.updatePassword(id, password) .then(() => {
-                req.flash('success_msg', 'Password reset successfully. Please login');
-                return res.redirect('/user/login');
-            });
-        } catch{
-            req.flash('error_msg', 'Fail when update password. Please do again');
-            return res.redirect('/user/login');
-        }
-    }
 }

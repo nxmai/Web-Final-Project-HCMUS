@@ -1,3 +1,28 @@
+{{#section 'js'}}
+    <script>
+        $('#forgot-register').on('submit', function(e) {
+            e.preventDefault();
+            console.log('dddd');
+            const email = $('#email').val();
+            if (email.length === 0) {
+                $('#get-notice').html('You must be enter your email.');
+            return;
+            }
+
+            $.getJSON('/api/user/is-exist', { email }, function (data) {
+                if (!data) {
+                    $('#get-notice').html('Cannot find email. Please enter again');
+                } else {
+
+                }
+            return;
+            })
+
+            $('#forgot-register').off('submit').submit();
+        })
+    </script>
+{{/section}}
+
 
 <!-- Login Section Start -->
 <div class="login-section section mt-90 mb-90">
@@ -20,9 +45,10 @@
                     
                     {{message}}
                     <!-- Login Form -->
-                    <form action="/user/forgot-pwd" method="POST">
+                    <h5 id="get-notice" style="font-weight: 600;"><span>{{notice}}</span></h5>
+                    <form action="/user/forgot-pwd" method="POST" id="forgot-register">
                         <div class="row">
-                            <div class="col-12 mb-30"><input name="email" type="text" placeholder="Your register email"></div>
+                            <div class="col-12 mb-30"><input name="email" id="email" type="text" placeholder="Your register email"></div>
                             <div class="col-12 mb-15">
                                 
                             </div>
