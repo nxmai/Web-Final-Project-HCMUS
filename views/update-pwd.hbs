@@ -1,21 +1,41 @@
 {{#section 'js'}}
     <script>
-        $('#reset-form').on('submit', function(e) {
+        $('#update-form').on('submit', function(e) {
             e.preventDefault();
-            
-            const password = $('#password').val();
-            if(password.length < 8){
+            const oldpassword = $('#old-password').val();
+            const newpassword = $('#new-password').val();
+            const cfpassword = $('#confirm-password').val();
+
+            if(oldpassword == '' && newpassword == '' && cfpassword == ''){
+                return;
+            }
+
+            if(oldpassword == ''){
+                $('#get-notice').html('Please enter your old password');
+                return;
+            }
+
+            if(newpassword == ''){
+                $('#get-notice').html('Please enter your new password');
+                return;
+            }
+
+            if(newpassword.length < 8){
                 $('#get-notice').html('Password length must be >= 8 character');
                 return;
             }
 
-            const cfpassword = $('#confirm-password').val();
-            if(password != cfpassword){
+            if(cfpassword == ''){
+                $('#get-notice').html('Please confirm your new password');
+                return;
+            }
+
+            if(newpassword != cfpassword){
                 $('#get-notice').html('You must be confirm the right password');
                 return;
             }
 
-            $('#reset-form').off('submit').submit();
+            $('#update-form').off('submit').submit();
         })
     </script>
 {{/section}}
@@ -29,7 +49,7 @@
             <div class="col-md-6 col-12 d-flex">
                 <div class="ee-login">
                     
-                    <h3>Reset your password</h3>
+                    <h3>Update your password</h3>
                     {{!-- <p>E&E provide how all this mistaken idea of denouncing pleasure and sing pain born an will give you a complete account of the system, and expound</p> --}}
                     {{#if error_msg}}
                     {{error_msg}}
@@ -42,9 +62,10 @@
                     {{message}}
                     <h5 id="get-notice" style="font-weight: 600;"><span>{{notice}}</span></h5>
                     <!-- Login Form -->
-                    <form action="/user/reset/{{id}}" method="POST" id="reset-form">
+                    <form action="/user/update-pwd" method="POST" id="update-form">
                         <div class="row">
-                            <div class="col-12 mb-30"><input id="password" name="password" type="password" placeholder="New password"></div>
+                            <div class="col-12 mb-30"><input id="old-password" name="oldpassword" type="password" placeholder="Old password"></div>
+                            <div class="col-12 mb-30"><input id="new-password" name="newpassword" type="password" placeholder="New password"></div>
                             <div class="col-12 mb-20"><input id="confirm-password" name="cfpassword" type="password" placeholder="Confirm password"></div>
                             <div class="col-12 mb-15">
                                 

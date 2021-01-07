@@ -49,6 +49,12 @@ router.get('/my-account', (req, res) => res.render('my-account'));
 
 router.post('/my-account', userController.updateAccount);
 
+router.get('/update-pwd', (req, res) => {
+  res.render('update-pwd');
+})
+
+router.post('/update-pwd', userController.updatePassword);
+
 //router.post('/reset-pwd', )
 
 module.exports = router;

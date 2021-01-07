@@ -1,6 +1,7 @@
 const userModel = require('../models/userModel');
 const nodemailer = require('nodemailer');
 const jwt = require('jsonwebtoken');
+const bcrypt = require('bcrypt');
 
 exports.register = (req, res, next) => {
     if (req.method == "POST") {
@@ -257,4 +258,27 @@ exports.updateAccount = async (req, res) => {
     
 
 
+}
+
+exports.updatePassword = async(req, res) =>{
+    const {oldpassword, newpassword} = req.body;
+    const user = res.locals.user;
+    const id =user.id;
+
+    const checkPassword = await bcrypt.compare(oldpassword, user.pwd);
+    if(!checkPassword){
+        req.flash('error_msg', 'Your password is not correct');
+        return res.redirect('/user/update-pwd');
+    } 
+
+    try {
+        userModel.updatePassword(id, newpassword).then(() => {
+            req.flash('success_msg', 'Password update successfully');
+            return res.redirect('/user/update-pwd');
+        });
+    } catch {
+        req.flash('error_msg', 'Fail when update password. Please do again');
+        return res.redirect('/user/update-pwd');
+    }
+    return;
 }
