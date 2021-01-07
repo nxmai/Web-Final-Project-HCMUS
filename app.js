@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const fileupload = require('express-fileupload');
 const exhbs = require('express-handlebars');
+const flash = require('connect-flash');
 require('dotenv').config();
 require('express-async-errors');
 
@@ -63,6 +64,9 @@ app.use(session({
 app.use(passport.initialize());
 app.use(passport.session());
 
+//user flash
+app.use(flash());
+
 //pass req.user to res locals
 app.use(function(req, res, next) {
     res.locals.user = req.user;
@@ -83,6 +87,12 @@ app.use((req, res, next) => {
     next();
 })
 
+//store flash messages in locals
+app.use((req, res, next) => {
+    res.locals.success_msg = req.flash('success_msg');
+    res.locals.error_msg = req.flash('error_msg');
+    next();
+})
 
 app.use(logger('dev'));
 app.use(express.json());

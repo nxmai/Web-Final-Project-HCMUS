@@ -11,7 +11,8 @@ exports.addUser = async (newUser) => {
                 usn: newUser.username,
                 email: newUser.email, 
                 pwd: hash,
-                isAdmin: newUser.isAdmin
+                isAdmin: newUser.isAdmin, 
+                isActive: newUser.isActive
             }
 
             const sql = "INSERT INTO User SET ?";
@@ -49,6 +50,31 @@ exports.getUser = async (id) => {
 exports.isEmailExist = async (email) => {
     const sql = `select * from User where email = '${email}'`;
     const user = await db.load(sql);
+    
+    if(user.length == 0){
+        return false;
+    }
+    return true;
+}
 
-    return (user.length != 0);
+exports.getUserByEmail = async (email) => {
+    const sql = `select * from User where email = '${email}'`;
+    const user = await db.load(sql);
+
+    if(user.length == 0){
+        return false;
+    }
+    return user[0];
+}
+
+exports.updatePassword = async (id, pwd) => {
+    const saltRounds = 10;
+    
+    await bcrypt.genSalt(saltRounds, function(err, salt) {
+        bcrypt.hash(pwd, salt, function(err, hash) {
+            const sql = `update User set pwd = '${hash}' where id = ${id}`;
+            db.load(sql);
+            return true;
+        })
+    }) //return;
 }

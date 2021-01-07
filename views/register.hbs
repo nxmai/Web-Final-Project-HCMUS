@@ -14,6 +14,14 @@
                     
                     <!-- Register Form -->
                     <form action="" method="POST" id="form-register">
+                        {{#if error_msg}}
+                        {{error_msg}}
+                        {{/if}}
+
+                        {{#if success_msg}}
+                        {{success_msg}}
+                        {{/if}}
+                        
                         <h4>{{message}}</h4>
                         <h4 id="get-notice" style="font-weight: 600;"><span>{{notice}}</span></h4>
                         </br>
@@ -22,7 +30,7 @@
                             <div class="col-12 mb-30"><input name="username" type="text" placeholder="Your username here"> </div>
                             <div class="col-12 mb-30"><input name="email" type="email" placeholder="Your email here" onchange="checkEmailExist(this.value)"></div>
                             <div class="col-12 mb-30"><input id="password" name="password" type="password" placeholder="Enter password"></div>
-                            <div class="col-12 mb-30"><input id="confirm-password" name="confirm-password" type="password" placeholder="Conform password"></div>                           
+                            <div class="col-12 mb-30"><input id="confirm-password" name="cfpassword" type="password" placeholder="Confirm password"></div>                           
                             <div class="col-12"><input type="submit" value="register" id="form-register-submit"></div>
                         </div>
                     </form>

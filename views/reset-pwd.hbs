@@ -1,0 +1,47 @@
+
+<!-- Login Section Start -->
+<div class="login-section section mt-90 mb-90">
+    <div class="container">
+        <div class="row">
+            
+            <!-- Login -->
+            <div class="col-md-6 col-12 d-flex">
+                <div class="ee-login">
+                    
+                    <h3>Reset your password</h3>
+                    {{!-- <p>E&E provide how all this mistaken idea of denouncing pleasure and sing pain born an will give you a complete account of the system, and expound</p> --}}
+                    {{#if error_msg}}
+                    {{error_msg}}
+                    {{/if}}
+
+                    {{#if success_msg}}
+                    {{success_msg}}
+                    {{/if}}
+                    
+                    <h4>{{message}}</h4>
+                    <!-- Login Form -->
+                    <form action="/user/reset/{{id}}" method="POST">
+                        <div class="row">
+                            <div class="col-12 mb-30"><input name="password" type="password" placeholder="New password"></div>
+                            <div class="col-12 mb-20"><input name="cfpassword" type="password" placeholder="Confirm password"></div>
+                            <div class="col-12 mb-15">
+                                
+                            </div>
+                            <div class="col-12"><input type="submit" value="CONFIRM"></div>
+                        </div>
+                    </form>
+                    
+                </div>
+            </div>
+            
+            <div class="col-md-1 col-12 d-flex">
+                
+                <div class="login-reg-vertical-boder"></div>
+                
+            </div>
+            
+        </div>
+    </div>
+</div><!-- Login Section End -->
+
+{{> subscribe}}

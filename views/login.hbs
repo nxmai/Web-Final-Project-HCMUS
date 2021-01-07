@@ -10,6 +10,14 @@
                     
                     <h3>Login to your account</h3>
                     {{!-- <p>E&E provide how all this mistaken idea of denouncing pleasure and sing pain born an will give you a complete account of the system, and expound</p> --}}
+                    {{#if error_msg}}
+                    {{error_msg}}
+                    {{/if}}
+
+                    {{#if success_msg}}
+                    {{success_msg}}
+                    {{/if}}
+
                     <h4>{{message}}</h4>
                     <!-- Login Form -->
                     <form action="/user/login" method="POST">
@@ -21,13 +29,13 @@
                                 <input type="checkbox" name="remember_me" id="remember_me" {{#if remember_me}}checked{{else}}{{/if}}>
                                 <label for="remember_me">Remember me</label>
                                 
-                                <a href="#">Forgotten pasward?</a>
+                                <a href="/user/forgot-pwd">Forgotten pasward?</a>
                                 
                             </div>
                             <div class="col-12"><input type="submit" value="LOGIN"></div>
                         </div>
                     </form>
-                    <h4>Don’t have account? please click <a href="/register">Register</a></h4>
+                    <h4>Don’t have account? please click <a href="/user/register">Register</a></h4>
                     
                 </div>
             </div>
