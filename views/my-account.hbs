@@ -1,0 +1,103 @@
+{{#section 'js'}}
+<script>
+    $('#form-update').on('submit', function (e) {
+        e.preventDefault();
+        const name = $('#name').val();
+
+        const username = $('#username').val();
+       
+       if(name.length==0 && username.length==0){
+           
+           return;
+       }
+       
+        var usernameRegex = /^[a-zA-Z0-9]+$/;
+        if(username.length != 0){
+            if (username.match(usernameRegex) == null) {
+            $('#get-notice').html('Your username is not valid. Only characters A-Z, a-z, 0-9 are acceptable.');
+            return;
+            }
+        }
+        
+
+        $('#form-update').off('submit').submit();
+    })
+</script>
+{{/section}}
+
+
+<!-- Cart Overlay -->
+<div class="cart-overlay"></div>
+
+<!-- Register Section Start -->
+<div class="register-section section mt-90 mb-90">
+    <div class="container">
+        <div class="row">
+
+            <!-- Register -->
+            <div class="col-md-6 col-12 d-flex">
+                <div class="ee-register">
+                    <h3>Update your information if you want</h3>
+                
+                    <form action="/user/my-account" method="POST" id="form-update">
+                         {{#if error_msg}}
+                        {{error_msg}}
+                        {{/if}}
+
+                        {{#if success_msg}}
+                        {{success_msg}}
+                        {{/if}}
+                        {{message}}
+                        <h5 id="get-notice" style="font-weight: 600;"><span>{{notice}}</span></h5>
+                        </br>
+                        <div class="row">
+                            <div class="col-12 mb-30"><input id="name" name="name" type="text"
+                                    placeholder="Your full name here"></div>
+                            <div class="col-12 mb-30"><input id="username" name="username" type="text"
+                                    placeholder="Your username here"> </div>
+                            <div class="col-12 mb-15">
+                                <a href="/user/update-pwd">Update password</a>
+                            </div>
+                            
+                            <div class="col-12"><input type="submit" value="update"></div>
+                        </div>
+                    </form>
+
+                </div>
+            </div>
+
+            <div class="col-md-1 col-12 d-flex">
+
+                <div class="login-reg-vertical-boder"></div>
+
+            </div>
+
+            <!-- Account Image -->
+            <div class="col-md-5 col-12 d-flex">
+
+                <div class="ee-account-image">
+                    <form method="POST" action='#' enctype="multipart/form-data" role="form"></form>
+                    <h3>Upload your Image</h3>
+                    <img src="assets/images/account-image-placeholder.jpg" alt="Account Image Placeholder"
+                        class="image-placeholder">
+
+                    <div class="account-image-upload">
+                        <input type="file" name="chooseFile" id="account-image-upload" accept="">
+                        <label class="account-image-label" for="account-image-upload">Choose your image</label>
+                    </div>
+
+                    <p>jpEG 250x250</p>
+
+                    <input id="submit-register" class="btn btn-info" type="submit" value="Update Image">
+                    </form>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+</div><!-- Register Section End -->
+
+
+{{> subscribe}}

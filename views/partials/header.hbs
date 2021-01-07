@@ -31,7 +31,12 @@
                 <div class="col order-2 order-xs-2 order-lg-12 mt-10 mb-10 "></div>
                     <!-- Header Account Links Start -->
                     <div class="header-account-links">
-                        <a href="/user/register"><i class="icofont icofont-user-alt-7"></i> <span>my account</span></a>
+                        {{#if isLogin}}
+                        <a href="/user/my-account"><i class="icofont icofont-user-alt-7"></i> <span>my account</span></a>
+                        {{else}}
+                        <a href="/user/register"><i class="icofont icofont-user-alt-7"></i> <span>register</span></a>
+                        {{/if}}
+
                         {{#if isLogin}}
                         <a href="/user/logout"><i class="icofont icofont-login d-none"></i> <span>Logout</span></a>
                         {{else}}

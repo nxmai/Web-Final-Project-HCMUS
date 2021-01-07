@@ -45,6 +45,10 @@ router.get('/reset/:id', (req, res) => {
 
 router.post('/reset/:id', userController.resetPassword);
 
+router.get('/my-account', (req, res) => res.render('my-account'));
+
+router.post('/my-account', userController.updateAccount);
+
 //router.post('/reset-pwd', )
 
 module.exports = router;

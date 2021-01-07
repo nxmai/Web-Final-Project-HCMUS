@@ -224,3 +224,37 @@ exports.resetPassword = async (req, res) => {
     }
 
 }
+
+exports.updateAccount = async (req, res) => {
+    const {name, username} = req.body;
+    const user = res.locals.user;
+    const id = user.id;
+
+
+    if(name != ''){
+        try {
+            userModel.updateFullname(id, name).then(() => {
+                req.flash('success_msg', 'Full name update successfully');
+                return res.redirect('/user/my-account');
+            });
+        } catch {
+            req.flash('error_msg', 'Fail when update full name. Please do again');
+            return res.redirect('/user/my-account');
+        }
+    }
+
+    if(username != ''){
+        try {
+            userModel.updateUsername(id, username).then(() => {
+                req.flash('success_msg', 'Username update successfully');
+                return res.redirect('/user/my-account');
+            });
+        } catch {
+            req.flash('error_msg', 'Fail when update username. Please do again');
+            return res.redirect('/user/my-account');
+        }
+    }
+    
+
+
+}

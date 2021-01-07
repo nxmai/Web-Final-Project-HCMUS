@@ -78,3 +78,25 @@ exports.updatePassword = async (id, pwd) => {
         })
     }) //return;
 }
+
+exports.updateFullname = async (id, name) => {
+    const sql = `update User set name = '${name}' where id = ${id}`;
+    try {
+        await db.load(sql);
+    }
+    catch(err) {
+        return false;
+    }
+    return true;
+}
+
+exports.updateUsername = async (id, username) => {
+    const sql = `update User set usn = '${username}' where id = ${id}`;
+    try {
+        await db.load(sql);
+    }
+    catch(err) {
+        return false;
+    }
+    return true;
+}
