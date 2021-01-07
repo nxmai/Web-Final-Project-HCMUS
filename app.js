@@ -5,6 +5,7 @@ const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 const fileupload = require('express-fileupload');
 const exhbs = require('express-handlebars');
+const hbs_section = require('express-handlebars-sections');
 const flash = require('connect-flash');
 require('dotenv').config();
 require('express-async-errors');
@@ -22,7 +23,11 @@ app.engine('hbs', exhbs({
     defaultLayout: 'layout',
     extname: 'hbs',
     layoutsDir: 'views',
-    partialsDir: 'views/partials'
+    partialsDir: 'views/partials',
+    helpers: {
+        section: hbs_section()
+    }
+    
     //helpers: require('./helpers/handlebars.js')(exhbs)
     //createPagination: paginateHelper.createPaginatio
 }));

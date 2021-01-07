@@ -99,25 +99,26 @@ function removeCartItem(id){
       })
 }
 
-function checkEmailExist(email){
-    $.getJSON('/api/user/is-exist', {email}, function(data){
-        if(data){
-            $('#get-notice').html('Email already exist').css('color', 'red');
-        } else{
-            $('#get-notice').html('You can use this email').css('color', 'green');
-        }
-    })
-}
 
-$('#password').on('keyup', function(){
-    if($('#password').val().length < 8){
-        $('#get-notice').html('Password length must be atleast 8 characters').css('color', 'red');
-    }
-})
+// function checkEmailExist(email){
+//     $.getJSON('/api/user/is-exist', {email}, function(data){
+//         if(data){
+//             $('#get-notice').html('Email already exist').css('color', 'red');
+//         } else{
+//             $('#get-notice').html('You can use this email').css('color', 'green');
+//         }
+//     })
+// }
 
-$('#password, #confirm-password').on('keyup', function () {
-    if ($('#password').val() == $('#confirm-password').val()) {
-      $('#get-notice').html('Password passed').css('color', 'green');
-    } else 
-      $('#get-notice').html('You must confirm the right password').css('color', 'red');
-  });
+// $('#password').on('keyup', function(){
+//     if($('#password').val().length < 8){
+//         $('#get-notice').html('Password length must be atleast 8 characters').css('color', 'red');
+//     }
+// })
+
+// $('#password, #confirm-password').on('keyup', function () {
+//     if ($('#password').val() == $('#confirm-password').val()) {
+//       $('#get-notice').html('Password passed').css('color', 'green');
+//     } else 
+//       $('#get-notice').html('You must confirm the right password').css('color', 'red');
+//   });
