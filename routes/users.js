@@ -3,6 +3,7 @@ const { use } = require('.');
 const router = express.Router();
 const userController = require('../controllers/userController');
 const passport = require('../passport');
+const { isAuth } = require('../middleware/auth');
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {
@@ -24,7 +25,7 @@ router.post('/login', passport.authenticate('local', {successRedirect: '/',
                                                       failureFlash: true }));
 
 
-router.get('/logout', function(req, res){
+router.get('/logout', isAuth, function(req, res){
   req.logout();
   res.redirect('/');
 });                                                 
@@ -33,7 +34,7 @@ router.get('/activate/:token', userController.activateHandle);
 
 router.get('/forgot-pwd', (req, res) => res.render('forgot-pwd'));
 
-router.post('/forgot-pwd', userController.forgotPassword);
+router.post('/forgot-pwd',  userController.forgotPassword);
 
 router.get('/reset-pwd', (req, res) => res.render('reset-pwd'));
 
@@ -45,15 +46,15 @@ router.get('/reset/:id', (req, res) => {
 
 router.post('/reset/:id', userController.resetPassword);
 
-router.get('/my-account', (req, res) => res.render('my-account'));
+router.get('/my-account', isAuth, (req, res) => res.render('my-account'));
 
-router.post('/my-account', userController.updateAccount);
+router.post('/my-account', isAuth, userController.updateAccount);
 
-router.get('/update-pwd', (req, res) => {
+router.get('/update-pwd', isAuth, (req, res) => {
   res.render('update-pwd');
 })
 
-router.post('/update-pwd', userController.updatePassword);
+router.post('/update-pwd', isAuth, userController.updatePassword);
 
 //router.post('/reset-pwd', )
 

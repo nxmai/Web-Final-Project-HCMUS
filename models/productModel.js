@@ -1,8 +1,9 @@
 const db = require('../dal/mysql');
 
 module.exports.list = {
-    single(id){
-        return db.load(`select pr.id as id, pr.name as name, pr.imagePath, pr.price, pr.thumbnailPath, ca.name as category, pr.availability, pr.summary, pr.description
+    async single(id){
+        await db.load(`update Product set view = view + 1 where id = ${id}`);
+        return db.load(`select pr.id as id, pr.name as name, pr.imagePath, pr.price, pr.thumbnailPath, ca.name as category, pr.availability, pr.summary, pr.description, pr.view
                         from Product as pr join Category as ca on pr.categoryid = ca.id 
                         where  pr.id = ${id}`);
     },
