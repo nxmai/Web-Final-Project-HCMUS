@@ -76,7 +76,8 @@ app.use(flash());
 app.use(function(req, res, next) {
     res.locals.user = req.user;
     res.locals.isLogin = req.user ? true : false;
-
+    res.locals.checkOut = false;
+    res.locals.cartId = false;
     //console.log('user', res.locals.user);
     //req.session.cookie.maxAge = res.locals.isLogin ? 30 * 24 * 60 * 60 * 100 : null;
     next();

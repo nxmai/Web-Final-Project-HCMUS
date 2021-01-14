@@ -1,10 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const { isAuth } = require('../middleware/auth');
+const cartApiController = require('../controllers/api/cartController');
 
-router.get('/', (req, res) => {
+router.get('/', async (req, res) => {
     const cart = req.session.cart;
     res.locals.cart = cart.getCart();
+    
     res.render('cart');
 });
 
@@ -40,10 +42,17 @@ router.delete('/', (req, res) => {
     });
 })
 
-router.get('/checkout', isAuth, (req, res) => {
+router.get('/checkout', isAuth, async (req, res) => {
     const cart = req.session.cart;
+    res.locals.checkOut = true;
     res.locals.cart = cart.getCart();
+
+    if(res.locals.checkOut){
+        res.locals.cartId = await cartApiController.addCart(cart, res.locals.user.id);
+    }
+
     res.render('checkout');
 })
+
 
 module.exports = router;
