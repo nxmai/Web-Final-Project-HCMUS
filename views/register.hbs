@@ -1,6 +1,6 @@
 {{#section 'js'}}
 <script>
-    $('#form-register').on('submit', function (e) {
+    $('#form-register').on('submit', async function (e) {
         e.preventDefault();
         const name = $('#name').val();
         if (name.length === 0) {
@@ -25,13 +25,20 @@
             return;
         }
 
-        $.getJSON('/api/user/is-exist', { email }, function (data) {
-            if (data) {
+        let flag = 0;
+        await $.getJSON('/api/user/is-exist', { email }, function (data) {
+            console.log('data', data);
+            if (data== true) {
+                console.log('true');
+                flag = 1;
                 $('#get-notice').html('Email already exist');
+                return;
             } 
-            return;
         })
-
+        if(flag == 1){
+            return;
+        }
+        
         const password = $('#password').val();
         if(password.length < 8){
             $('#get-notice').html('Password length must be >= 8 character');
@@ -43,7 +50,7 @@
              $('#get-notice').html('You must be confirm the right password');
              return;
         }
-
+        console.log('hereeeeeeeeeeeee');
         $('#form-register').off('submit').submit();
     })
 </script>

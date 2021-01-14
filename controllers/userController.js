@@ -62,6 +62,7 @@ exports.login = (req, res, next) => {
 //doesnt create user in database, just send email and wait for user to verify email
 exports.sendEmailToRegister = async function (req, res) {
     const { name, username, email, password } = req.body;
+    console.log('send mail');
 
     const token = jwt.sign({ name, username, email, password }, process.env.JWT_KEY, { expiresIn: '30m' });
     const output = `
