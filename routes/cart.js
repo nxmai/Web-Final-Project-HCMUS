@@ -47,12 +47,20 @@ router.get('/checkout', isAuth, async (req, res) => {
     res.locals.checkOut = true;
     res.locals.cart = cart.getCart();
 
-    if(res.locals.checkOut){
-        res.locals.cartId = await cartApiController.addCart(cart, res.locals.user.id);
-    }
+    // if(res.locals.checkOut){
+    //     res.locals.cartId = await cartApiController.addCart(cart, res.locals.user.id);
+    // }
 
     res.render('checkout');
 })
 
+router.post('/checkout', async (req, res) => {
+    const {firstname, lastname, phonenumber, address} = req.body;
+    const cart = req.session.cart;
+    res.locals.cart = cart.getCart();
+    await cartApiController.addCart(cart, res.locals.user.id, firstname, lastname, phonenumber, address);
+
+    res.render('checkout');
+})
 
 module.exports = router;

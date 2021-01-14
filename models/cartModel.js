@@ -1,11 +1,15 @@
 const db = require('../dal/mysql');
 
-exports.addCart = async (cart, userId) => {
+exports.addCart = async (cart, userId, firstname, lastname, phonenumber, address) => {
     //console.log('cart in model', typeof(parseInt(cart.totalPrice)));
     const newCart = {
         userId: userId,
         totalPrice: parseInt(cart.totalPrice),
-        totalQuantity: parseInt(cart.totalQuantity)
+        totalQuantity: parseInt(cart.totalQuantity),
+        firstname: firstname,
+        lastname: lastname,
+        phonenumber: phonenumber,
+        address: address
     }
 
     await db.add("INSERT INTO Cart SET ?", newCart);
@@ -25,5 +29,5 @@ exports.addCart = async (cart, userId) => {
         await db.add("INSERT INTO ItemInCart SET ?", newItemInCart);
     }
     
-    return cartId;
+    return;
 }
