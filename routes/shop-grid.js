@@ -6,6 +6,6 @@ const shopgridController = require('../controllers/shopgridController');
 router.get('/', shopgridController.index);
 
 
-router.get('/:id', shopgridController.index);
+//router.get('/:id', shopgridController.index);
 
 module.exports = router;
