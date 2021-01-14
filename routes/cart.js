@@ -60,7 +60,11 @@ router.post('/checkout', async (req, res) => {
     res.locals.cart = cart.getCart();
     await cartApiController.addCart(cart, res.locals.user.id, firstname, lastname, phonenumber, address);
 
-    res.render('checkout');
+    res.redirect('/cart/listorder');
 })
+
+router.get('/listorder', isAuth, cartApiController.getListCart);
+
+router.get('/viewcart/:cartId', isAuth, cartApiController.getCart);
 
 module.exports = router;

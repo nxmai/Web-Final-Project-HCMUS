@@ -1,0 +1,53 @@
+
+{{!-- {{> minicart}} --}}
+
+<!-- Cart Overlay -->
+<div class="cart-overlay"></div>
+
+{{> pagebanner}}
+
+<!-- Cart Page Start -->
+
+<div class="page-section section pt-90 pb-50">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <form action="#">				
+                    <!-- Cart Table -->
+                    <div class="cart-table table-responsive mb-40">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="pro-thumbnail">Code Order</th>
+                                    <th class="pro-title">First Name</th>
+                                    <th class="pro-price">Last Name</th>
+                                    <th class="pro-quantity">Phone Number</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each listcart}}
+                                <tr>
+                                    <td class="pro-thumbnail"><a href="/cart/viewcart/{{cartId}}">{{cartId}}</a> </td>
+                                    <td class="pro-title">{{firstname}}</td>
+                                    <td class="pro-price"><span>{{lastname}}</span></td>
+                                    <td class="pro-quantity"><span>{{phonenumber}}</span></td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </form>	
+                    
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Cart Page End --> 
+
+
+
+{{> brands}}
+
+{{> subscribe}}

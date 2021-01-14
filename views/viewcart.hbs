@@ -1,0 +1,85 @@
+
+{{!-- {{> minicart}} --}}
+
+<!-- Cart Overlay -->
+<div class="cart-overlay"></div>
+
+{{> pagebanner}}
+
+<!-- Cart Page Start -->
+
+<div class="page-section section pt-90 pb-50">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <form action="#">				
+                    <!-- Cart Table -->
+                    <h2>Status: {{status}}</h2>
+                    </br>
+                    </form>
+                    <div class="cart-table table-responsive mb-40">
+                        <table class="table">
+                            <thead>
+                                <tr>
+                                    <th class="pro-thumbnail">Image</th>
+                                    <th class="pro-title">Product</th>
+                                    <th class="pro-price">Price</th>
+                                    <th class="pro-quantity">Quantity</th>
+                                    <th class="pro-subtotal">Total</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {{#each cartitem}}
+                                <tr>
+                                    <td class="pro-thumbnail"><a href=""><img src="/{{thumbnailPath}}" alt="Product"></a></td>
+                                    <td class="pro-title"><a></a>{{name}}</a></td>
+                                    <td class="pro-price"><span>{{price}}</span></td>
+                                    <td class="pro-quantity">{{quantity}}</td>
+                                    <td class="pro-subtotal"><span id="pro-subtotal">{{totalPrice}}</span></td>
+                                </tr>
+                                {{/each}}
+                            </tbody>
+                        </table>
+                    </div>
+                    
+                </form>	
+                    
+                <div class="row">
+
+                    <div class="col-lg-6 col-12 mb-15">
+                        
+                        
+                    </div>
+
+                    <!-- Cart Summary -->
+                    <div class="col-lg-6 col-12 mb-40 d-flex">
+                        <div class="cart-summary">
+                            <div class="cart-summary-wrap">
+                                <h4>Cart Summary</h4>
+                                {{#each cart}}
+                                <p>Sub Total <span id="totalPrice">{{totalPrice}}</span></p>
+                                <p>Shipping Cost <span>$00.00</span></p>
+                                <h2>Grand Total <span>{{totalPrice}}</span></h2>
+                                {{/each}}
+                            </div>
+                            <div class="cart-summary-button">
+                                {{!-- <a href="/cart/checkout"><button class="checkout-btn">Checkout</button></a>
+                                <button class="update-btn">Update Cart</button> --}}
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Cart Page End --> 
+
+
+
+{{> brands}}
+
+{{> subscribe}}
