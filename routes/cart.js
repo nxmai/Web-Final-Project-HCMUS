@@ -1,5 +1,6 @@
 const express = require('express');
 const router = express.Router();
+const { isAuth } = require('../middleware/auth');
 
 router.get('/', (req, res) => {
     const cart = req.session.cart;
@@ -37,6 +38,12 @@ router.delete('/', (req, res) => {
         totalQuantity: req.session.cart.totalQuantity,
         totalPrice: req.session.cart.totalPrice
     });
+})
+
+router.get('/checkout', isAuth, (req, res) => {
+    const cart = req.session.cart;
+    res.locals.cart = cart.getCart();
+    res.render('checkout');
 })
 
 module.exports = router;

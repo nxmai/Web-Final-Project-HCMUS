@@ -20,9 +20,9 @@
                 <div class="single-product-image thumb-center">
                     <div class="tab-content">
                         <div id="single-image-1" class="tab-pane fade show active big-image-slider">
-                            <div class="big-image"><img src="/{{imagePath}}" alt="Big Image"><a href="/{{imagePath}}"
+                            <div class="big-image"><img src="/{{thumbnailPath}}" alt="Big Image"><a href="/{{thumbnailPath}}"
                                     class="big-image-popup"><i class="fa fa-search-plus"></i></a></div>
-                            <div class="big-image"><img src="/{{imagePath}}" alt="Big Image"><a href="/{{imagePath}}"
+                            <div class="big-image"><img src="/{{thumbnailPath}}" alt="Big Image"><a href="/{{thumbnailPath}}"
                                     class="big-image-popup"><i class="fa fa-search-plus"></i></a></div>
                         </div>
                     </div>
@@ -333,7 +333,7 @@
 
 </div><!-- Single Product Section End -->
 
-{{!--
+
 <!-- Related Product Section Start -->
 <div class="product-section section mb-70">
     <div class="container">
@@ -352,24 +352,23 @@
                 <!-- Product Slider Wrap Start -->
                 <div class="product-slider-wrap product-slider-arrow-one">
                     <!-- Product Slider Start -->
+                    
                     <div class="product-slider product-slider-4">
-
+                    {{#each related}}
                         <div class="col pb-20 pt-10">
                             <!-- Product Start -->
                             <div class="ee-product">
 
                                 <!-- Image -->
                                 <div class="image">
-
-                                    <a href="/single-product" class="img"><img
-                                            src="/assets/images/product/product-1.png" alt="Product Image"></a>
+                                    <a href="/single-product/{{id}}" class="img"><img
+                                            src="/{{thumbnailPath}}" alt="Product Image"></a>
 
                                     <div class="wishlist-compare">
-                                        <a href="#" data-tooltip="Compare"><i class="ti-control-shuffle"></i></a>
                                         <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>
                                     </div>
 
-                                    <a href="#" class="add-to-cart"><i class="ti-shopping-cart"></i><span>ADD TO
+                                    <a href="#" class="add-to-cart" data-productId="{{id}}"><i class="ti-shopping-cart"></i><span>ADD TO
                                             CART</span></a>
 
                                 </div>
@@ -380,15 +379,15 @@
                                     <!-- Category & Title -->
                                     <div class="category-title">
 
-                                        <a href="#" class="cat">Laptop</a>
-                                        <h5 class="title"><a href="/single-product">Zeon Zen 4 Pro</a></h5>
+                                        <a href="#" class="cat">{{category}}</a>
+                                        <h5 class="title"><a href="/single-product/{{id}}">{{name}}</a></h5>
 
                                     </div>
 
                                     <!-- Price & Ratting -->
                                     <div class="price-ratting">
 
-                                        <h5 class="price">$295.00</h5>
+                                        <h5 class="price">{{price}}</h5>
                                         <div class="ratting">
                                             <i class="fa fa-star"></i>
                                             <i class="fa fa-star"></i>
@@ -404,15 +403,17 @@
                             </div><!-- Product End -->
                         </div>
 
-
+                    {{/each}}
                     </div><!-- Product Slider End -->
+                    
                 </div><!-- Product Slider Wrap End -->
 
             </div><!-- Product Tab Content End -->
 
         </div>
     </div>
-</div><!-- Related Product Section End --> --}}
+</div><!-- Related Product Section End -->
+
 
 {{> brands}}
 

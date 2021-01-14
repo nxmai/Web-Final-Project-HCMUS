@@ -24,5 +24,14 @@ module.exports.list = {
     },
     getById(id){
         return db.load(`select * from Product where id = ${id}`);
+    }, 
+    async getCateById (id){
+        const res = await db.load(`select categoryId from Product where id = ${id}`);
+        return res[0].categoryId;
+    },
+    getRelated(cate){
+        return db.load(`select pr.id, pr.name as name, pr.imagePath, pr.price, pr.thumbnailPath, ca.name as category, pr.availability, pr.summary, pr.description
+                        from Product as pr join Category as ca on pr.categoryid = ca.id 
+                        where pr.categoryId = ${cate}`);
     }
 }

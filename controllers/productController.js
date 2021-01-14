@@ -12,7 +12,6 @@ exports.getById = (id) => {
 
 exports.details = async (req, res, next) => {
     try {
-        console.log('detail');
         console.log(req.query);
 
         const totalCmt = await productModel.list.countAllComment(req.params.id);
@@ -42,9 +41,11 @@ exports.details = async (req, res, next) => {
             const product = await productModel.list.single(req.params.id);
             const specification = await productModel.list.specification(req.params.id);
             const comment = await productModel.list.comment(req.params.id, page);
+            const cate = await productModel.list.getCateById(req.params.id);
+            const related = await productModel.list.getRelated(cate);
 
             res.render('single-product', {
-                                            product, specification, comment,
+                                            product, specification, comment, related,
                                             page_items, page, nPages,
                                             next_page: page + 1,
                                             prev_page: page - 1,

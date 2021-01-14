@@ -16,7 +16,6 @@ exports.index = async  (req, res, next) => {
         }
         page_items.push(item);
     }
-    console.log('test', page);
     res.render('shop-grid', { shopgrid, category, 
                             page_items, page, nPages,
                             next_page: page +1,

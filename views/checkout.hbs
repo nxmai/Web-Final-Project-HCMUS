@@ -1,17 +1,53 @@
+{{#section 'js'}}
+    <script>
+        $('#checkout-form').on('submit', function(e) {
+            e.preventDefault();
+            const firstname = $('#firstname').val();
+            const regex = "^[a-zA-Z_ÀÁÂÃÈÉÊÌÍÒÓÔÕÙÚĂĐĨŨƠàáâãèéêìíòóôõùúăđĩũơƯĂẠẢẤẦẨẪẬẮẰẲẴẶ" +
+            "ẸẺẼỀỀỂưăạảấầẩẫậắằẳẵặẹẻẽềềểỄỆỈỊỌỎỐỒỔỖỘỚỜỞỠỢỤỦỨỪễệỉịọỏốồổỗộớờởỡợ" +
+            "ụủứừỬỮỰỲỴÝỶỸửữựỳỵỷỹ\\s]+$";
 
-<!-- Cart Overlay -->
-<div class="cart-overlay"></div>
+            if (firstname.match(regex) == null) {
+                $('#get-notice').html('Your first name is not valid.').css("color", "red");
+                return;
+            } 
 
-{{> pagebanner}}
+            const lastname = $('#lastname').val();
+            if(lastname.match(regex) == null){
+                 $('#get-notice').html('Your last name is not valid.').css("color", "red");
+                return;
+            }
+
+            const email = $('#email').val();
+            
+            const phone = $('#phonenumber').val();
+            if(phone.match(/^[-+]?[0-9]+$/) == null){
+                $('#get-notice').html('Your phone is not valid.').css("color", "red");
+                return;
+            }
+
+            const address = $('#address').val();
+            if(address == ''){
+                $('#get-notice').html('Your address can not be null.').css("color", "red");
+                return;
+            }
+
+            console.log('check', name.match(regex));
+        })
+    </script>
+
+{{/section}}
+
 
 <!-- Checkout Page Start -->
 <div class="page-section section mt-90 mb-30">
     <div class="container">
         <div class="row">
             <div class="col-12">
-                
+                <h5 id="get-notice" style="font-weight: 600;"><span>{{notice}}</span></h5>
+
                 <!-- Checkout Form s-->
-                <form action="#" class="checkout-form">
+                <form action="#" class="checkout-form" id="checkout-form">
                    <div class="row row-40">
                        
                        <div class="col-lg-7 mb-20">
@@ -24,43 +60,33 @@
 
                                    <div class="col-md-6 col-12 mb-20">
                                        <label>First Name*</label>
-                                       <input type="text" placeholder="First Name">
+                                       <input type="text" placeholder="First Name" id="firstname">
                                    </div>
 
                                    <div class="col-md-6 col-12 mb-20">
                                        <label>Last Name*</label>
-                                       <input type="text" placeholder="Last Name">
+                                       <input type="text" placeholder="Last Name" id="lastname">
                                    </div>
 
                                    <div class="col-md-6 col-12 mb-20">
                                        <label>Email Address*</label>
-                                       <input type="email" placeholder="Email Address">
+                                       <input type="email" placeholder="Email Address" id="email">
                                    </div>
 
                                    <div class="col-md-6 col-12 mb-20">
                                        <label>Phone no*</label>
-                                       <input type="text" placeholder="Phone number">
-                                   </div>
-
-                                   <div class="col-12 mb-20">
-                                       <label>Company Name</label>
-                                       <input type="text" placeholder="Company Name">
+                                       <input type="text" placeholder="Phone number" id="phonenumber">
                                    </div>
 
                                    <div class="col-12 mb-20">
                                        <label>Address*</label>
-                                       <input type="text" placeholder="Address line 1">
-                                       <input type="text" placeholder="Address line 2">
+                                       <input type="text" placeholder="Address" id="address">
                                    </div>
 
-                                   <div class="col-md-6 col-12 mb-20">
+                                   {{!-- <div class="col-md-6 col-12 mb-20">
                                        <label>Country*</label>
                                        <select class="nice-select">
-                                            <option>Bangladesh</option>
-                                            <option>China</option>
-                                            <option>country</option>
-                                            <option>India</option>
-                                            <option>Japan</option>
+                                            <option>Viet Nam</option>
                                        </select>
                                    </div>
 
@@ -77,9 +103,9 @@
                                    <div class="col-md-6 col-12 mb-20">
                                        <label>Zip Code*</label>
                                        <input type="text" placeholder="Zip Code">
-                                   </div>
+                                   </div> --}}
 
-                                   <div class="col-12 mb-20">
+                                   {{!-- <div class="col-12 mb-20">
                                        <div class="check-box">
                                            <input type="checkbox" id="create_account">
                                            <label for="create_account">Create an Acount?</label>
@@ -88,7 +114,7 @@
                                            <input type="checkbox" id="shiping_address" data-shipping>
                                            <label for="shiping_address">Ship to Different Address</label>
                                        </div>
-                                   </div>
+                                   </div> --}}
 
                                </div>
 
@@ -167,34 +193,35 @@
                            <div class="row">
                                
                                <!-- Cart Total -->
+                               {{#with cart}}
                                <div class="col-12 mb-60">
                                
-                                   <h4 class="checkout-title">Cart Total</h4>
-                           
+                                   <h4 class="checkout-title">Cart Total</h4>                           
                                    <div class="checkout-cart-total">
 
                                        <h4>Product <span>Total</span></h4>
                                        
                                        <ul>
-                                           <li>Samsome Notebook Pro 5 X 01 <span>$295.00</span></li>
-                                           <li>Aquet Drone  D 420 X 02 <span>$550.00</span></li>
-                                           <li>Play Station X 22 X 01 <span>$295.00</span></li>
-                                           <li>Roxxe Headphone Z 75 X 01 <span>$110.00</span></li>
+                                           {{#each items}}
+                                           {{#each item}}
+                                           <li>{{name}}<span>{{../price}}</span></li>
+                                           {{/each}}
+                                           {{/each}}
                                        </ul>
                                        
-                                       <p>Sub Total <span>$1250.00</span></p>
+                                       <p>Sub Total <span>{{totalPrice}}</span></p>
                                        <p>Shipping Fee <span>$00.00</span></p>
                                        
-                                       <h4>Grand Total <span>$1250.00</span></h4>
+                                       <h4>Grand Total <span>{{totalPrice}}</span></h4>
                                        
                                    </div>
                                    
                                </div>
-                               
+                               {{/with}}
                                <!-- Payment Method -->
                                <div class="col-12 mb-60">
                                
-                                   <h4 class="checkout-title">Payment Method</h4>
+                                   {{!-- <h4 class="checkout-title">Payment Method</h4>
                            
                                    <div class="checkout-payment-method">
                                      
@@ -233,9 +260,9 @@
                                            <label for="accept_terms">I’ve read and accept the terms & conditions</label>
                                        </div>
                                        
-                                   </div>
+                                   </div> --}}
                                    
-                                   <button class="place-order">Place order</button>
+                                   <button class="place-order" type="submit">Place order</button>
                                    
                                </div>
                                
