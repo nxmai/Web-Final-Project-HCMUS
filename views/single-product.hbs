@@ -468,7 +468,7 @@
         $.ajax({
             url: "/single-product/" + $("#get-comment").data("productId"),
             type: "GET",
-            data: $("#get-comment").serialize();
+            data: $("#get-comment").serialize()
         })
         .done ( (result) => {
             changeComment(result);
