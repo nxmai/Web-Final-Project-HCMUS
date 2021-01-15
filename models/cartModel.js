@@ -9,14 +9,15 @@ exports.addCart = async (cart, userId, firstname, lastname, phonenumber, address
         firstname: firstname,
         lastname: lastname,
         phonenumber: phonenumber,
-        address: address,
-        createDate: NOW()
+        address: address
     }
 
     await db.add("INSERT INTO Cart SET ?", newCart);
-
+    
     let cartId = await db.load(`select max(cartId) as cartId from Cart;`);
     cartId = cartId[0].cartId;
+
+    await db.load(`update Cart set createDate = CURRENT_TIMESTAMP where cartId = ${cartId}`);
     
     var newItemInCart;
     
