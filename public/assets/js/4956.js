@@ -81,6 +81,7 @@ function updateCartItem(id, quantity, $button) {
         success: function(result){
             $button.parent().parent().parent().children('.pro-subtotal').children('#pro-subtotal').html(result.item.price);
             $('#totalPrice').html(result.totalPrice);
+            $('#totalGrant').html(result.totalPrice);
             $('#cart-badge').html(result.totalQuantity);
         }
       })
