@@ -8,6 +8,11 @@ cloudinary.config({
 
 exports.index = async (req, res, next) => {
     const product = await productModel.list.getBestSeller();
+
+    for (item of product) {
+        //item.imagePath = cloudinary.url(item.imagePath);
+        item.imagePath = cloudinary.url(item.imagePath, { width: 290, height: 290, crop: "scale" })
+    }
     //console.log('index', product);
     res.render('index', { product });
 }
