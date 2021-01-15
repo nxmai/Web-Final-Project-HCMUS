@@ -9,7 +9,8 @@ exports.addCart = async (cart, userId, firstname, lastname, phonenumber, address
         firstname: firstname,
         lastname: lastname,
         phonenumber: phonenumber,
-        address: address
+        address: address,
+        createDate: NOW()
     }
 
     await db.add("INSERT INTO Cart SET ?", newCart);

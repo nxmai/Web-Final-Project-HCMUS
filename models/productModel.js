@@ -33,5 +33,11 @@ module.exports.list = {
         return db.load(`select pr.id, pr.name as name, pr.imagePath, pr.price, pr.thumbnailPath, ca.name as category, pr.availability, pr.summary, pr.description
                         from Product as pr join Category as ca on pr.categoryid = ca.id 
                         where pr.categoryId = ${cate}`);
+    },
+    getBestSeller() {
+        return db.load(`select distinct(p.id), p.thumbnailPath, p.name, p.price, c.name as category 
+                        from ItemInCart as i join Product as p on i.itemId = p.id join Category 
+                        as c on p.categoryId = c.id
+        `);
     }
 }

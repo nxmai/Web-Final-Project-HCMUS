@@ -1,7 +1,9 @@
 const productModel = require('../models/productModel');
 
-exports.index = (req, res, next) => {
-    res.render('index');
+exports.index = async (req, res, next) => {
+    const product = await productModel.list.getBestSeller();
+    console.log('index', product);
+    res.render('index', {product});
 }
 
 exports.getById = (id) => {
