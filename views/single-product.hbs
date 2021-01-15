@@ -20,9 +20,9 @@
                 <div class="single-product-image thumb-center">
                     <div class="tab-content">
                         <div id="single-image-1" class="tab-pane fade show active big-image-slider">
-                            <div class="big-image"><img src="/{{thumbnailPath}}" alt="Big Image"><a href="/{{thumbnailPath}}"
+                            <div class="big-image"><img src="{{imagePath}}" alt="Big Image"><a href="{{imagePath}}"
                                     class="big-image-popup"><i class="fa fa-search-plus"></i></a></div>
-                            <div class="big-image"><img src="/{{thumbnailPath}}" alt="Big Image"><a href="/{{thumbnailPath}}"
+                            <div class="big-image"><img src="{{imagePath}}" alt="Big Image"><a href="{{imagePath}}"
                                     class="big-image-popup"><i class="fa fa-search-plus"></i></a></div>
                         </div>
                     </div>
@@ -131,7 +131,7 @@
 
                             </div>
                             <div class="single-product-description-image col-lg-4 col-12">
-                                <img src="/{{imagePath}}" alt="description">
+                                <img src="{{imagePath}}" alt="description">
                             </div>
                         </div>
 
@@ -302,7 +302,7 @@
                                             <textarea name="message" id="your-comment" placeholder="Write a comment"></textarea>
                                         </div>
                                         <div class="col-12">
-                                            <input value="add comment" id="add-comment-button" type="submit">
+                                            <input value="add comment" type="submit">
                                         </div>
                                     </div>
                                 </form>
@@ -362,7 +362,7 @@
                                 <!-- Image -->
                                 <div class="image">
                                     <a href="/single-product/{{id}}" class="img"><img
-                                            src="/{{thumbnailPath}}" alt="Product Image"></a>
+                                            src="{{imagePath}}" alt="Product Image"></a>
 
                                     <div class="wishlist-compare">
                                         <a href="#" data-tooltip="Wishlist"><i class="ti-heart"></i></a>

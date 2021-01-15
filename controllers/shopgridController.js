@@ -1,4 +1,10 @@
 const shopgridModel = require('../models/shopgridModel');
+var cloudinary = require('cloudinary').v2;
+cloudinary.config({
+    cloud_name: 'kylecloudy',
+    api_key: '117882282768667',
+    api_secret: 'PMJ0PmowbNRSyPJCQM6HVtSSAgA'
+});
 
 exports.index = async  (req, res, next) => {
     const page = +req.query.page || 1;
@@ -16,6 +22,12 @@ exports.index = async  (req, res, next) => {
         }
         page_items.push(item);
     }
+
+    for (item of shopgrid) {
+        //item.imagePath = cloudinary.url(item.imagePath);
+        item.imagePath = cloudinary.url(item.imagePath, { width: 290, height: 290, crop: "scale" })
+    }
+
     res.render('shop-grid', { shopgrid, category, 
                             page_items, page, nPages,
                             next_page: page +1,

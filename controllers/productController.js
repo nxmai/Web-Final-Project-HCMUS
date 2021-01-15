@@ -1,9 +1,15 @@
 const productModel = require('../models/productModel');
+var cloudinary = require('cloudinary').v2;
+cloudinary.config({
+    cloud_name: 'kylecloudy',
+    api_key: '117882282768667',
+    api_secret: 'PMJ0PmowbNRSyPJCQM6HVtSSAgA'
+});
 
 exports.index = async (req, res, next) => {
     const product = await productModel.list.getBestSeller();
-    console.log('index', product);
-    res.render('index', {product});
+    //console.log('index', product);
+    res.render('index', { product });
 }
 
 exports.getById = (id) => {
@@ -14,7 +20,6 @@ exports.getById = (id) => {
 
 exports.details = async (req, res, next) => {
     try {
-        console.log(req.query);
 
         const totalCmt = await productModel.list.countAllComment(req.params.id);
         const nPages = Math.ceil(totalCmt / 3);
@@ -31,12 +36,12 @@ exports.details = async (req, res, next) => {
             const comment = await productModel.list.comment(req.params.id, page);
 
             res.render('ajaxSnippets/comment', {
-                                                layout: false, comment,
-                                                page_items, page, nPages,
-                                                next_page: page + 1,
-                                                prev_page: page - 1,
-                                                can_go_next: page < nPages,
-                                                can_go_prev: page > 1
+                layout: false, comment,
+                page_items, page, nPages,
+                next_page: page + 1,
+                prev_page: page - 1,
+                can_go_next: page < nPages,
+                can_go_prev: page > 1
             });
         }
         else {
@@ -46,13 +51,23 @@ exports.details = async (req, res, next) => {
             const cate = await productModel.list.getCateById(req.params.id);
             const related = await productModel.list.getRelated(cate);
 
+            for (item of related) {
+                item.imagePath = cloudinary.url(item.imagePath, { width: 290, height: 290, crop: "scale" });
+            }
+
+            for (item of product) {
+                //item.imagePath = cloudinary.url(item.imagePath);
+                item.imagePath = cloudinary.url(item.imagePath);
+            }
+            //product.imagePath = cloudinary.url(product.imagePath, { width: 290, height: 290, crop: "scale" })
+
             res.render('single-product', {
-                                            product, specification, comment, related,
-                                            page_items, page, nPages,
-                                            next_page: page + 1,
-                                            prev_page: page - 1,
-                                            can_go_next: page < nPages,
-                                            can_go_prev: page > 1
+                product, specification, comment, related,
+                page_items, page, nPages,
+                next_page: page + 1,
+                prev_page: page - 1,
+                can_go_next: page < nPages,
+                can_go_prev: page > 1
             });
         }
 
@@ -93,14 +108,25 @@ exports.add = async (req, res) => {
 
     const product = await productModel.list.single(req.params.id);
     const specification = await productModel.list.specification(req.params.id);
+    const cate = await productModel.list.getCateById(req.params.id);
+    const related = await productModel.list.getRelated(cate);
+
+    for (item of related) {
+        item.imagePath = cloudinary.url(item.imagePath, { width: 290, height: 290, crop: "scale" });
+    }
+
+    for (item of product) {
+        //item.imagePath = cloudinary.url(item.imagePath);
+        item.imagePath = cloudinary.url(item.imagePath);
+    }
 
     res.render('single-product', {
-                                            product, specification, comment,
-                                            page_items, page, nPages,
-                                            next_page: page + 1,
-                                            prev_page: page - 1,
-                                            can_go_next: page < nPages,
-                                            can_go_prev: page > 1
+        product, specification, comment,
+        page_items, page, nPages,
+        next_page: page + 1,
+        prev_page: page - 1,
+        can_go_next: page < nPages,
+        can_go_prev: page > 1
     });
 
 }
